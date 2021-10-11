@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App" msg1="WAD 2 Project"/> 
+  <HelloWorld msg="IS216 Project" msg1="WAD 2 Project"/> 
   <!-- component called like HTML tag, can use variables as placeholders-->
 </template>
 
