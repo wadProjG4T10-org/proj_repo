@@ -1,5 +1,5 @@
 <template>
-  <div>I am alzh game</div>
+  <div>I am fall game</div>
   <div class="ion-container">
     <ion-phaser 
       v-bind:game.prop="game"
@@ -11,10 +11,13 @@
 <script>
 import Phaser from 'phaser'
 export default {
-  name: 'AlzheimersGame',
+  name: 'FallGame',
   data() {
     return {
       initialize: true,
+      scale: {
+          mode: Phaser.Scale.FIT
+      },
       game: {
         width: "100%",
         height: "100%",
@@ -24,18 +27,18 @@ export default {
             this.cameras.main.setBackgroundColor('#24252A')
           },
           create: function() {
-            this.helloWorld = this.add.text(
+            this.byeworld = this.add.text(
               this.cameras.main.centerX, 
               this.cameras.main.centerY, 
-              "Hello World", { 
+              "Bye World", { 
                 font: "40px Arial", 
                 fill: "#ffffff" 
               }
             );
-            this.helloWorld.setOrigin(0.5);
+            this.byeworld.setOrigin(0.5);
           },
           update: function() {
-            this.helloWorld.angle += 1;
+            this.byeworld.angle += 1;
           }
         }
       }

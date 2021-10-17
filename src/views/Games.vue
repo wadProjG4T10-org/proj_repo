@@ -1,7 +1,10 @@
 <template>
     <div>Game Menu</div>
     <section class="cards-container">
-      <GameCard gameName="Alzheimer's Game" gameDescription="This is a description about Alzheimer's Game which is very very very long." route="/games/alz" v-for="index in 10" :key="index"/>
+      <GameCard gameName="Alzheimer's Game" 
+        gameDescription="This is a description about Alzheimer's Game which is very very very long."
+        route="/games/alzh" v-for="index in 10" :key="index"
+      />
     </section>
 </template>
 
@@ -10,6 +13,7 @@
 import GameCard from '../components/GameCard.vue'
 
 export default {
+
   name: 'Games',
   components: {
     GameCard
