@@ -1,11 +1,11 @@
 <template>
   <div>I am fall game</div>
-  <div class="ion-container">
-    <ion-phaser 
-      v-bind:game.prop="game"
-      v-bind:initialize.prop="initialize"
-    />
-  </div>
+    <div class="ion-container">
+      <ion-phaser 
+        v-bind:game.prop="game"
+        v-bind:initialize.prop="initialize"
+      />
+    </div>
 </template>
 
 <script>

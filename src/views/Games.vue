@@ -3,8 +3,12 @@
     <section class="cards-container">
       <GameCard gameName="Alzheimer's Game" 
         gameDescription="This is a description about Alzheimer's Game which is very very very long."
-        route="/games/alzh" v-for="index in 10" :key="index"
+        route="/games/alzh"  
+        
       />
+      <GameCard gameName="Fall Game" 
+        gameDescription="This is a description about Fall Game which is very very very long."
+        route="/games/fall"  />
     </section>
 </template>
 
