@@ -3,12 +3,15 @@
     <section class="cards-container">
       <GameCard gameName="Alzheimer's Game" 
         gameDescription="This is a description about Alzheimer's Game which is very very very long."
-        route="/games/alzh"  
+        route="/games/alzh"  />
         
-      />
       <GameCard gameName="Fall Game" 
         gameDescription="This is a description about Fall Game which is very very very long."
         route="/games/fall"  />
+
+      <GameCard gameName="Snake Game" 
+        gameDescription="Have fun with our Retro Snake Game and learn more about Diabetes through your journey!"
+       route="/games/diabetes"  />
     </section>
 </template>
 
