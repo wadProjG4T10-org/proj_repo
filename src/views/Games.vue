@@ -3,12 +3,10 @@
     <section class="cards-container">
       <GameCard gameName="Alzheimer's Game" 
         gameDescription="This is a description about Alzheimer's Game which is very very very long."
-        route="/games/alzh"  
-        
-      />
-      <GameCard gameName="Fall Game" 
+        route="/games/alzh"  />
+      <GameCard gameName="Insert Game Name here" 
         gameDescription="This is a description about Fall Game which is very very very long."
-        route="/games/fall"  />
+        route="" />
     </section>
 </template>
 
@@ -31,7 +29,5 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   row-gap: 1rem;
-
-
 }
 </style>
