@@ -1,7 +1,7 @@
 <template>
   <div>I am alzh game</div>
-  <div class="ion-container">
-    <ion-phaser 
+  <div class="special-jumbotron">
+    <ion-phaser
       v-bind:game.prop="game"
       v-bind:initialize.prop="initialize"
     />
@@ -10,33 +10,34 @@
 
 <script>
 import Phaser from 'phaser'
+import AlzheimersPreloader from '../AlzhGame_files/preloader';
+import AlzheimersGame from '../AlzhGame_files/Game';
+
 export default {
   name: 'AlzheimersGame',
   data() {
     return {
       initialize: true,
       game: {
-        width: "100%",
-        height: "100%",
         type: Phaser.AUTO,
-        scene: {
-          init: function() {
-            this.cameras.main.setBackgroundColor('#24252A')
-          },
-          create: function() {
-            this.helloWorld = this.add.text(
-              this.cameras.main.centerX, 
-              this.cameras.main.centerY, 
-              "Hello World", { 
-                font: "40px Arial", 
-                fill: "#ffffff" 
-              }
-            );
-            this.helloWorld.setOrigin(0.5);
-          },
-          update: function() {
-            this.helloWorld.angle += 1;
+        width: 700,
+        height: 600,
+        // mode: Phaser.Scale.FIT,
+        // autoCenter: Phaser.Scale.CENTER_BOTH,
+        physics: {
+          default: 'arcade',
+          arcade: {
+            debug: false,
+            gravity: { y: 0}
           }
+        },
+        scene: [AlzheimersPreloader, AlzheimersGame], // first scene is auto run
+        scale: {
+          mode: Phaser.Scale.ScaleModes.FIT,
+        },
+        style: {
+          width: 700,
+          height: 600,
         }
       }
     }
@@ -46,8 +47,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .ion-container {
-    width: 100vw;
-    height: 50vh;
-  }
+  .special-jumbotron {
+height:95vh;
+min-height:90%;
+max-height:90%;
+}
 </style>

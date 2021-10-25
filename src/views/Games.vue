@@ -4,14 +4,10 @@
       <GameCard gameName="Alzheimer's Game" 
         gameDescription="This is a description about Alzheimer's Game which is very very very long."
         route="/games/alzh"  />
-        
-      <GameCard gameName="Fall Game" 
-        gameDescription="This is a description about Fall Game which is very very very long."
-        route="/games/fall"  />
 
       <GameCard gameName="Snake Game" 
         gameDescription="Have fun with our Retro Snake Game and learn more about Diabetes through your journey!"
-       route="/games/diabetes"  />
+        route="/games/diabetes"  />
     </section>
 </template>
 
@@ -34,7 +30,5 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   row-gap: 1rem;
-
-
 }
 </style>
