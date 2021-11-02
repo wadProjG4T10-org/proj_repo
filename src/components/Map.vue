@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 <template>
-    <div id="app">
+    <div id="map">
 
       <div class="container">
             <div class="row">
@@ -10,14 +10,14 @@
                     :center="center"
                     :zoom="15"
                 >
-                    <Marker :options="{ position: locateGeoLocation() }" />
+                    <Marker :options="{ position: center }" />
                 </GoogleMap>
             </div>
             <br>
             <div class="row">
                 <div class="input-group mb-3" >
-                    <input 
-                    type="text" 
+                    <input
+                    type="text"
                     class="form-control"
                     aria-label="userLocation"
                     aria-describedby="button-addon2"
@@ -48,7 +48,7 @@
 <script>
 import { defineComponent } from 'vue'
 import { GoogleMap, Marker } from 'vue3-google-map'
-
+import google from 'vue-google-autocomplete'
 //import axios from "axios"
 
 export default defineComponent({
@@ -68,7 +68,7 @@ export default defineComponent({
   mounted() {
     for (let ref in this.$refs) {
       //console.log(this.$refs[ref])
- 
+      // eslint-disable-next-line no-unused-vars
       const autocomplete = new google.maps.places.Autocomplete(
         this.$refs[ref],
         {
