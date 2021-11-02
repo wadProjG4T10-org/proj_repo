@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import { defineCustomElements as defineIonPhaser } from '@ion-phaser/core/loader'
 
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 defineIonPhaser(window);
 
