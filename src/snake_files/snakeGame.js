@@ -1,6 +1,8 @@
 // Referred to: https://phaser.io/examples/v3/view/games/snake/part7
 
 import Phaser from "phaser";
+var snake_path = require('../assets/body.png');
+var food_path = require('../assets/cake-slice.png');
 
 var snake;
 var food;
@@ -23,8 +25,8 @@ export default class snakeGame extends Phaser.Scene {
 
     preload ()
     {
-        this.load.image('food', 'assets/cake-slice.png');
-        this.load.image('body', 'assets/body.png');
+        this.load.image('food', food_path);
+        this.load.image('body', snake_path);
     }
 
     create ()
@@ -161,8 +163,6 @@ export default class snakeGame extends Phaser.Scene {
                 //  If they do, the head ran into the body
 
                 var hitBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
-
-
 
                 if (hitBody)
                 {

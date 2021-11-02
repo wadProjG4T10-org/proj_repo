@@ -1,6 +1,8 @@
+// import { random } from "core-js/core/number";
 import Phaser from "phaser";
+import eventsCenter from "./EventsCenter";
 
-const items = [
+var items = [
     [1, 0, 3, 2],
     [3, 4, 6, 7],
     [5, 2, 1, 5],
@@ -28,12 +30,14 @@ export default class AlzheimersGame extends Phaser.Scene {
     openedCrates = [];
 
     countMatches = 0;
-
-    alzhgame_score = 0;
     
     constructor() {
         super('alzheimersgame');
+        this.alzhgame_score = 0;
+        eventsCenter.emit('score', this.alzhgame_score);
     }
+
+    
 
     init() {
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -41,7 +45,19 @@ export default class AlzheimersGame extends Phaser.Scene {
     }
 
     preload() {
-        
+        this.randomiseCases(true);
+
+        const { width, height } = this.scale;
+
+        this.instructionsOne = this.add.text(width * 0.5, height * 0.05, `Match the animals to win!`, {
+            fontSize: 20,
+        })
+        .setOrigin(0.5)
+
+        this.instructionsTwo = this.add.text(width * 0.5, height * 0.08, `Use arrow keys to move character and click <spacebar> to peek into the crates`, {
+            fontSize: 20,
+        })
+        .setOrigin(0.5)
 
     }
 
@@ -60,6 +76,45 @@ export default class AlzheimersGame extends Phaser.Scene {
             this.itemsGroup = this.add.group();
 
             this.physics.add.collider(this.character, this.crateGroup, this.characterCrateCollide, undefined, this);
+    }
+
+    getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    randomiseCases(debugMode = false) {
+        if (debugMode){
+            outerArray = [
+                [0, 0, 1, 1],
+                [2, 2, 3, 3],
+                [4, 4, 5, 5],
+                [6, 6, 7, 7]
+            ]
+        } else {
+            const animalDicionary = {};
+            for (var i = 0; i < 8; i++) {
+                animalDicionary[i] = 0;
+            }
+
+            var outerArray = [];
+            for (var j = 0; j <= 3; j ++) {
+                const innerArray = [];
+                for (var k = 0; k <= 3; k ++) {
+                    var randomNumber1 = this.getRandomInt(8);
+                    while (animalDicionary[randomNumber1] >= 2) {
+                        randomNumber1 = this.getRandomInt(8);
+                    }
+                    innerArray.push(randomNumber1);
+                    // console.log('if')
+                    // console.log(outerArray);
+                    animalDicionary[randomNumber1] += 1; 
+                }
+                // this.getRandomInt()
+                outerArray.push(innerArray);
+            }
+        }
+        
+        items = outerArray;
     }
 
     createCrates() {
@@ -220,18 +275,32 @@ export default class AlzheimersGame extends Phaser.Scene {
             this.character.active = false;
             this.character.setVelocity(0, 0);
 
+            this.instructionsOne.destroy();
+            this.instructionsTwo.destroy();
+
 
             const { width, height } = this.scale;
             this.add.text(width * 0.5, height * 0.45, 'YOU WIN!', {
                 fontSize: 48,
+                color: "#86DC3D",
             })
             .setOrigin(0.5);
 
             this.alzhgame_score += 100;
-            this.add.text(width * 0.5, height * 0.95, `Points Earned: ${this.alzhgame_score}`, {
+            eventsCenter.emit('score', this.alzhgame_score);
+            this.scoreText = this.add.text(width * 0.5, height * 0.9, `Points Earned: ${this.alzhgame_score}`, {
+                color: "#86DC3D",
                 fontSize: 30,
             })
             .setOrigin(0.5)
+
+            this.message = this.add.text(width * 0.5, height * 0.95, `<Click anywhere on the screen to proceed>`, {
+                fontSize: 25,
+            })
+            .setOrigin(0.5)
+            this.countMatches = 0;
+
+            this.input.on('pointerdown', () => this.scene.start('alzheimerseducation'));
 
         }
     }
