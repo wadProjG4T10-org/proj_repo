@@ -1,6 +1,8 @@
 // Referred to: https://phaser.io/examples/v3/view/games/snake/part7
 
 import Phaser from "phaser";
+var snake_path = require('../assets/body.png');
+var food_path = require('../assets/cake-slice.png');
 import eventsCenter from "./EventsCenter";
 
 var snake;
@@ -47,7 +49,8 @@ export default class snakeGame extends Phaser.Scene {
 
     preload ()
     {
-
+        this.load.image('food', food_path);
+        this.load.image('body', snake_path);
     }
 
     create ()
