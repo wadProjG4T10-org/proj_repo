@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <!-- NAVIGATION BAR-->
   <ul>
     
@@ -27,14 +26,6 @@
     <br>
     <br>
 
-=======
-  <div>Snake game</div>
-  <div class="ion-container">
-    <ion-phaser
-      v-bind:game.prop="game"
-      v-bind:initialize.prop="initialize"
-    />
->>>>>>> a4035ac2379c4160d663b661130dd6ea3fc4e4f9
   </div>
 
 </template>
