@@ -29,7 +29,7 @@ export default class AlzheimersEducation extends Phaser.Scene {
         var warningSignsDisclaimer = "Even if you or someone you know has this symptom, it doesn’t mean it’s Alzheimer’s disease.";
 
         const { width, height } = this.scale;
-        this.add.text(width * 0.5, height * 0.2, `What is one warning sign of Alzheimer's disease?`, {
+        this.add.text(width * 0.5, height * 0.2, `Symptoms of Alzheimer's disease include:`, {
             fontSize: 40,
             wordWrap: {
                 width: width*0.8,
@@ -39,8 +39,8 @@ export default class AlzheimersEducation extends Phaser.Scene {
         })
         .setOrigin(0.5)
     
-        this.add.text(width * 0.5, height * 0.6, `${warningSigns[index]}`, {
-            fontSize: 30,
+        this.add.text(width * 0.5, height * 0.4, `${warningSigns[index]}`, {
+            fontSize: 25,
             wordWrap: {
                 width: width*0.8,
                 useAdvancedWrap: true
@@ -49,7 +49,7 @@ export default class AlzheimersEducation extends Phaser.Scene {
         }).setOrigin(0.5)
 
         this.add.text(width * 0.5, height * 0.80, `*${warningSignsDisclaimer}`, {
-            fontSize: 20,
+            fontSize: 15,
             wordWrap: {
                 width: width*0.9,
                 useAdvancedWrap: true
@@ -58,7 +58,7 @@ export default class AlzheimersEducation extends Phaser.Scene {
             fontStyle: 'italic'
         }).setOrigin(0.5)
 
-        this.add.text(width * 0.5, height * 0.95, `Click anywhere to play the game again!`, {
+        this.add.text(width * 0.5, height * 0.95, `<Click anywhere to play the game again!>`, {
             fontSize: 25,
         }).setOrigin(0.5)
 
