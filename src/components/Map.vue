@@ -5,7 +5,7 @@
       <div class="container">
             <div class="row">
                 <GoogleMap
-                    api-key="AIzaSyAQTMFOpjhv6TLGnQRtGA0pCQ9r4W8YKjI"
+                    api-key="YOUR_API_KEY"
                     style="max-width: 100%; height: 400px"
                     :center="center"
                     :zoom="15"
