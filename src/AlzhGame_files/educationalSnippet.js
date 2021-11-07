@@ -38,7 +38,7 @@ export default class AlzheimersEducation extends Phaser.Scene {
             align: 'center'
         })
         .setOrigin(0.5)
-    
+
         this.add.text(width * 0.5, height * 0.4, `${warningSigns[index]}`, {
             fontSize: 25,
             wordWrap: {

@@ -1,259 +1,135 @@
-<template>
-    <div id="app">
-        <!--Navigation -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                    <a class="navbar-brand" href="#Home"><img src="../assets/kriticalcare(newedit).png" alt="" width="120" height="114" class="d-inline-block align-text-top"></a>
-                <!--Navbar collapse into an icon -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-                        <li class="nav-item text-center">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Heart Disease</a></li>
-                                    <li><a class="dropdown-item" href="#">Alzheimer's Disease</a></li>
-                                    <li><a class="dropdown-item" href="#">Diabetes</a></li>
-                                    <li><a class="dropdown-item" href="#">Depression</a></li>
-                                    <li><a class="dropdown-item" href="#">Falls</a></li>
-                                </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Information</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active">Locator</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <br><br>
-        <br><br>
-        <br><br>
-        <!-- Header -->
-        <section id="header">
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Services</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            </div>
-            <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="service-heading">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-            </div>
-            </div>
-        </div>
-        </section>
-        <br><br>
-        <!-- Map Grid -->
-        <section class="map">
-            <div class="container">
-                <Map></Map>
-            </div>
-
-        </section>
-
-
-         <!-- Team -->
-        <section class="bg-light" id="team">
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="../assets/cam.jpeg" alt="" width="90" height="90">
-                    <h4>S Guganesh</h4>
-                    <p class="text-muted">Cool Member</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="../assets/cam.jpeg" alt="" width="90" height="90">
-                    <h4>Lau Li Qing</h4>
-                    <p class="text-muted">Cool Member</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="../assets/cam.jpeg" alt="" width="90" height="90">
-                    <h4>Yong Zi Yi</h4>
-                    <p class="text-muted">Cool Member</p>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="../assets/cam.jpeg" alt="" width="90" height="90">
-                    <h4>Hazyra Binte Mohamed Surani</h4>
-                    <p class="text-muted">Cool Member</p>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="../assets/cam.jpeg" alt="" width="90" height="90">
-                    <h4>Ranullo Avigale Balisacan</h4>
-                    <p class="text-muted">Cool Member</p>
-                </div>
-            </div>
-
-            </div>
-            <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-            </div>
-            </div>
-        </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact">
-        <div class="container">
-            <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                <div class="row">
-                    <div class="col-md-6">
-                    <div class="form-group">
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-group">
-                        <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-lg-12 text-center">
-                    <div id="success"></div>
-                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
-                    </div>
-                </div>
-                </form>
-            </div>
-            </div>
-        </div>
-        </section>
-
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; kriticalcare 2021</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        <a href="#">
-                        <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                    <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Terms of Use</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-</template>
-
-
 <script>
-import Map from '../components/Map.vue'
+/* eslint-disable no-undef */
+import { computed, ref, onMounted } from 'vue'
+import { useGeolocation } from './useGeolocation'
+import { Loader } from '@googlemaps/js-api-loader'
+
+const GOOGLE_MAPS_API_KEY = 'AIzaSyAQTMFOpjhv6TLGnQRtGA0pCQ9r4W8YKjI'
 
 export default {
   name: 'Locator',
-  components: {
-    Map
+  props: {
+    center: { lat: Number, lng: Number},
+    zoom: Number,
+    mapTypeId: String
+
+  },
+
+  setup() {
+    const { coords } = useGeolocation()
+    const currPos = computed(() => ({
+      lat: coords.value.latitude,
+      lng: coords.value.longitude
+    }))
+
+    const loader = new Loader({ 
+      apiKey: GOOGLE_MAPS_API_KEY,
+      libraries: ['places'] //Places API 
+    });
+    const mapDiv = ref(null)
+    let map = ref(null)
+    let marker = ref(null)
+
+    let result_lat = ref(null)
+    let result_lng = ref(null)
+
+    //initialise Map
+    onMounted(async () => {
+      await loader.load()
+      new google.maps.Map(mapDiv.value, {
+        mapTypeId: "roadmap",
+        center: currPos.value,
+        zoom: 11
+      })
+
+      marker = new google.maps.Marker ({
+        map: map.value,
+        draggable: true, //marker can be dragged
+        animation: google.maps.Animation.DROP,
+        position: currPos.value
+      })
+
+      google.maps.event.addListener(marker, 'dragend', function() {
+        result_lat.value = marker.value.getPosition().lat()
+        result_lng.value = marker.value.getPosition().lng()
+      })
+
+      //AUTOCOMPLETE
+      const userInput = document.getElementById('form-user-location');
+      const options = {
+        componentRestrictions: {country: 'SG'},
+        types: ['geocode']
+      }
+
+      const autocomplete = new google.maps.places.Autocomplete (userInput, options);
+      google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        //obtain place
+        var place = autocomplete.getPlace();
+
+        console.log(place)
+
+        map.value.setCenter(place.geometry.location)
+        marker.value.setPosition(place.geometry.location)
+      })
+
+      result_lng.value = place.geometry.location.lat();
+      result_lng.value = place.geometry.location.lng();
+    })
+    
+    return { currPos, mapDiv }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-body {
-  background: white;
-}
-</style>
+<template>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-5 mb-4">
+
+      <!--Form with header-->
+      <div class="card">
+
+        <div class="card-body">
+          <!--Header-->
+          <div class="form-header">
+            <h3>Help is in your way!</h3>
+          </div>
+
+          <p>this map is currently in progress :) </p>
+          <br>
+
+          <!--Body-->
+          <div class="md-form">
+            <i class="fas fa-user prefix grey-text"></i>
+            <label for="form-user-location">Your Location</label>
+            <input type="text" id="form-user-location" class="form-control">
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="button" class="btn btn-primary">Show my location</button>
+          </div>
+
+        </div>
+
+      </div>
+      <!--Form with header-->
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-7">
+
+      <!--Google map-->
+      <div id="map" class="z-depth-1-half map-container-6" style="height: 400px">
+        <div ref="mapDiv" style="width: 700px; height:400px"></div>
+      </div>
+    </div>
+  </div>
+</template>
