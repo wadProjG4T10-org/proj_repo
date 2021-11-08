@@ -52,7 +52,7 @@ export default class snakeStart extends Phaser.Scene {
         this.add.text(
             width * 0.5, 
             height * 0.5, 
-            `<Press DOWN arrow to Start>`, 
+            `<Click into game to Start>`, 
             {
                 fontSize: 25,
                 wordWrap: 
@@ -62,8 +62,8 @@ export default class snakeStart extends Phaser.Scene {
                 },
             }).setOrigin(0.5);
 
-
-        this.input.keyboard.once(`keydown-DOWN`, () => {
+      
+        this.input.on(`pointerdown`, () => {
             this.scene.start('snakePreloader');
         })
     }

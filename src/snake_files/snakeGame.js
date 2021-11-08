@@ -238,12 +238,12 @@ export default class snakeGame extends Phaser.Scene {
                     fontSize: 30,
                 }).setOrigin(0.5)
             
-            this.message = this.add.text(570 * 0.5, 500 * 0.75, `<Press DOWN arrow to Start>`, {
+            this.message = this.add.text(570 * 0.5, 500 * 0.75, `<Click to continue>`, {
                 fontSize: 25,
             })
             .setOrigin(0.5)
 
-            this.input.keyboard.once(`keydown-DOWN`, () => this.scene.start('gameOver'));
+            this.input.on(`pointerdown`, () => this.scene.start('gameOver'));
             return;
         }
 
@@ -338,9 +338,13 @@ export default class snakeGame extends Phaser.Scene {
         }
 
         // Pause the game 
-        if (this.input.on('pointerdown', () => this.scene.pause())) {
-            this.isPaused = !this.isPaused;
-        }                
+        // if (this.input.keyboard.on('keydown-P', () => this.scene.pause())) {
+        //     this.isPaused = !this.isPaused; // this.isPaused = true;
+        // } else {
+        //     if (this.isPaused && this.input.keyboard.on('keydown-R')) {
+        //         this.scene.resume();
+        //     }
+        // }
         
     }
 }

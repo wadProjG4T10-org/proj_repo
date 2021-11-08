@@ -1,10 +1,6 @@
 <template>
-  <br>
-  <br>
-  <br>
-
   <!-- GAME CONTAINER -->  
-  <div class="background1">
+  <div class="background1" style="margin-top: 10vh;">
 
     <div class="game-screen">
 
@@ -17,12 +13,11 @@
         v-bind:initialize.prop="initialize"
       />
 
-      <div style="color: white; font-family: myFirstFont;">Click into the game to pause/resume</div>      
+      <div style="color: white; font-family: myFirstFont;">Press 'P' to pause</div>  
 
     </div>
-
   </div>
-
+  
 </template>
 
 <script>
@@ -59,8 +54,7 @@ export default {
       eventsCenter.on('score', this.generateUpdateScore(this), this);
     },
     generateUpdateScore: (vm) => {
-      console.log("gen");
-      //console.log(input);
+      //console.log("gen");
       return (updated_score) => {
         vm.score = updated_score;
       }

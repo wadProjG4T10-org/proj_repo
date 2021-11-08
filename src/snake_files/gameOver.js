@@ -46,7 +46,7 @@ export default class gameOver extends Phaser.Scene {
             align: 'center'
         }).setOrigin(0.5)
 
-        this.add.text(width * 0.5, height * 0.65, `<Press DOWN arrow to continue playing>`, {
+        this.add.text(width * 0.5, height * 0.65, `<Click into the game to continue playing>`, {
             fontSize: 25,
             wordWrap: {
                 width: width*0.8,
@@ -67,10 +67,10 @@ export default class gameOver extends Phaser.Scene {
             align: 'center',
             fontStyle: 'italic'
         }).setOrigin(0.5)
-
-        // Press the spacebar to start the scene, will head to snakePreloader and not snakeGame
+      
+        // Click to start the scene, will head to snakePreloader and not snakeGame
         // as we would need to load the images 1st before running the codes in snakeGame.js
-        this.input.keyboard.once(`keydown-DOWN`, () => {
+        this.input.on(`pointerdown`, () => {
             this.scene.start('snakePreloader');
         })
 
