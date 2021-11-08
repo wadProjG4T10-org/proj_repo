@@ -62,7 +62,7 @@ export default class snakeStart extends Phaser.Scene {
                 },
             }).setOrigin(0.5);
 
-
+      
         this.input.on(`pointerdown`, () => {
             this.scene.start('snakePreloader');
         })

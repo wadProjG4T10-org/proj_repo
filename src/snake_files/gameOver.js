@@ -67,7 +67,7 @@ export default class gameOver extends Phaser.Scene {
             align: 'center',
             fontStyle: 'italic'
         }).setOrigin(0.5)
-
+      
         // Click to start the scene, will head to snakePreloader and not snakeGame
         // as we would need to load the images 1st before running the codes in snakeGame.js
         this.input.on(`pointerdown`, () => {
