@@ -37,16 +37,17 @@ export default class gameOver extends Phaser.Scene {
         var warningSignsDisclaimer = "Diabetes is a serious condition, eat your sweet stuffs moderately.";  
 
         const { width, height } = this.scale;
-        this.add.text(width * 0.5, height * 0.4, `${diabetes_facts[random_facts]}`, {
+        this.add.text(width * 0.5, height * 0.25, `${diabetes_facts[random_facts]}`, {
             fontSize: 25,
             wordWrap: {
                 width: width*0.8,
                 useAdvancedWrap: true
             },
+            color: "#333A56",
             align: 'center'
         }).setOrigin(0.5)
 
-        this.add.text(width * 0.5, height * 0.65, `<Click into the game to continue playing>`, {
+        this.add.text(width * 0.5, height * 0.5, `<Click in the game to continue playing>`, {
             fontSize: 25,
             wordWrap: {
                 width: width*0.8,
@@ -58,12 +59,13 @@ export default class gameOver extends Phaser.Scene {
             align: "center",
         }).setOrigin(0.5);
 
-        this.add.text(width * 0.5, height * 0.8, `*${warningSignsDisclaimer}`, {
-            fontSize: 15,
+        this.add.text(width * 0.5, height * 0.75, `*${warningSignsDisclaimer}`, {
+            fontSize: 20,
             wordWrap: {
-                width: width*0.9,
+                width: width*0.8,
                 useAdvancedWrap: true
             },
+            color: "#333A56",
             align: 'center',
             fontStyle: 'italic'
         }).setOrigin(0.5)

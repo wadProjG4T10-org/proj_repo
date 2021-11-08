@@ -15,6 +15,7 @@ export default class snakeStart extends Phaser.Scene {
             `Imma Eat You Up!`, 
             {
                 fontSize: 70,
+                fontFamily: 'Arial',
                 fontStyle: "",
                 align: "center",
                 wordWrap: {
@@ -30,13 +31,27 @@ export default class snakeStart extends Phaser.Scene {
     
         welcomeMessage.setFill(gradient);
 
-    
+        this.add.text(
+            width * 0.5, 
+            height * 0.53, 
+            `<Click in the game to Start>`, 
+            {
+                fontSize: 25,
+                fontFamily: 'Arial',
+                wordWrap: 
+                {
+                    width: width*0.8,
+                    useAdvancedWrap: true
+                },
+            }).setOrigin(0.5);
+
         this.add.text(
             width * 0.5, 
             height * 0.75, 
             `Eat as many cakes as you like! But try not to bite any parts of your body~ Happy Playing!`, 
             {
                 fontSize: 25,
+                fontFamily: 'Arial',
                 wordWrap: 
                 {
                     width: width*0.8,
@@ -48,21 +63,6 @@ export default class snakeStart extends Phaser.Scene {
                 align: "center",
             }).setOrigin(0.5);
 
-
-        this.add.text(
-            width * 0.5, 
-            height * 0.5, 
-            `<Click into game to Start>`, 
-            {
-                fontSize: 25,
-                wordWrap: 
-                {
-                    width: width*0.8,
-                    useAdvancedWrap: true
-                },
-            }).setOrigin(0.5);
-
-      
         this.input.on(`pointerdown`, () => {
             this.scene.start('snakePreloader');
         })
