@@ -350,7 +350,6 @@ export default class snakeGame extends Phaser.Scene {
                 {
                     return false;
                 }
-
             }
         }    
     }
