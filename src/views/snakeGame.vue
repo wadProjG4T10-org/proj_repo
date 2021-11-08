@@ -14,7 +14,7 @@
         v-bind:initialize.prop="initialize"
       />
 
-      <div style="color: white; font-family: myFirstFont;">Move the snake using UP, DOWN, LEFT, RIGHT keys.</div>
+      <div style="color: white; font-family: myFirstFont;">Move the snake with UP, DOWN, LEFT, RIGHT keys.</div>
       <br> 
       <div style="color: white; font-family: myFirstFont;">Press 'P' to pause | Press 'R' to resume</div>  
     
