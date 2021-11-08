@@ -8,7 +8,6 @@ import eventsCenter from "./EventsCenter";
 var snake;
 var food;
 var cursors;
-var diabetes_score;
 
 // Directions for the snake
 var UP = 0;
@@ -16,48 +15,30 @@ var DOWN = 1;
 var LEFT = 2;
 var RIGHT = 3;
 
-// List of sentences to put into an array
-var diabetes_facts = ['Type 1 Diabetes is when your body stops making insulin, the key to let the blood sugar into your body cells for energy. It can be found in children, teens and young adults.',
-                      'There is no prevention for Type 1 diabetes.',
-                      'Type 2 diabetes is developed over many years, can also be found in children, teens and young adults.',
-                      'Type 2 diabetes prevention: Healthy Lifestyle changes, losing weight healthily, eating healthy food, be active!',
-                      'The risk of getting type 2 diabetes increases as you get older.',
-                      'Did you know that there are 4 types of diabetes? Type 1, Type 2, Gestational and Prediabetes.',
-                      'Gestational diabetes develops in pregnant women who have never had diabetes.',
-                      'Did you know that a baby could have higher risk for health problems if the mommy have gestational diabetes?',
-                      'Prediabetes can occur anytime, and their blood sugar levels are higher than normal!',
-                      'Prediabetes raises your risk of getting type 2 diabetes, heart disease and stroke.',
-                      'Diabetes is caused by high blood sugar levels. Eat your snacks moderately as a diet in high level of sugar and fat content can lead to obesity and increase your risk of getting one!',
-                      'Did you know, once you get diabetes, you cannot be cured? So please be healthy and consume your sugars and fat moderately!',
-                      'Did you know, if you do not take care of your health when you are a diabetic (person with diabetes) there is a chance of getting your joints amputated (chopped off)? So, take care of your health!',
-                      'Did you know that diabetics (person with diabetes) cannot eat too many carbohydrates like white rice? You would need to talk to your doctor about your diet. So if you like your white rice a lot, take care of your health!',
-                      'Diabetes can cause so many issues: Heart disease, Stroke, Kidney Disease / Kidney Failure, Nerve damage, eye disease, digestive problems',
-                      'Diabetes can also be caused by genetics, but there is no exact cause, no cure or any known prevention.',
-                      'Remember! Eating well, staying active is the best prevention to diseases.'
-                    ];
-
 export default class snakeGame extends Phaser.Scene {
 
-    constructor() {
-        super('snakeGame')
+    constructor()
+    {
+        super('snakeGame');
 
         // use 'this' to store the score for the game
-        diabetes_score = 0;
+        this.diabetes_score = 0;
 
-        eventsCenter
+        // Storing the score and putting it in the template
+        eventsCenter.emit('score', this.diabetes_score);
+
+        this.isPaused = false;
     }
 
-    preload ()
+    preload()
     {
         this.load.image('food', food_path);
         this.load.image('body', snake_path);
     }
 
-    create ()
+    create()
     {        
-        var Food = new Phaser.Class({
-
-            Extends: Phaser.GameObjects.Image,
+        var Food = new Phaser.Class({ Extends: Phaser.GameObjects.Image,
 
             initialize:
 
@@ -65,7 +46,6 @@ export default class snakeGame extends Phaser.Scene {
             {
                 // 'this' refer to the items called in this class: Food
                 Phaser.GameObjects.Image.call(this, scene)
-    
                 //the 1st food to be shown on the canvas
                 this.setTexture('food');
                 this.setPosition(x * 32, y * 32); // initial position on the canvas
@@ -79,7 +59,6 @@ export default class snakeGame extends Phaser.Scene {
             {
                 this.total++;
             }
-
         });
 
         var Snake = new Phaser.Class({
@@ -88,8 +67,8 @@ export default class snakeGame extends Phaser.Scene {
 
             function Snake (scene, x, y)
             {
+                // Initialising these
                 this.headPosition = new Phaser.Geom.Point(x, y);
-
                 this.body = scene.add.group();
                 this.head = this.body.create(x * 32, y * 32, 'head');
                 this.head.setOrigin(0);
@@ -182,24 +161,13 @@ export default class snakeGame extends Phaser.Scene {
 
                         if (hitBody)
                         {
-                            // FACTS (change it to make it end Screen)
-                            var random_facts = Math.floor((Math.random() * diabetes_facts.length));
-                            alert (diabetes_facts[random_facts]);
-                            
-                            // Try not to use this here, maybe after showcasing the facts then reload.
-                            location.reload(); 
-                            
                             this.alive = false;
-
-                            this.input.on('pointerdown', () => this.scene.start('gameOver'));
-
                             return false;
                         }
                         else
                         {
                             //  Update the timer ready for the next movement
                             this.moveTime = time + this.speed;
-
                             return true;
                         }
                     },
@@ -207,7 +175,6 @@ export default class snakeGame extends Phaser.Scene {
             grow: function ()
             {
                 var newPart = this.body.create(this.tail.x, this.tail.y, 'body');
-
                 newPart.setOrigin(0);
             },
 
@@ -219,22 +186,11 @@ export default class snakeGame extends Phaser.Scene {
 
                     food.eat();
                     
-                    //  ADDED (28/10): have a variable to store score
-                    diabetes_score += 10;
-
-                    // ADDED (2/11): For the part on showcasing the score
-                    eventsCenter.emit('score', this.diabetes_score);
-
-
                     //  For every 5 food item eaten we'll increase the snake speed a little
                     if (this.speed > 20 && food.total % 5 === 0)
                     {
                         this.speed -= 5;
                     }
-                    
-                    // to check if the scoring system works.
-                    console.log(diabetes_score);
-                    console.log(typeof(diabetes_score));
                     
                     return true;
                 }
@@ -267,21 +223,27 @@ export default class snakeGame extends Phaser.Scene {
 
         //  Create our keyboard controls
         cursors = this.input.keyboard.createCursorKeys();
-
-        //  ADDED (28/10): have a variable to store score
-        this.scoreText = this.add.text(25, 450, `Points Earned: ${diabetes_score}`, { 
-            fill: '#000',
-            fontSize: '16px',
-            backgroundColor: "#00FF00"  
-        });
-        
     }
 
     update (time)
     {
         if (!snake.alive)
         {
+            this.scoreText = this.add.text(
+                570 * 0.5, 
+                500 * 0.5, 
+                `Points Earned: ${this.diabetes_score}`, 
+                {
+                    color: "#9cadce",
+                    fontSize: 30,
+                }).setOrigin(0.5)
+            
+            this.message = this.add.text(570 * 0.5, 500 * 0.75, `<Press DOWN arrow to Start>`, {
+                fontSize: 25,
+            })
+            .setOrigin(0.5)
 
+            this.input.keyboard.once(`keydown-DOWN`, () => this.scene.start('gameOver'));
             return;
         }
 
@@ -292,27 +254,37 @@ export default class snakeGame extends Phaser.Scene {
         * */
         if (cursors.left.isDown)
         {
-            snake.faceLeft();
+                snake.faceLeft();
         }
         else if (cursors.right.isDown)
         {
-            snake.faceRight();
+                snake.faceRight();
         }
         else if (cursors.up.isDown)
         {
-            snake.faceUp();
+                snake.faceUp();
         }
         else if (cursors.down.isDown)
         {
-            snake.faceDown();
+                snake.faceDown();
         }
 
         if (snake.update(time))
         {
-            //  If the snake updated, we need to check for collision against food
+            //  If the snake updated, we need to check for collision against food and add score to the points system
 
             if (snake.collideWithFood(food))
             {
+
+                //  ADDED (28/10): have a variable to store score
+                this.diabetes_score += 10;
+
+                // ADDED (2/11): For the part on showcasing the score
+                eventsCenter.emit('score', this.diabetes_score);
+
+                // console.log(this.diabetes_score);
+                // console.log(typeof(this.diabetes_score));
+                
                 //  First create an array that assumes all positions
                 //  are valid for the new piece of food
 
@@ -364,5 +336,11 @@ export default class snakeGame extends Phaser.Scene {
 
             }
         }
+
+        // Pause the game 
+        if (this.input.on('pointerdown', () => this.scene.pause())) {
+            this.isPaused = !this.isPaused;
+        }                
+        
     }
 }
