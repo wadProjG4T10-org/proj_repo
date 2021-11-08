@@ -4,6 +4,7 @@ import AlzheimersGame from './views/AlzhGame.vue'
 import Games from './views/Games.vue'
 import Locator from './views/Locator.vue'
 import SnakeGame from './views/snakeGame.vue'
+import Information from './views/Information.vue'
 
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
     { path: '/games/alzh', component: AlzheimersGame, name: "Alzheimer's Game" },
     { path: '/map', component: Locator, name: "Locator"},
     { path: '/games/diabetes', component: SnakeGame, name: "Snake Game" },
+    { path: '/information', component: Information, name: "Information"}
 ]
 
 export default createRouter({

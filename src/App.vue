@@ -18,7 +18,7 @@
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdown-item" href="#">Heart Disease</a></li>
-                              <li><a class="dropdown-item" href="#">Alzheimer's Disease</a></li>
+                              <li><a class="dropdown-item" href="/games/alzh">Alzheimer's Disease</a></li>
                               <li><a class="dropdown-item" href="#">Diabetes</a></li>
                               <li><a class="dropdown-item" href="#">Depression</a></li>
                               <li><a class="dropdown-item" href="#">Falls</a></li>
