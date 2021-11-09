@@ -1,4 +1,5 @@
 <template>
+
         <main>
 		<div class="text">
 			<h1>Information</h1>
@@ -8,124 +9,133 @@
 		</div>
 
 		<header>
-			<!-- <h1></h1> -->
+
 		</header>
 
 		<section>
-			
 
+		
             <div class="product">
 				<picture>
-					<img src="../assets/alzheimers.png" alt="alzheimers">
+					<img src="../assets/alzheimers.png" alt= "alzheimers">
 				</picture>
-
-                <!--modal-->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                Launch demo modal
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
+				<p><b-button class="open" v-on:click="open('mc_alzheimers')">open</b-button></p>
+					<div class="modal_container" id="mc_alzheimers">
+						<b-card>
+								<p>alzheimers</p>
+								<b-button class="class" v-on:click="close('mc_alzheimers')">close</b-button>
+						</b-card>
+					</div>
+            </div>
+			
+            <div class="product">
+				<picture>
+					<img src="../assets/falls.png" alt= "falls">
+				</picture>
+				<!--modal-->
+				<p><b-button class="open" v-on:click="open('mc_falls')">open</b-button></p>
+					<div class="modal_container" id="mc_falls">
+						<b-card>
+								<p>falls</p>
+								<b-button class="class" v-on:click="close('mc_falls')">close</b-button>
+						</b-card>
+					</div>
             </div>
 
+            <div class="product">
+				<picture>
+					<img src="../assets/diabetes.png" alt= "diabetes">
+				</picture>
+				<!--modal-->
+				<p><b-button class="open" v-on:click="open('mc_diabetes')">open</b-button></p>
+					<div class="modal_container" id="mc_diabetes">
+						<b-card>
+								<p>diabetes</p>
+								<b-button class="class" v-on:click="close('mc_diabetes')">close</b-button>
+						</b-card>
+					</div>
+            </div>
 
             <div class="product">
 				<picture>
-					<img src="../assets/diabetes.png" alt="diabetes">
+					<img src="../assets/depression.png" alt= "depression">
 				</picture>
-				<b-button class="open">
-					open 
-				</b-button>
-				<div class="modal_container" id="modal_container">
-					<div class="modal" id="modal">
-						<h1>Modals are cool</h1>
-						<span><p>something</p></span>
-						<b-button class="close">close</b-button>
+				<!--modal-->
+				<p><b-button class="open" v-on:click="open('mc_depression')">open</b-button></p>
+					<div class="modal_container" id="mc_depression">
+						<b-card>
+								<p>depression</p>
+								<b-button class="class" v-on:click="close('mc_depression')">close</b-button>
+						</b-card>
 					</div>
-				</div>
-			</div>
+            </div>
 
             <div class="product">
 				<picture>
-					<img src="../assets/falls.png" alt="falls">
+					<img src="../assets/heart.png" alt= "heart">
 				</picture>
-				<b-button class="open" v-on:click="openModal">
-					open 
-				</b-button>
-				<div class="modal_container" id="modal_container">
-					<div class="modal" id="modal">
-						<h1>Modals are cool</h1>
-						<span><p>something</p></span>
-						<b-button class="close">close</b-button>
+				<!--modal-->
+				<p><b-button class="open" v-on:click="open('mc_heart')">open</b-button></p>
+					<div class="modal_container" id="mc_heart">
+						<b-card>
+								<p>heart</p>
+								<b-button class="class" v-on:click="close('mc_heart')">close</b-button>
+						</b-card>
 					</div>
-				</div>
-			</div>
+            </div>
 
-            <div class="product">
-				<picture>
-					<img src="../assets/heart.png" alt="heart">
-				</picture>
-				<b-button class="open" v-on:click="openModal">
-					open 
-				</b-button>
-				<div class="modal_container" id="modal_container">
-					<div class="modal" id="modal">
-						<h1>Modals are cool</h1>
-						<span><p>something</p></span>
-						<b-button class="close">close</b-button>
-					</div>
-				</div>
-			</div>
-
-            <div class="product">
-				<picture>
-					<img src="../assets/depression.png" alt="depression">
-				</picture>
-				<b-button class="open">open</b-button>
-				<div class="modal_container" id="modal_container">
-					<div class="modal" id="modal">
-						<h1>Modals are cool</h1>
-						<span><p>something</p></span>
-						<b-button class="close">close</b-button>
-					</div>
-				</div>
-			</div>
-
-		</section> 
+		</section>
         </main>
 
 
 </template>
 
 <script>
+
 export default {
-components: {},
+name: "Information",
+components: {
+},
 data() {
+	return{
+		illnesses:{
+			heart:{
+				name:"heart",
+				img:"../assets/heart.png"
+			},
+			falls:{
+				name:"falls",
+				img:"../assets/falls.png"
+			},
+			alzheimers:{
+				name:"alzheimers",
+				img:"../assets/alzheimers.png"
+			},
+			diabetes:{
+				name:"diabetes",
+				img:"../assets/diabetes.png"
+			},
+			depression:{
+				name:"depression",
+				img:"../assets/depression.png"
+			}
+		}
+
+	}
+
 },
 methods: {
+	open(current_id){
+		const modal_container = document.getElementById(current_id);
+		console.log(current_id);
+		modal_container.classList.add('show');
+	},
+	close(current_id){
+		const modal_container = document.getElementById(current_id);
+		modal_container.classList.remove('show');
+	}
 }
 }
-
 
 </script>
 
@@ -193,7 +203,7 @@ section{
 	overflow-x: auto;
 }
 section::-webkit-scrollbar{
-	display: none;
+	display:show;
 }
 
 .product {
@@ -221,7 +231,7 @@ img{
     margin-bottom:20px;
 }
 
-/* b-button {
+b-button {
 	border:0;
 	border-radius: 5px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -249,21 +259,23 @@ img{
 
 }
 
-
 .modal {
     margin-top:60vh;
-	background-color:white;
+	background-color:black;
 	width: 600px;
 	max-width:100%;
 	padding:30px;
 	text-align: center;
-	
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 4;
 }
 
 .modal_container.show {
 	pointer-events: auto;
 	opacity:1;
 	z-index: 1;
-} */
+}
 
 </style>
