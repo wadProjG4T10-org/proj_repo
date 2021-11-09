@@ -1,21 +1,25 @@
 <template>
-  <!-- GAME CONTAINER -->  
+
   <div class="background1" style="margin-top: 10vh;">
 
+    <!-- GAME CONTAINER --> 
     <div class="game-screen">
 
       <div style="color: white; font-family: myFirstFont;">Snake game</div>
       <br>
-      <div style="color: white; font-family: myFirstFont;"> {{this.score}} </div>
+      <div style="color: white; font-family: myFirstFont;"> Score: {{this.score}} </div>
       
       <ion-phaser 
         v-bind:game.prop="game"
         v-bind:initialize.prop="initialize"
       />
 
-      <div style="color: white; font-family: myFirstFont;">Press 'P' to pause</div>  
-
+      <div style="color: white; font-family: myFirstFont;">Move the snake with UP, DOWN, LEFT, RIGHT keys.</div>
+      <br> 
+      <div style="color: white; font-family: myFirstFont;">Press 'P' to pause | Press 'R' to resume</div>  
+    
     </div>
+
   </div>
   
 </template>
@@ -26,6 +30,7 @@ import snakeStart from '../snake_files/snakeStart.js'
 import snakePreloader from '../snake_files/snakepreloader.js'
 import snakeGame from '../snake_files/snakeGame.js'
 import gameOver from '../snake_files/gameOver.js'
+import pauseScreen from '../snake_files/pauseScreen.js'
 import eventsCenter from '../snake_files/EventsCenter.js'
 
 export default {
@@ -42,9 +47,9 @@ export default {
       game: {
         width: 570,
         height: 500,
-        backgroundColor: '#d4afb9',
+        backgroundColor: '#d4afb9', // d4afb9
         type: Phaser.AUTO,
-        scene: [snakeStart, snakePreloader, snakeGame, gameOver]  
+        scene: [snakeStart, snakePreloader, snakeGame, pauseScreen, gameOver]  
       },
     }
   },
