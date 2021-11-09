@@ -7,79 +7,94 @@
                 click to find out more
 			</p>
 		</div>
-
 		<header>
-
 		</header>
 
 		<section>
 
 		
-            <div class="product">
+            <div class="product" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 				<picture>
 					<img src="../assets/alzheimers.png" alt= "alzheimers">
 				</picture>
-				<p><b-button class="open" v-on:click="open('mc_alzheimers')">open</b-button></p>
-					<div class="modal_container" id="mc_alzheimers">
+					<input type="button" class="modal_button" v-on:click="open('mc_alzheimers')" value="Click for more" v-if="hover_a">
+					<div class=" modal_container" id="mc_alzheimers">
 						<b-card>
-								<p>alzheimers</p>
-								<b-button class="class" v-on:click="close('mc_alzheimers')">close</b-button>
+								<div class="modal_text">
+									<h3>Alzheimers</h3>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_alzheimers')" value="close">
+								</div>
 						</b-card>
 					</div>
             </div>
 			
-            <div class="product">
+            <div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
 				<picture>
 					<img src="../assets/falls.png" alt= "falls">
 				</picture>
 				<!--modal-->
-				<p><b-button class="open" v-on:click="open('mc_falls')">open</b-button></p>
+				<input type="button" class="modal_button" v-on:click="open('mc_falls')" value="Click for more" v-if="hover_f">
 					<div class="modal_container" id="mc_falls">
 						<b-card>
-								<p>falls</p>
-								<b-button class="class" v-on:click="close('mc_falls')">close</b-button>
+								<div class="modal_text">
+									<h3>Falls</h3>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_falls')" value="close">
+								</div>
 						</b-card>
 					</div>
             </div>
 
-            <div class="product">
+            <div class="product" @mouseover="hover_d = true" @mouseleave="hover_d = false">
 				<picture>
 					<img src="../assets/diabetes.png" alt= "diabetes">
 				</picture>
 				<!--modal-->
-				<p><b-button class="open" v-on:click="open('mc_diabetes')">open</b-button></p>
+				<input type="button" class="modal_button" v-on:click="open('mc_diabetes')" value="Click for more" v-if="hover_d">
 					<div class="modal_container" id="mc_diabetes">
 						<b-card>
-								<p>diabetes</p>
-								<b-button class="class" v-on:click="close('mc_diabetes')">close</b-button>
+								<div class="modal_text">
+									<h3>Diabetes</h3>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_diabetes')" value="close">
+								</div>
 						</b-card>
 					</div>
             </div>
 
-            <div class="product">
+            <div class="product" @mouseover="hover_de = true" @mouseleave="hover_de = false">
 				<picture>
 					<img src="../assets/depression.png" alt= "depression">
 				</picture>
 				<!--modal-->
-				<p><b-button class="open" v-on:click="open('mc_depression')">open</b-button></p>
+				<input type="button" class="modal_button" v-on:click="open('mc_depression')" value="Click for more" v-if="hover_de">
 					<div class="modal_container" id="mc_depression">
 						<b-card>
-								<p>depression</p>
-								<b-button class="class" v-on:click="close('mc_depression')">close</b-button>
+								<div class="modal_text">
+									<h3>Depression</h3>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_depression')" value="close">
+								</div>
 						</b-card>
 					</div>
             </div>
 
-            <div class="product">
+            <div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
 				<picture>
 					<img src="../assets/heart.png" alt= "heart">
 				</picture>
 				<!--modal-->
-				<p><b-button class="open" v-on:click="open('mc_heart')">open</b-button></p>
+				<input type="button" class="modal_button" v-on:click="open('mc_heart')" value="Click for more" v-if="hover_h">
+				<!-- <p><b-button class="modal_button" v-on:click="open('mc_heart')" variant="outline-dark" squared>open</b-button></p> -->
 					<div class="modal_container" id="mc_heart">
 						<b-card>
-								<p>heart</p>
-								<b-button class="class" v-on:click="close('mc_heart')">close</b-button>
+								<div class="modal_text">
+									<h3>Heart Disease</h3>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_heart')" value="close">
+								</div>
+								<!-- <b-button class="modal_button" v-on:click="close('mc_heart')" variant="outline-dark" squared>close</b-button> -->
 						</b-card>
 					</div>
             </div>
@@ -98,43 +113,28 @@ components: {
 },
 data() {
 	return{
-		illnesses:{
-			heart:{
-				name:"heart",
-				img:"../assets/heart.png"
-			},
-			falls:{
-				name:"falls",
-				img:"../assets/falls.png"
-			},
-			alzheimers:{
-				name:"alzheimers",
-				img:"../assets/alzheimers.png"
-			},
-			diabetes:{
-				name:"diabetes",
-				img:"../assets/diabetes.png"
-			},
-			depression:{
-				name:"depression",
-				img:"../assets/depression.png"
-			}
-		}
-
+		hover_d: false,
+		hover_de: false,
+		hover_f: false,
+		hover_h: false,
+		hover_a: false,
 	}
 
 },
 methods: {
 	open(current_id){
 		const modal_container = document.getElementById(current_id);
-		console.log(current_id);
 		modal_container.classList.add('show');
 	},
 	close(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.remove('show');
+	},
+	hovering(){
+		const button = document.getElementsByClassName('modal_button');
+		button.classList.add('show');
 	}
-}
+	}
 }
 
 </script>
@@ -145,35 +145,27 @@ methods: {
 main{
 	width: 100%;
 	height: 840px;
-	/*background: red;*/
+	/* background: red; */
 	margin: 10px auto;
 	position: relative;
 	padding: 5px 0;
     margin-top:40vh;
 }
-main .text{
+main .text{					/* click to find out more */
 	padding: 10px;
 	text-align: center;
-	/*font-size: 30px;*/
+	/* font-size: 30px; */
 	color: #554;
 }
-.text h1{
+.text h1{					/* information */
 	font-size: 50px;
 }
-.text p{
-	width: 60%;
-	padding: 5px;
-	margin: auto;
-	line-height: 30px;
-}
+
 main header{
 	width: 98%;
-	height: 60px;
-	margin: 0 auto;
-	/*background: gray;*/
+	/* background: gray; */
 	display: flex;
 	align-items: center;
-	padding: 20px;
 	justify-content: space-between;
 	border-bottom: 2px solid #ddd;
 }
@@ -193,6 +185,7 @@ header p span:hover{
 	background: #222;
 	color: white;
 } */
+
 section{
 	width: 98%;
 	height: 600px;
@@ -201,6 +194,7 @@ section{
 	display: flex;
 	align-items: center;
 	overflow-x: auto;
+	overflow-y:hidden;
 }
 section::-webkit-scrollbar{
 	display:show;
@@ -208,7 +202,10 @@ section::-webkit-scrollbar{
 
 .product {
 	/* background-color:chocolate; */
-	margin: 10px;
+	margin-top:0px;
+	margin-bottom: 0px;
+	margin-left:15px;
+	margin-right:15px;
 	justify-content: center;
 	text-align: center;
 	transition: 0.5s;
@@ -216,12 +213,14 @@ section::-webkit-scrollbar{
 
 }
 /* .product:hover {
-	-ms-transform: scale(1.4); 
-    -webkit-transform: scale(1.4); 
-    transform: scale(1.4);
+	-ms-transform: scale(1.1); 
+    -webkit-transform: scale(1.1); 
+    transform: scale(1.1);
 	margin-left: 60px;
     margin-right:60px;
 }  */
+
+
 img{
 	width: 300px;
 	height: 300px;
@@ -231,32 +230,19 @@ img{
     margin-bottom:20px;
 }
 
-b-button {
-	border:0;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-	color: black;
-	font-weight: bold;
-	font-size:14px;
-	padding:6px 19px;
-	margin: 20px;
-	border: 1px solid black;
-}
 
 .modal_container {
-	position:fixed;
+	position:absolute;
+	width:100%;
+	height:100%;
 	top:0;
 	left:0;
-	height: 100%;
-	width: 100%;
-	background-color:rgba(255, 166, 0, 0.372);
+	background-color: rgba(211, 211, 211, 0.461);
 	display:flex;
 	align-items: center;
 	justify-content: center;
     pointer-events: none;
 	opacity:0;
-
-
 }
 
 .modal {
@@ -264,12 +250,18 @@ b-button {
 	background-color:black;
 	width: 600px;
 	max-width:100%;
-	padding:30px;
 	text-align: center;
 	display:flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 4;
+	padding:90px;
+	border-radius: 40px;
+}
+
+.modal_text {
+	padding:50px;
+	border: 1px solid black;
 }
 
 .modal_container.show {
@@ -277,5 +269,29 @@ b-button {
 	opacity:1;
 	z-index: 1;
 }
+/* CSS */
+.modal_button {
+	transition: 0.3s;
+	background: #fff;
+	border-radius: .375rem;
+	border-style: solid;
+	border-width: .125rem;
+	box-sizing: border-box;
+	color: #212121;
+	font-family: Circular,Helvetica,sans-serif;
+	font-size: 15px;
+	padding: 7px 20px;
+	transform: translateZ(0) scale(1);
+	transition: transform .2s;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+.modal_button:not(:disabled):hover {
+	transform: scale(1.05);
+}
+
+
 
 </style>
