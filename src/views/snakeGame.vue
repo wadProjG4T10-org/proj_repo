@@ -1,6 +1,6 @@
 <template>
 
-  <div class="background1" style="margin-top: 10vh;">
+  <div class="background1" style="margin-top: 19vh;">
 
     <!-- GAME CONTAINER --> 
     <div class="game-screen">
