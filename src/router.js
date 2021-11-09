@@ -6,7 +6,11 @@ import Locator from './views/Locator.vue'
 import SnakeGame from './views/snakeGame.vue'
 import loginPage from "./views/loginPage.vue"
 import createAccount from "./views/createAcc.vue"
-import Information from "./views/Information.vue"
+<<<<<<< HEAD
+=======
+import depressionGame from './views/DepressionGame.vue'
+
+>>>>>>> 813c3d1d086362143a2e08a8f1d964639664932e
 
 const routes = [
     { path: '/', component: Home, name: "Home" },
@@ -16,7 +20,11 @@ const routes = [
     { path: '/games/diabetes', component: SnakeGame, name: "Snake Game" },
     { path: '/games/login', component: loginPage, name: "Login Page" },
     { path: '/games/create', component: createAccount, name: "Create Account" },
-    { path: '/information', component: Information, name: "Information" }
+<<<<<<< HEAD
+
+=======
+    { path: '/games/depression', component: depressionGame, name: "Depression Game" },
+>>>>>>> 813c3d1d086362143a2e08a8f1d964639664932e
 ]
 
 export default createRouter({
