@@ -16,11 +16,11 @@ export default class depressionOver extends Phaser.Scene {
     create() {
         var index = this.getRandomInt(9);
 
-        var warningSigns = [
+        var symptoms = [
             "Feelings of helplessness and hopelessness.",
             "Loss of interest in daily activities.",
-            "Significant weight loss or weight gain—a change of more than 5% of body weight in a month.",
-            "Either insomnia, especially waking in the early hours of the morning, or oversleeping.",
+            "Significant weight loss or weight gain (a change of more than 5% of body weight in a month).",
+            "Either not being able to sleep (especially waking in the early hours of the morning) or oversleeping.",
             "Low tolerance level, short tempered, and everything and everyone gets on your nerves.",
             "Strong feelings of worthlessness or guilt.",
             "Your whole body may feel heavy, and even small tasks are exhausting or take longer to complete.",
@@ -28,7 +28,7 @@ export default class depressionOver extends Phaser.Scene {
             "An increase in physical complaints such as headaches, back pain, aching muscles, and stomach pain."
         ]
 
-        var warningSignsDisclaimer = "Even if you or someone you know has this symptom, it doesn’t mean you have depression. Please see a doctor for official diagnosis";
+        var disclaimer = "Even if you or someone you know has this symptom, it doesn’t mean you have depression. Please see a doctor for official diagnosis";
 
         const { width, height } = this.scale;
         this.add.text(width * 0.5, height * 0.2, `Symptoms of Depression include:`, {
@@ -41,7 +41,7 @@ export default class depressionOver extends Phaser.Scene {
         })
         .setOrigin(0.5)
     
-        this.add.text(width * 0.5, height * 0.4, `${warningSigns[index]}`, {
+        this.add.text(width * 0.5, height * 0.4, `${symptoms[index]}`, {
             fontSize: 25,
             wordWrap: {
                 width: width*0.8,
@@ -50,7 +50,7 @@ export default class depressionOver extends Phaser.Scene {
             align: 'center'
         }).setOrigin(0.5)
 
-        this.add.text(width * 0.5, height * 0.80, `*${warningSignsDisclaimer}`, {
+        this.add.text(width * 0.5, height * 0.80, `*${disclaimer}`, {
             fontSize: 15,
             wordWrap: {
                 width: width*0.9,
