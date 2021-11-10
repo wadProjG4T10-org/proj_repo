@@ -1,24 +1,26 @@
 <template>
-  <div>
+  <div style="margin-top:20vh;">
     <div>I am alzh game</div>
     <div>{{ this.score }}</div>
+    <div>{{ store.state.userEmail }}</div>
+    <!-- <div>{{store.state.userEmail}}</div> -->
     <!-- <canvas ref="input" style="height:1000px; width:1000px;">Test</canvas> -->
       <ion-phaser
         v-bind:game.prop="game"
         v-bind:initialize.prop="initialize"
-      
       />
   </div>
 </template>
 
 <script>
-// import { ref, onMounted } from 'vue';
+
 import Phaser from 'phaser';
 import AlzheimersPreloader from '../AlzhGame_files/preloader';
 import AlzheimersGame from '../AlzhGame_files/Game';
 import AlzheimersStart from '../AlzhGame_files/startScreen';
 import AlzheimersEducation from '../AlzhGame_files/educationalSnippet';
 import eventsCenter from '../AlzhGame_files/EventsCenter';
+import { inject } from 'vue';
 
 var input;
 
@@ -27,27 +29,18 @@ export default {
   created: function() {
     this.initUpdates(this);
   },
-  // setup() {
-  //   input = ref(null);
-
-  //   onMounted(() => console.log(input.rawValue))
-
-  //   return {
-  //     input
-  //   };
-  // },
+  setup() {
+  const store = inject('store');
+    return {
+      store
+    }
+  },
   data: function() {
     return {
       score: 0,
       initialize: true,
       game: {
         type: Phaser.AUTO,
-        // canvasStyle: "width: 1000px; height: 1000px;",
-          // width: ,
-          // height: "80%",
-        // mode: Phaser.Scale.FIT,
-        // autoCenter: Phaser.Scale.CENTER_BOTH,
-        // canvas: input.value,
         physics: {
           default: 'arcade',
           arcade: {
@@ -75,6 +68,9 @@ export default {
       }
     }
   },
+  // onCreate() {
+  //     this.$router.push('/games/alzh')
+  //   }
 }
 </script>
 

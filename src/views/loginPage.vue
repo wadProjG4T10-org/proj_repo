@@ -27,8 +27,7 @@
                     ></b-form-input>
                 </b-form-group>
 
-                <b-button type="submit" @click="onLogin()" style="background-color: yellow; color: black;">Login</b-button>
-                <b-button type="submit" @click="onCreate()" style="background-color: green; color: black;">Create Account</b-button>
+                <b-button type="submit" @click="store.methods.onLogin" style="background-color: yellow; color: black;">Login</b-button>
 
             </b-form>
             
@@ -37,6 +36,8 @@
                 <pre class="m-0">{{ form }}</pre>
             </b-card>
 
+            <div>{{ store.state.userEmail }}</div>
+
         </div>
       </div>
   </div>
@@ -44,9 +45,16 @@
 
 
 <script>
+import { inject } from 'vue';
 
 export default {
   name: 'LoginPage',
+  setup() {
+  const store = inject('store');
+    return {
+      store
+    }
+  },
   data() {
       return {
         form: {
@@ -55,15 +63,12 @@ export default {
         },
       }
     },
-    methods: {
-      onLogin() {
-        alert("Welcome back, " + this.form.username + "!")
-      },
-      onCreate() {
-        this.$router.push('/games/create')
-      }
-    }
+  methods: {
+    // onCreate() {
+    //   this.$router.push('/games/create')
+    // }
   }
+}
 </script>
 
 <style>
