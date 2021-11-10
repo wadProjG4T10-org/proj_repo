@@ -212,13 +212,13 @@ section::-webkit-scrollbar{
 	/* border: 1px solid black; */
 
 }
-/* .product:hover {
+.product:hover {
 	-ms-transform: scale(1.1); 
     -webkit-transform: scale(1.1); 
     transform: scale(1.1);
 	margin-left: 60px;
     margin-right:60px;
-}  */
+} 
 
 
 img{
