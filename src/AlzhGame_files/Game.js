@@ -2,6 +2,7 @@
 import Phaser from "phaser";
 import eventsCenter from "./EventsCenter";
 
+
 var items = [
     [1, 0, 3, 2],
     [3, 4, 6, 7],
@@ -299,7 +300,7 @@ export default class AlzheimersGame extends Phaser.Scene {
             })
             .setOrigin(0.5)
             this.countMatches = 0;
-
+            
             this.input.on('pointerdown', () => this.scene.start('alzheimerseducation'));
 
         }
