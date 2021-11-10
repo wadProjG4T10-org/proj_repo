@@ -6,8 +6,7 @@ import Locator from './views/Locator.vue'
 import SnakeGame from './views/snakeGame.vue'
 import loginPage from "./views/loginPage.vue"
 import createAccount from "./views/createAcc.vue"
-import depressionGame from './views/DepressionGame.vue'
-
+import Information from "./views/Information.vue"
 
 const routes = [
     { path: '/', redirect: "/games/login" },
@@ -17,7 +16,7 @@ const routes = [
     { path: '/games/diabetes', component: SnakeGame, name: "Snake Game" },
     { path: '/games/login', component: loginPage, name: "Login Page" },
     { path: '/games/create', component: createAccount, name: "Create Account" },
-    { path: '/games/depression', component: depressionGame, name: "Depression Game" },
+    { path: '/information', component: Information, name: "Information" }
 ]
 
 export default createRouter({
