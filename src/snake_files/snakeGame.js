@@ -26,8 +26,6 @@ export default class snakeGame extends Phaser.Scene {
 
         // Storing the score and putting it in the template
         eventsCenter.emit('score', this.diabetes_score);
-
-        this.isPaused = false;
     }
 
     preload()
@@ -37,7 +35,21 @@ export default class snakeGame extends Phaser.Scene {
     }
 
     create()
-    {        
+    {   
+        // Pause the game 
+        this.input.keyboard.on(`keydown-P`, () => {
+            this.scene.pause();
+            this.scene.launch('pauseScreen');
+        }, this);
+        
+        // this.events.on('pause', function () {
+        //     console.log('snakeGame paused');
+        // })
+
+        // this.events.on('resume', function () {
+        //     console.log('snakeGame resumed');
+        // })
+        
         var Food = new Phaser.Class({ Extends: Phaser.GameObjects.Image,
 
             initialize:
@@ -223,6 +235,7 @@ export default class snakeGame extends Phaser.Scene {
 
         //  Create our keyboard controls
         cursors = this.input.keyboard.createCursorKeys();
+
     }
 
     update (time)
@@ -234,16 +247,20 @@ export default class snakeGame extends Phaser.Scene {
                 500 * 0.5, 
                 `Points Earned: ${this.diabetes_score}`, 
                 {
-                    color: "#9cadce",
+                    color: "#ffffff",
                     fontSize: 30,
+                    fontFamily: 'Arial',
+                    backgroundColor: '#7ec4cf'
                 }).setOrigin(0.5)
             
-            this.message = this.add.text(570 * 0.5, 500 * 0.75, `<Press DOWN arrow to Start>`, {
+            this.message = this.add.text(570 * 0.5, 500 * 0.6, `<Click to continue>`, {
                 fontSize: 25,
+                fontFamily: 'Arial',
+                backgroundColor: '#7ec4cf'
             })
             .setOrigin(0.5)
 
-            this.input.keyboard.once(`keydown-DOWN`, () => this.scene.start('gameOver'));
+            this.input.on(`pointerdown`, () => this.scene.start('gameOver'));
             return;
         }
 
@@ -333,14 +350,7 @@ export default class snakeGame extends Phaser.Scene {
                 {
                     return false;
                 }
-
             }
-        }
-
-        // Pause the game 
-        if (this.input.on('pointerdown', () => this.scene.pause())) {
-            this.isPaused = !this.isPaused;
-        }                
-        
+        }    
     }
 }
