@@ -15,7 +15,7 @@
 		
             <div class="product" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 				<picture>
-					<img src="../assets/alzheimers.png" alt= "alzheimers">
+					<img class="productImg" src="../assets/alzheimers.png" alt= "alzheimers">
 				</picture>
 					<input type="button" class="modal_button" v-on:click="open('mc_alzheimers')" value="Click for more" v-if="hover_a">
 					<div class=" modal_container" id="mc_alzheimers">
@@ -31,7 +31,7 @@
 			
             <div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
 				<picture>
-					<img src="../assets/falls.png" alt= "falls">
+					<img class="productImg" src="../assets/falls.png" alt= "falls">
 				</picture>
 				<!--modal-->
 				<input type="button" class="modal_button" v-on:click="open('mc_falls')" value="Click for more" v-if="hover_f">
@@ -48,7 +48,7 @@
 
             <div class="product" @mouseover="hover_d = true" @mouseleave="hover_d = false">
 				<picture>
-					<img src="../assets/diabetes.png" alt= "diabetes">
+					<img class="productImg" src="../assets/diabetes.png" alt= "diabetes">
 				</picture>
 				<!--modal-->
 				<input type="button" class="modal_button" v-on:click="open('mc_diabetes')" value="Click for more" v-if="hover_d">
@@ -65,7 +65,7 @@
 
             <div class="product" @mouseover="hover_de = true" @mouseleave="hover_de = false">
 				<picture>
-					<img src="../assets/depression.png" alt= "depression">
+					<img class="productImg" src="../assets/depression.png" alt= "depression">
 				</picture>
 				<!--modal-->
 				<input type="button" class="modal_button" v-on:click="open('mc_depression')" value="Click for more" v-if="hover_de">
@@ -82,7 +82,7 @@
 
             <div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
 				<picture>
-					<img src="../assets/heart.png" alt= "heart">
+					<img class="productImg" src="../assets/heart.png" alt= "heart">
 				</picture>
 				<!--modal-->
 				<input type="button" class="modal_button" v-on:click="open('mc_heart')" value="Click for more" v-if="hover_h">
@@ -222,7 +222,7 @@ section::-webkit-scrollbar{
 } 
 
 
-img{
+.productImg{
 	width: 300px;
 	height: 300px;
     margin-top: 20px;
