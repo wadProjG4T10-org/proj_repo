@@ -1,8 +1,9 @@
 <template>
   <div style="margin-top:20vh;">
+      <!-- <div class="background1" style="margin-top: 19vh;"> -->
     <div>I am alzh game</div>
-    <div>{{ this.score }}</div>
-    <div>{{ store.state.userEmail }}</div>
+    <div>Points Earned: {{ this.score }}</div>
+    <!-- <div>{{ store.state.userEmail }}</div> -->
     <!-- <div>{{store.state.userEmail}}</div> -->
     <!-- <canvas ref="input" style="height:1000px; width:1000px;">Test</canvas> -->
       <ion-phaser
@@ -20,21 +21,21 @@ import AlzheimersGame from '../AlzhGame_files/Game';
 import AlzheimersStart from '../AlzhGame_files/startScreen';
 import AlzheimersEducation from '../AlzhGame_files/educationalSnippet';
 import eventsCenter from '../AlzhGame_files/EventsCenter';
-import { inject } from 'vue';
+// import { inject } from 'vue';
 
-var input;
+// var input;
 
 export default {
   name: 'AlzheimersGame',
   created: function() {
     this.initUpdates(this);
   },
-  setup() {
-  const store = inject('store');
-    return {
-      store
-    }
-  },
+  // setup() {
+  // const store = inject('store');
+  //   return {
+  //     store
+  //   }
+  // },
   data: function() {
     return {
       score: 0,
@@ -61,12 +62,12 @@ export default {
       eventsCenter.on('score', this.generateUpdateScore(this), this);
     },
     generateUpdateScore: (vm) => {
-      console.log("gen");
-      console.log(input);
+      // console.log("gen");
+      // console.log(input);
       return (updated_score) => {
         vm.score = updated_score;
       }
-    }
+    },
   },
   // onCreate() {
   //     this.$router.push('/games/alzh')
@@ -77,7 +78,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .special-jumbotron {
-height: "100vh";
-width: "100vw";
-}
+    height: "100vh";
+    width: "100vw";
+  }
+
+  .background1 {
+    background-image: url('../assets/snakeBackground.jpg');
+    width:100%;
+    height:100%; 
+    background-size: cover;
+  }
 </style>

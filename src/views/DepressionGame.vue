@@ -1,5 +1,6 @@
 <template>
   <div style="margin-top: 20vh;">I am depression game</div>
+  <div>{{ this.score }}</div>
     <div class="ion-container">
       <ion-phaser 
         v-bind:game.prop="game"
@@ -18,8 +19,12 @@ import eventsCenter from '../depressionGame/EventsCenter.js'
 
 export default {
   name: 'depressionGame',
+  created: function() {
+    this.initUpdates(this);
+  },
   data() {
     return {
+      score: 0,
       initialize: true,
       game: {
         type: Phaser.AUTO,
