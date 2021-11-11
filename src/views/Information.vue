@@ -24,31 +24,29 @@
 
 						</picture>
 							<div class="modal_container" id="mc_alzheimers">
-								<b-card>
-										<div class="modal_text">
-											<h3>Alzheimers</h3>
-											<p>symptoms:</p>
-											<input type="button" class="modal_button" v-on:click="close('mc_alzheimers')" value="close">
-										</div>
-								</b-card>
+								<div class="modal_text">
+									<h1>Alzheimers</h1>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_alzheimers')" value="close">
+								</div>
 							</div>
 					</div>
 					
+
 					<div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
 						<picture>
 							<img class="productImg" src="../assets/falls.png" alt= "falls">
 							<input type="button" class="modal_button open" v-on:click="open('mc_falls')" value="Click for more" v-if="hover_f">
 						</picture>
 							<div class="modal_container" id="mc_falls">
-								<b-card>
-										<div class="modal_text">
-											<h3>Falls</h3>
-											<p>symptoms:</p>
-											<input type="button" class="modal_button" v-on:click="close('mc_falls')" value="close">
-										</div>
-								</b-card>
+								<div class="modal_text">
+									<h1>Falls</h1>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_falls')" value="close">
+								</div>
 							</div>
 					</div>
+
 
 					<div class="product" @mouseover="hover_d = true" @mouseleave="hover_d = false">
 						<picture>
@@ -56,15 +54,14 @@
 							<input type="button" class="modal_button open" v-on:click="open('mc_diabetes')" value="Click for more" v-if="hover_d">
 						</picture>
 							<div class="modal_container" id="mc_diabetes">
-								<b-card>
-										<div class="modal_text">
-											<h3>Diabetes</h3>
-											<p>symptoms:</p>
-											<input type="button" class="modal_button" v-on:click="close('mc_diabetes')" value="close">
-										</div>
-								</b-card>
+								<div class="modal_text">
+									<h1>Diabetes</h1>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_diabetes')" value="close">
+								</div>
 							</div>
 					</div>
+
 
 					<div class="product" @mouseover="hover_de = true" @mouseleave="hover_de = false">
 						<picture>
@@ -72,15 +69,14 @@
 							<input type="button" class="modal_button open" v-on:click="open('mc_depression')" value="Click for more" v-if="hover_de">
 						</picture>
 							<div class="modal_container" id="mc_depression">
-								<b-card>
-										<div class="modal_text">
-											<h3>Depression</h3>
-											<p>symptoms:</p>
-											<input type="button" class="modal_button" v-on:click="close('mc_depression')" value="close">
-										</div>
-								</b-card>
+								<div class="modal_text">
+									<h1>Depression</h1>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_depression')" value="close">
+								</div>
 							</div>
 					</div>
+
 
 					<div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
 						<picture>
@@ -88,15 +84,14 @@
 							<input type="button" class="modal_button open" v-on:click="open('mc_heart')" value="Click for more" v-if="hover_h">
 						</picture>
 							<div class="modal_container" id="mc_heart">
-								<b-card>
-										<div class="modal_text">
-											<h3>Heart Disease</h3>
-											<p>symptoms:</p>
-											<input type="button" class="modal_button" v-on:click="close('mc_heart')" value="close">
-										</div>
-								</b-card>
+								<div class="modal_text">
+									<h1>Heart Disease</h1>
+									<p>symptoms:</p>
+									<input type="button" class="modal_button" v-on:click="close('mc_heart')" value="close">
+								</div>
 							</div>
 					</div>
+
 				</div>
         </main>
 	</body>
@@ -252,10 +247,6 @@ picture {
 	font-family: mySecondFont;
 }
 
-.modal_button.open:hover, .modal_button.open:active{
-	background-color:#d4afb9;
-	color:white;
-}
 
 .modal_container {
 	position:fixed;
@@ -278,24 +269,14 @@ picture {
 }
 
 
-.modal {
-    margin-top:60vh;
-	background-color:black;
-	width: 600px;
-	max-width:100%;
-	text-align: center;
-	display:flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 999;
-	padding:90px;
-	border-radius: 40px;
-}
-
-
 .modal_text {
-	padding:50px;
-	border: 1px solid black;
+	padding:200px;
+	border-radius:20px;
+	background-image: linear-gradient(to bottom right, #d1cef2, #9cadce,#d4afb9);
+
+}
+.model_text h1{
+	font-weight: bold;
 }
 
 .section.hide {
@@ -320,10 +301,11 @@ picture {
 	touch-action: manipulation;
 }
 
-.modal_button:hover, .modal_button.open:active{
+.modal_button:hover, .modal_button:active{
 	background-color:#d4afb9;
 	border:#cd9ba8;
 	color:white;
+	font-size: 20px;
 }
 
 .modal_button:not(:disabled):hover {
