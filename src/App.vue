@@ -38,6 +38,7 @@
                 </ul>
             </div>
         </div>
+        <a href="#" style="padding-right: 40px;"> Sign Out </a>
     </nav>
   <router-view/>
   <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
