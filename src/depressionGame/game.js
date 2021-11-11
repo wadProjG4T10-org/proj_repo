@@ -8,6 +8,7 @@ import playerJSON from '../assets/images/player.json';
 import coinImg from '../assets/images/coin.png';
 import exitSign from '../assets/images/exitSign.png';
 import eventsCenter from "./EventsCenter";
+import { doc, updateDoc, getFirestore, increment } from "firebase/firestore";
 
 
 // var coinImg = require('../assets/images/coin.png');
@@ -55,6 +56,7 @@ export default class depressionGame extends Phaser.Scene {
         this.alive = true;
         this.hearts = 3;
         this.coins = 0;
+        eventsCenter.emit('score', this.coins);
 
         // Add the player to the game world
         this.player = this.physics.add.sprite(50, 300, 'player');
@@ -156,7 +158,17 @@ export default class depressionGame extends Phaser.Scene {
         
         // console.log(sprite)
           coinLayer.removeTileAt(tile.x, tile.y);
-          this.coins++; 
+          this.coins++;
+          var userInformation = JSON.parse(window.localStorage['userInformation'])
+          // console.log(userInformation);
+          const db = getFirestore();
+          var usersRef = doc(db, "users", userInformation.uid);
+          updateDoc(usersRef, {score: increment(1)});
+  
+          
+          userInformation['score'] += 1;
+          userInformation = JSON.stringify(userInformation)
+          window.localStorage.setItem('userInformation', userInformation);
           eventsCenter.emit('score', this.coins);
           coin_text.setText('coins x '+ this.coins);
 

@@ -1,6 +1,8 @@
 // import { random } from "core-js/core/number";
 import Phaser from "phaser";
 import eventsCenter from "./EventsCenter";
+import { doc, updateDoc, getFirestore, increment } from "firebase/firestore";
+
 
 
 var items = [
@@ -27,7 +29,7 @@ export default class AlzheimersGame extends Phaser.Scene {
     /** @type { Phaser.GameObjects.Group } */
     itemsGroup;
 
-    /** @type { { box: Phaser.Physics.Arcade.Sprite, item: Phaser.GameObjects.Sprite} } */
+    /** @type { { box: Phaser.Physics.Arcade.Sprite, item: Phaser.GameObjects.Sprite } } */
     openedCrates = [];
 
     countMatches = 0;
@@ -288,6 +290,18 @@ export default class AlzheimersGame extends Phaser.Scene {
             .setOrigin(0.5);
 
             this.alzhgame_score += 100;
+
+            var userInformation = JSON.parse(window.localStorage['userInformation'])
+            // console.log(userInformation);
+            const db = getFirestore();
+            var usersRef = doc(db, "users", userInformation.uid);
+            updateDoc(usersRef, {score: increment(100)});
+    
+            
+            userInformation['score'] += 100;
+            userInformation = JSON.stringify(userInformation)
+            window.localStorage.setItem('userInformation', userInformation);
+
             eventsCenter.emit('score', this.alzhgame_score);
             this.scoreText = this.add.text(width * 0.5, height * 0.9, `Points Earned: ${this.alzhgame_score}`, {
                 color: "#86DC3D",

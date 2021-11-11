@@ -4,6 +4,7 @@ import Phaser from "phaser";
 var snake_path = require('../assets/body.png');
 var food_path = require('../assets/cake-slice.png');
 import eventsCenter from "./EventsCenter";
+import { doc, updateDoc, getFirestore, increment } from "firebase/firestore";
 
 var snake;
 var food;
@@ -295,6 +296,17 @@ export default class snakeGame extends Phaser.Scene {
 
                 //  ADDED (28/10): have a variable to store score
                 this.diabetes_score += 10;
+
+                var userInformation = JSON.parse(window.localStorage['userInformation'])
+                // console.log(userInformation);
+                const db = getFirestore();
+                var usersRef = doc(db, "users", userInformation.uid);
+                updateDoc(usersRef, {score: increment(10)});
+    
+            
+                userInformation['score'] += 10;
+                userInformation = JSON.stringify(userInformation)
+                window.localStorage.setItem('userInformation', userInformation);
 
                 // ADDED (2/11): For the part on showcasing the score
                 eventsCenter.emit('score', this.diabetes_score);
