@@ -1,7 +1,7 @@
 <template>
-
+	<div class="container col">
         <main>
-		<div class="text">
+		<div class="row" id="text">
 			<h1>Information</h1>
 			<p>
                 click to find out more
@@ -101,7 +101,7 @@
 
 		</section>
         </main>
-
+	</div>
 
 </template>
 
@@ -118,6 +118,7 @@ data() {
 		hover_f: false,
 		hover_h: false,
 		hover_a: false,
+		present: false,
 	}
 
 },
@@ -149,15 +150,15 @@ main{
 	margin: 10px auto;
 	position: relative;
 	padding: 5px 0;
-    margin-top:40vh;
+    margin-top:60vh;
 }
-main .text{					/* click to find out more */
+#text{					/* click to find out more */
 	padding: 10px;
 	text-align: center;
 	/* font-size: 30px; */
 	color: #554;
 }
-.text h1{					/* information */
+#text h1{					/* information */
 	font-size: 50px;
 }
 
@@ -213,9 +214,9 @@ section::-webkit-scrollbar{
 
 }
 .product:hover {
-	-ms-transform: scale(1.1); 
+	/* -ms-transform: scale(1.1); 
     -webkit-transform: scale(1.1); 
-    transform: scale(1.1);
+    transform: scale(1.1); */ 
 	margin-left: 60px;
     margin-right:60px;
 } 
