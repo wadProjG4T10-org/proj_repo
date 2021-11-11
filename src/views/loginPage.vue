@@ -27,16 +27,9 @@
                     ></b-form-input>
                 </b-form-group>
 
-                <b-button type="submit" @click="store.methods.onLogin" style="background-color: yellow; color: black;">Login</b-button>
+                <b-button type="submit" @click="onLogin" style="background-color: yellow; color: black;">Login</b-button>
 
             </b-form>
-            
-            <!-- testing for username and password -->
-            <b-card class="mt-3" header="Form Data Result">
-                <pre class="m-0">{{ form }}</pre>
-            </b-card>
-
-            <div>{{ store.state.userEmail }}</div>
 
         </div>
       </div>
@@ -45,16 +38,12 @@
 
 
 <script>
-import { inject } from 'vue';
+// import { inject } from 'vue';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 export default {
   name: 'LoginPage',
-  setup() {
-  const store = inject('store');
-    return {
-      store
-    }
-  },
   data() {
       return {
         form: {
@@ -64,6 +53,65 @@ export default {
       }
     },
   methods: {
+    onLogin() {
+    const provider = new GoogleAuthProvider();
+
+    var userInformation = {};
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        var userCreation = user.metadata.createdAt;
+        var userLastLogin = user.metadata.lastLoginAt;
+        var userEmail = user.email;
+        console.log(user);
+
+        const db = getFirestore();
+
+        if (userCreation === userLastLogin) {
+          setDoc(doc(db, "users", userEmail), ({
+          score: 0
+          }));
+
+          userInformation['uid'] = userEmail;
+          userInformation['score'] = 0;
+
+          window.localStorage.setItem('userInformation', JSON.stringify(userInformation));
+
+        }
+
+        else {
+          userInformation['uid'] = userEmail;
+
+          window.localStorage.removeItem('userInformation');
+          
+          var docRef = doc(db, "users", userEmail);
+
+          getDoc(docRef).then((snapshot) => {
+            var userScore = snapshot.data().score;
+            // console.log(snapshot.data());
+            console.log('old user');
+            userInformation['score'] = userScore;
+            userInformation = JSON.stringify(userInformation)
+            window.localStorage.setItem('userInformation', userInformation);
+          })
+
+        }
+
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.email;
+  
+          console.log(errorCode);
+          console.log(errorMessage);
+          console.log(email);
+          });
+      },
     // onCreate() {
     //   this.$router.push('/games/create')
     // }
