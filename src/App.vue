@@ -46,15 +46,15 @@
 </template>
 
 <script>
-import { provide } from 'vue';
-import store from '@/store';
+// import { provide } from 'vue';
+// import store from '@/store';
 // import { useCounterProvider } from '../src/store/counter';
 
 export default {
   name: 'App',
-  setup() {
-      provide('store', store)
-  }
+//   setup() {
+//       provide('store', store)
+//   }
 }
 </script>
 
