@@ -19,6 +19,11 @@ import eventsCenter from '../depressionGame/EventsCenter.js'
 
 export default {
   name: 'depressionGame',
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   created: function() {
     this.initUpdates(this);
   },

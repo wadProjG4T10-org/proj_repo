@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top:20vh;">
+  <div>
       <!-- <div class="background1" style="margin-top: 19vh;"> -->
     <div>I am alzh game</div>
     <div>Points Earned: {{ this.score }}</div>
@@ -27,6 +27,11 @@ import eventsCenter from '../AlzhGame_files/EventsCenter';
 
 export default {
   name: 'AlzheimersGame',
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   created: function() {
     this.initUpdates(this);
   },
