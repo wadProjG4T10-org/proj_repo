@@ -1,7 +1,7 @@
 <template>
 <html>
 	<body>
-        <main class="container-fluid">
+        <main class="container-fluid" >
 			<header class="container">
 				<div class="row" id="header_text">
 					<h1>INFORMATION</h1>
@@ -16,7 +16,7 @@
 				<input type='button' class="button" id="rightButton" v-on:click="rightclick()">
 				<input type='button' class="button" id="leftButton" v-on:click="leftclick()">
 			</div>
-				<div class="section" id="section">
+				<div class="section container col-lg-6 col-sm-2" id="section">
 					<div class="product" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 						<picture>
 							<img class="productImg" src="../assets/alzheimers.png" alt= "alzheimers">
@@ -26,27 +26,56 @@
 							<div class="modal_container" id="mc_alzheimers">
 								<div class="modal_text">
 									<h1>Alzheimers</h1>
-									<p>symptoms:</p>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+											<h3>Description: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{alzheimers.Description}}</div>
+										</div>
+									</div>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Local Stats:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{alzheimers.LocalStats}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Prevention:</h3> 
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{alzheimers.Prevention}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Symptom Details:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{alzheimers.SymptomDetails}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>What To Do: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{alzheimers.WhatToDo}}</div>
+										</div>
+									</div>
 									<input type="button" class="modal_button" v-on:click="close('mc_alzheimers')" value="close">
 								</div>
 							</div>
 					</div>
 					
-
-					<div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
-						<picture>
-							<img class="productImg" src="../assets/falls.png" alt= "falls">
-							<input type="button" class="modal_button open" v-on:click="open('mc_falls')" value="Click for more" v-if="hover_f">
-						</picture>
-							<div class="modal_container" id="mc_falls">
-								<div class="modal_text">
-									<h1>Falls</h1>
-									<p>symptoms:</p>
-									<input type="button" class="modal_button" v-on:click="close('mc_falls')" value="close">
-								</div>
-							</div>
-					</div>
-
 
 					<div class="product" @mouseover="hover_d = true" @mouseleave="hover_d = false">
 						<picture>
@@ -56,7 +85,51 @@
 							<div class="modal_container" id="mc_diabetes">
 								<div class="modal_text">
 									<h1>Diabetes</h1>
-									<p>symptoms:</p>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+											<h3>Description: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{diabetes.Description}}</div>
+										</div>
+									</div>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Local Stats:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{diabetes.LocalStats}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Prevention:</h3> 
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{diabetes.Prevention}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Symptom Details:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{diabetes.SymptomDetails}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>What To Do: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{diabetes.WhatToDo}}</div>
+										</div>
+									</div>
 									<input type="button" class="modal_button" v-on:click="close('mc_diabetes')" value="close">
 								</div>
 							</div>
@@ -71,23 +144,52 @@
 							<div class="modal_container" id="mc_depression">
 								<div class="modal_text">
 									<h1>Depression</h1>
-									<p>symptoms:</p>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+											<h3>Description: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{depression.Description}}</div>
+										</div>
+									</div>
+									
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Local Stats:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{depression.LocalStats}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Methods To Cope:</h3> 
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{depression.MethodsToCope}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>Symptoms:</h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{depression.Symptoms}}</div>
+										</div>
+									</div>
+
+									<div class="container row">
+										<div class="container col-lg-3 col-sm-12 modal_inner">
+										<h3>What To Do: </h3>
+										</div>
+										<div class="container col-lg-9 col-sm-12">
+											<div class="modal_inner_text">{{depression.WhatToDo}}</div>
+										</div>
+									</div>
 									<input type="button" class="modal_button" v-on:click="close('mc_depression')" value="close">
-								</div>
-							</div>
-					</div>
-
-
-					<div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
-						<picture>
-							<img class="productImg" src="../assets/heart.png" alt= "heart">
-							<input type="button" class="modal_button open" v-on:click="open('mc_heart')" value="Click for more" v-if="hover_h">
-						</picture>
-							<div class="modal_container" id="mc_heart">
-								<div class="modal_text">
-									<h1>Heart Disease</h1>
-									<p>symptoms:</p>
-									<input type="button" class="modal_button" v-on:click="close('mc_heart')" value="close">
 								</div>
 							</div>
 					</div>
@@ -100,6 +202,7 @@
 </template>
 
 <script>
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default {
 name: "Information",
@@ -113,6 +216,10 @@ data() {
 		hover_h: false,
 		hover_a: false,
 		present: false,
+
+		alzheimers:[],
+		diabetes:[],
+		depression:[],
 	}
 
 },
@@ -120,14 +227,35 @@ methods: {
 	open(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.add('show');
-		const section = document.getElementById('section');
-		section.classList.add('hide');
+
+		console.log("open");
+		const db = getFirestore();
+		if(current_id === "mc_alzheimers"){
+			var alzhRef = doc(db, "informationDashboard", 'Alzheimers Disease')
+			getDoc(alzhRef).then((snapshot) => {
+				console.log(snapshot.data());
+				this.alzheimers = snapshot.data();
+			})
+		}
+		else if (current_id === "mc_diabetes"){
+			var diabetesRef = doc(db, "informationDashboard", 'Diabetes')
+			getDoc(diabetesRef).then((snapshot) => {
+				console.log(snapshot.data());
+				this.diabetes = snapshot.data();
+			})
+		}
+		else {
+			var depressionRef = doc(db, "informationDashboard", 'Depression')
+			getDoc(depressionRef).then((snapshot) => {
+				console.log(snapshot.data());
+				this.depression = snapshot.data();
+			})
+		}
 	},
 	close(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.remove('show');
-		const section = document.getElementById('section');
-		section.classList.add('hide');
+
 	},
 	hovering(){
 		const button = document.getElementsByClassName('modal_button');
@@ -182,7 +310,7 @@ header h1{
 	/* background: purple; */
 	display: flex;
 	align-items: center;
-	overflow-x: auto;
+	overflow-x: hidden;
 	scroll-behavior: smooth; 
 	position: relative;
 	height:70%;
@@ -192,9 +320,19 @@ header h1{
 	padding-left: 100px;
 	padding-right: 100px;
 }
+.section:hover{
+	overflow-x:auto;
+}
 
 .section::-webkit-scrollbar {
-	display:none;
+	background:transparent;
+}
+
+.section::-webkit-scrollbar-thumb {
+	background: transparent;
+	border: 2px solid grey;
+	border-radius:20px;
+	width:30px;
 }
 
 
@@ -263,49 +401,86 @@ picture {
 }
 
 .modal_container.show {
-    z-index: 998;
+    z-index: 990;
 	pointer-events: auto;
 	opacity:1;
 }
 
 
 .modal_text {
-	padding:200px;
+	padding-top:40px;
+	padding-bottom:40px;
 	border-radius:20px;
 	background-image: linear-gradient(to bottom right, #d1cef2, #9cadce,#d4afb9);
-
+	overflow:auto;
+	max-width:90vw;
+	max-height:80vh;
+	margin-top:10vh;
+	z-index:991;
 }
+
+.modal_inner{
+	display:flex;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	margin:40px;
+	padding-top:40px;
+	font-weight:bold;
+}
+
+.modal_text::-webkit-scrollbar {
+	width: 20px;
+	background-color:transparent;
+	border-radius:20px;
+	position:relative;
+}
+
+
+.modal_text::-webkit-scrollbar-thumb {
+	border-radius:20px;
+	/* background: linear-gradient(to bottom, rgba(86, 86, 147, 0.619), rgb(222, 199, 222)); */
+	border:1px solid grey;
+	background:transparent;
+}
+
+
 .model_text h1{
 	font-weight: bold;
 }
 
-.section.hide {
-	display: hidden;
+.modal_inner_text {
+	background-color:rgba(216, 191, 216, 0.475);
+	border-radius: 20px;
+	padding: 20px;
+	margin:20px;
 }
 
 
 .modal_button {
 	transition: 0.3s;
-	background: #fff;
+	background: rgba(255, 255, 255, 0.728);
 	border-radius:20px;
 	border-style: solid;
 	box-sizing: border-box;
 	color: #212121;
-	font-family: Circular,Helvetica,sans-serif;
-	font-size: 15px;
+	font-family: mySecondFont;
+	font-weight: bold;
+	font-size: 20px;
 	padding: 7px 20px;
 	transform: translateZ(0) scale(1);
 	transition: transform .2s;
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
+	margin:40px;
 }
 
 .modal_button:hover, .modal_button:active{
 	background-color:#d4afb9;
 	border:#cd9ba8;
 	color:white;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 .modal_button:not(:disabled):hover {
@@ -314,7 +489,7 @@ picture {
 
 #rightButton{
 	position:absolute;
-	right:40px;
+	right:250px;
 	top:55%;
 	z-index:100;
 	background-image: url("../assets/right.png");
@@ -328,7 +503,7 @@ picture {
 
 #leftButton{
 	position:absolute;
-	left:40px;
+	left:250px;
 	top:55%;
 	z-index:100;
 	background-image: url('../assets/left.png');
@@ -345,6 +520,9 @@ picture {
 	outline:none;
 	box-shadow: none;
 } 
+
+
+
 
 
 </style>
