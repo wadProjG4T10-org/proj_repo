@@ -100,6 +100,7 @@
 </template>
 
 <script>
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default {
 name: "Information",
