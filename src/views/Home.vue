@@ -9,6 +9,11 @@ import HelloWorld from '../components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   components: {
     HelloWorld
   }

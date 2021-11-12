@@ -104,6 +104,11 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default {
 name: "Information",
+beforeCreate() {
+	if (window.localStorage.getItem("userInformation") === null) {
+		this.$router.push('/login');
+	}
+},
 components: {
 },
 data() {

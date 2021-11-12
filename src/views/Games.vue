@@ -111,7 +111,11 @@
 
 
 export default {
-
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   name: 'Games',
 
 }

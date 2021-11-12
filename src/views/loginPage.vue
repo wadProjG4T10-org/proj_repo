@@ -44,8 +44,15 @@ import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 export default {
   name: 'LoginPage',
-  created: function() {
-    window.localStorage.removeItem('userInformation');
+  mounted() {
+    if (window.localStorage.getItem("userInformation") !== null) {
+      this.$router.push('/home');
+      // console.log('not logged in');
+    }
+    else {
+      this.$router.push('/login');
+      // console.log('logged in');
+    }
   },
   data() {
       return {
@@ -57,9 +64,9 @@ export default {
     },
   methods: {
     onLogin() {
-    const provider = new GoogleAuthProvider();
+      const provider = new GoogleAuthProvider();
 
-    var userInformation = {};
+      var userInformation = {};
 
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -69,38 +76,44 @@ export default {
         var userCreation = user.metadata.createdAt;
         var userLastLogin = user.metadata.lastLoginAt;
         var userEmail = user.email;
-        console.log(user);
+        var userName = user.displayName;
+        // console.log(user);
+        // console.log(userCreation);
+        // console.log(userLastLogin);
 
         const db = getFirestore();
 
+        // console.log(window.localStorage.getItem('userInformation'));
+
         if (userCreation === userLastLogin) {
           setDoc(doc(db, "users", userEmail), ({
-          score: 0
+            score: 0,
+            name: userName
           }));
 
           userInformation['uid'] = userEmail;
           userInformation['score'] = 0;
+          userInformation['name'] = userName;
 
           window.localStorage.setItem('userInformation', JSON.stringify(userInformation));
-
+          this.$router.push('/home');
         }
 
         else {
           userInformation['uid'] = userEmail;
-
-          window.localStorage.removeItem('userInformation');
+          userInformation['name'] = userName;
           
           var docRef = doc(db, "users", userEmail);
 
           getDoc(docRef).then((snapshot) => {
             var userScore = snapshot.data().score;
-            // console.log(snapshot.data());
-            console.log('old user');
+            // console.log(snapshot.data().score);
             userInformation['score'] = userScore;
+            // console.log(typeof(userInformation['score']));
             userInformation = JSON.stringify(userInformation)
             window.localStorage.setItem('userInformation', userInformation);
+            this.$router.push('/home');
           })
-
         }
 
         }).catch((error) => {
@@ -115,9 +128,6 @@ export default {
           console.log(email);
           });
       },
-    // onCreate() {
-    //   this.$router.push('/games/create')
-    // }
   }
 }
 </script>
