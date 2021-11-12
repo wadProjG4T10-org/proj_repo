@@ -282,6 +282,10 @@ methods: {
     font-family: mySecondFont;
     src: url('../fonts/IndieFlower-Regular.ttf');
 }
+@font-face {
+	font-family: myFirstFont;
+	src: url('../fonts/PressStart2P-Regular.ttf');
+}
 
 html, body {
 	margin:0px;
@@ -430,7 +434,8 @@ picture {
 
 .modal_text h1{
 	font-weight: bold;
-	font-size:60px;
+	font-size:90px;
+    font-family: mySecondFont; 
 }
 
 .modal_inner{
@@ -463,9 +468,7 @@ picture {
 }
 
 
-.model_text h1{
-	font-weight: bold;
-}
+
 
 .modal_inner_text {
 	background-color:rgba(216, 191, 216, 0.475);
