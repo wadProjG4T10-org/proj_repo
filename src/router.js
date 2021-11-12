@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import Home from './views/Home.vue'
 import Home from './views/Home.vue'
 import AlzheimersGame from './views/AlzhGame.vue'
 import Games from './views/Games.vue'

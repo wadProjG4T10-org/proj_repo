@@ -41,8 +41,8 @@
         <a href="/login" style="padding-right: 40px;" @click="userLoggedOut"> Sign Out </a>
     </nav>
 
-  <router-view/>
-  <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
+    <router-view/>
+    <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
 
 </template>
 
@@ -50,7 +50,6 @@
 // import { provide } from 'vue';
 // import store from '@/store';
 // import { useCounterProvider } from '../src/store/counter';
-
 export default {
     name: 'App',
     methods: {
@@ -63,28 +62,29 @@ export default {
 </script>
 
 <style>
+@font-face {
+font-family: mySecondFont;
+src: url('./fonts/IndieFlower-Regular.ttf');
+}
+
 .navbar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     font-size: 20px;
+    font-family: mySecondFont;
 }
-
 .dropdown:hover .dropdown-menu{
     display: block;
     border-radius: 15px;
 }
-
 .navbar-nav li{
     padding-left:10px;
     padding-right:10px;
     margin-left:5px;
     margin-right:5px;
 }
-
 .navbar-nav li:hover{
     background-color: #d1cfe2; 
     border-radius: 20px;
 }
-
 </style>
-

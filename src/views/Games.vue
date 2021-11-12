@@ -126,8 +126,14 @@ export default {
     font-family: myFirstFont;
     src: url('../fonts/PressStart2P-Regular.ttf');
   }
+  
+  @font-face {
+    font-family: mySecondFont;
+    src: url('../fonts/IndieFlower-Regular.ttf');
+  }
 
   .background1 {
+    font-family: mySecondFont;
     background-image:
       linear-gradient(
         to bottom right, 
