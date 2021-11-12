@@ -59,10 +59,16 @@ export default {
 </script>
 
 <style>
+@font-face {
+font-family: mySecondFont;
+src: url('./fonts/IndieFlower-Regular.ttf');
+}
+
 .navbar {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     font-size: 20px;
+    font-family: mySecondFont;
 }
 .dropdown:hover .dropdown-menu{
     display: block;
