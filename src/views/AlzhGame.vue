@@ -105,13 +105,14 @@ export default {
   }
 
 body{
-  background-image: linear-gradient(to bottom right, #4a86965d, #9cadce,#ff69b489);
+  background-image: linear-gradient(to bottom right, #4a8798b1, #839dd0,#d25091c2);
 }
 
 .header1{
   font-family:mySecondFont;
   padding-top:20px;
   font-size:20px;
+  font-weight:bold;
 }
 .header2{
   font-family:myFirstFont;
