@@ -38,10 +38,10 @@
                 </ul>
             </div>
         </div>
-        <a href="/login" style="padding-right: 40px;" @click="userLoggedOut"> Sign Out </a>
+        <a v-if="this.userStatus" style="padding-right: 40px; cursor:pointer; color:red;" @click="userLoggedOut"> Sign Out </a>
     </nav>
 
-    <router-view/>
+    <router-view @userLoggedInListener="isUserLoggedIn"/>
     <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
 
 </template>
@@ -52,10 +52,18 @@
 // import { useCounterProvider } from '../src/store/counter';
 export default {
     name: 'App',
+    data: () => ({
+        userStatus: !!window.localStorage.getItem('userInformation')
+    }),
     methods: {
         userLoggedOut: function() {
             window.localStorage.removeItem('userInformation');
+            this.userStatus = !!window.localStorage.getItem('userInformation');
+            this.$router.push('/login');
         },
+        isUserLoggedIn: function() {
+            this.userStatus = !!window.localStorage.getItem('userInformation');
+        }
     },
 
 }
