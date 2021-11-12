@@ -85,8 +85,8 @@ export default {
         .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        var userCreation = user.metadata.createdAt;
-        var userLastLogin = user.metadata.lastLoginAt;
+        var userCreation = user.metadata.creationTime;
+        var userLastLogin = user.metadata.lastSignInTime;
         var userEmail = user.email;
         var userName = user.displayName;
         // console.log(user);
