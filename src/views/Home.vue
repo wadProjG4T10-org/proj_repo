@@ -9,8 +9,17 @@ import HelloWorld from '../components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  emit: ['userLoggedInListener'],
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   components: {
     HelloWorld
+  },
+  mounted() {
+    this.$emit('userLoggedInListener', null);
   }
 }
 </script>

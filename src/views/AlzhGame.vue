@@ -1,8 +1,9 @@
 <template>
-  <div style="margin-top:20vh;">
+<body>
+  <div>
       <!-- <div class="background1" style="margin-top: 19vh;"> -->
-    <div>I am alzh game</div>
-    <div>Points Earned: {{ this.score }}</div>
+    <div class="header1">Alzheimer's Disease Game</div>
+    <div class="header2">Points Earned: {{ this.score }}</div>
     <!-- <div>{{ store.state.userEmail }}</div> -->
     <!-- <div>{{store.state.userEmail}}</div> -->
     <!-- <canvas ref="input" style="height:1000px; width:1000px;">Test</canvas> -->
@@ -11,6 +12,7 @@
         v-bind:initialize.prop="initialize"
       />
   </div>
+</body>
 </template>
 
 <script>
@@ -27,6 +29,11 @@ import eventsCenter from '../AlzhGame_files/EventsCenter';
 
 export default {
   name: 'AlzheimersGame',
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   created: function() {
     this.initUpdates(this);
   },
@@ -77,6 +84,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@font-face {
+  font-family: myFirstFont;
+  src: url('../fonts/PressStart2P-Regular.ttf');
+}
+@font-face {
+  font-family: mySecondFont;
+  src: url('../fonts/IndieFlower-Regular.ttf');
+}
   .special-jumbotron {
     height: "100vh";
     width: "100vw";
@@ -88,4 +103,18 @@ export default {
     height:100%; 
     background-size: cover;
   }
+
+body{
+  background-image: linear-gradient(to bottom right, #4a86965d, #9cadce,#ff69b489);
+}
+
+.header1{
+  font-family:mySecondFont;
+  padding-top:20px;
+  font-size:20px;
+}
+.header2{
+  font-family:myFirstFont;
+  font-size:30px;
+}
 </style>
