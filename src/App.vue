@@ -41,8 +41,8 @@
         <a href="#" style="padding-right: 40px;"> Sign Out </a>
     </nav>
 
-  <router-view/>
-  <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
+    <router-view/>
+    <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
 
 </template>
 
@@ -50,7 +50,6 @@
 // import { provide } from 'vue';
 // import store from '@/store';
 // import { useCounterProvider } from '../src/store/counter';
-
 export default {
   name: 'App',
 //   setup() {
@@ -65,23 +64,18 @@ export default {
     padding-bottom: 0 !important;
     font-size: 20px;
 }
-
 .dropdown:hover .dropdown-menu{
     display: block;
     border-radius: 15px;
 }
-
 .navbar-nav li{
     padding-left:10px;
     padding-right:10px;
     margin-left:5px;
     margin-right:5px;
 }
-
 .navbar-nav li:hover{
     background-color: #d1cfe2; 
     border-radius: 20px;
 }
-
 </style>
-
