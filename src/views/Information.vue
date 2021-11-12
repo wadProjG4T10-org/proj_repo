@@ -424,6 +424,11 @@ picture {
 	z-index:991;
 }
 
+.modal_text h1{
+	font-weight: bold;
+	font-size:60px;
+}
+
 .modal_inner{
 	display:flex;
 	align-content: center;
@@ -432,6 +437,10 @@ picture {
 	margin:40px;
 	padding-top:40px;
 	font-weight:bold;
+}
+
+.modal_inner h3{
+	font-weight: bold;
 }
 
 .modal_text::-webkit-scrollbar {
