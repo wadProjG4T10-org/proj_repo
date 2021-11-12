@@ -44,6 +44,9 @@ import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 export default {
   name: 'LoginPage',
+  created: function() {
+    window.localStorage.removeItem('userInformation');
+  },
   data() {
       return {
         form: {

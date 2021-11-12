@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default {
 name: "Information",
@@ -125,6 +126,27 @@ methods: {
 	open(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.add('show');
+		console.log("open");
+		const db = getFirestore();
+		if(current_id === "mc_alzheimers"){
+			var alzhRef = doc(db, "informationDashboard", 'Alzheimers Disease')
+			getDoc(alzhRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
+		else if (current_id === "mc_diabetes"){
+			var diabetesRef = doc(db, "informationDashboard", 'Diabetes')
+			getDoc(diabetesRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
+		else {
+			var depressionRef = doc(db, "informationDashboard", 'Depression')
+			getDoc(depressionRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
+
 	},
 	close(current_id){
 		const modal_container = document.getElementById(current_id);
