@@ -2,7 +2,7 @@
 <html>
 	<body>
         <main class="container-fluid">
-			<header class="container-fluid">
+			<header class="container">
 				<div class="row" id="header_text">
 					<h1>INFORMATION</h1>
 					<p>
@@ -16,7 +16,7 @@
 				<input type='button' class="button" id="rightButton" v-on:click="rightclick()">
 				<input type='button' class="button" id="leftButton" v-on:click="leftclick()">
 			</div>
-				<div class="section container-fluid col-md-6 col-sm-2" id="section">
+				<div class="section" id="section">
 					<div class="product" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 						<picture>
 							<img class="productImg" src="../assets/alzheimers.png" alt= "alzheimers">
@@ -25,15 +25,15 @@
 						</picture>
 							<div class="modal_container" id="mc_alzheimers">
 								<div class="modal_text">
-									<h1>Alzheimer's Disease</h1>
-									<p>symptoms</p>
+									<h1>Alzheimers</h1>
+									<p>symptoms:</p>
 									<input type="button" class="modal_button" v-on:click="close('mc_alzheimers')" value="close">
 								</div>
 							</div>
 					</div>
 					
 
-					<!-- <div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
+					<div class="product" @mouseover="hover_f = true" @mouseleave="hover_f = false">
 						<picture>
 							<img class="productImg" src="../assets/falls.png" alt= "falls">
 							<input type="button" class="modal_button open" v-on:click="open('mc_falls')" value="Click for more" v-if="hover_f">
@@ -41,11 +41,11 @@
 							<div class="modal_container" id="mc_falls">
 								<div class="modal_text">
 									<h1>Falls</h1>
-									<p>symptoms</p>
+									<p>symptoms:</p>
 									<input type="button" class="modal_button" v-on:click="close('mc_falls')" value="close">
 								</div>
 							</div>
-					</div> -->
+					</div>
 
 
 					<div class="product" @mouseover="hover_d = true" @mouseleave="hover_d = false">
@@ -56,7 +56,7 @@
 							<div class="modal_container" id="mc_diabetes">
 								<div class="modal_text">
 									<h1>Diabetes</h1>
-									<p>symptoms</p>
+									<p>symptoms:</p>
 									<input type="button" class="modal_button" v-on:click="close('mc_diabetes')" value="close">
 								</div>
 							</div>
@@ -71,14 +71,14 @@
 							<div class="modal_container" id="mc_depression">
 								<div class="modal_text">
 									<h1>Depression</h1>
-									<p>symptoms</p>
+									<p>symptoms:</p>
 									<input type="button" class="modal_button" v-on:click="close('mc_depression')" value="close">
 								</div>
 							</div>
 					</div>
 
 
-					<!-- <div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
+					<div class="product" @mouseover="hover_h = true" @mouseleave="hover_h = false">
 						<picture>
 							<img class="productImg" src="../assets/heart.png" alt= "heart">
 							<input type="button" class="modal_button open" v-on:click="open('mc_heart')" value="Click for more" v-if="hover_h">
@@ -86,11 +86,11 @@
 							<div class="modal_container" id="mc_heart">
 								<div class="modal_text">
 									<h1>Heart Disease</h1>
-									<p>symptoms</p>
+									<p>symptoms:</p>
 									<input type="button" class="modal_button" v-on:click="close('mc_heart')" value="close">
 								</div>
 							</div>
-					</div> -->
+					</div>
 
 				</div>
         </main>
@@ -121,10 +121,31 @@ methods: {
 	open(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.add('show');
+		console.log("open");
+		const db = getFirestore();
+		if(current_id === "mc_alzheimers"){
+			var alzhRef = doc(db, "informationDashboard", 'Alzheimers Disease')
+			getDoc(alzhRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
+		else if (current_id === "mc_diabetes"){
+			var diabetesRef = doc(db, "informationDashboard", 'Diabetes')
+			getDoc(diabetesRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
+		else {
+			var depressionRef = doc(db, "informationDashboard", 'Depression')
+			getDoc(depressionRef).then((snapshot) => {
+				console.log(snapshot.data());
+			})
+		}
 	},
 	close(current_id){
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.remove('show');
+
 	},
 	hovering(){
 		const button = document.getElementsByClassName('modal_button');
@@ -168,8 +189,7 @@ header{
 	color: #554;
 	z-index:0;
 	font-weight:bold;
-	padding-top:60px;
-	padding-bottom:0px;
+	padding-top:40px;
 	/* background-color:red; */
 }
 header h1{
@@ -192,8 +212,7 @@ header h1{
 }
 
 .section::-webkit-scrollbar {
-	display: show;
-
+	display:none;
 }
 
 
@@ -271,13 +290,12 @@ picture {
 .modal_text {
 	padding:200px;
 	border-radius:20px;
-	background-image: linear-gradient(to bottom right, #696979, #7c8fb1,#b2a4bb);
-	color:white;
+	background-image: linear-gradient(to bottom right, #d1cef2, #9cadce,#d4afb9);
+
 }
-.modal_text h1{
+.model_text h1{
 	font-weight: bold;
 }
-
 
 
 .modal_button {
