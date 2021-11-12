@@ -42,7 +42,10 @@
     </nav>
 
   <router-view/>
-  <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
+  <!-- Footer-->
+  <footer class="py-5 bg-light">
+      <div class="container px-5"><p class="m-0 text-center text-dark">Brought to you by Group 4 Team 10 &copy; Singapore Management University</p></div>
+  </footer>
 
 </template>
 

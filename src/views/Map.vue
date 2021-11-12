@@ -1,72 +1,98 @@
 <template>
-  <br><br>
-  <br><br>
-  <br><br>
-  <br><br>
-  <div class="row">
-    <!--Grid column-->
-    <div class="col-lg-5 mb-4">
-      <!--Form with header-->
-      <div class="card">
-        <div class="card-body">
-          <!--Header-->
-          <div class="form-header">
-            <h3>Help is in your way!</h3>
-          </div>
-          <p>this map is currently in progress :) </p>
-          <br>
-          <div class="form-header" style="color:red;" v-show="error">
-            <h2>{{error}}</h2>
-          </div>
-          <!--Body-->
-          <div class="md-form" >
-              <!--User input his/her LOCATION automatically or manually-->
+<header class="bg-light py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-success mb-2">Map is the new way</h1>
+                    <p class="text-secondary-50 mb-5">I wanted to have hospital/doctor to be suggested according to your location but i suck</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                        <a class="btn btn-info text-white btn-lg px-4" href="#feedback">Tell Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- MAP Features section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="form-header">
+                    <h3>Search a location</h3>
+                </div>
+                    <p>this map is currently in progress :) </p>
+                    <br>
+                <div class="form-header" style="color:red;" v-show="error">
+                    <h2>{{error}}</h2>
+                </div>
                 <div class="input-group">
                     <input
-                    type="text"
-                    id="autocomplete"
-                    class="form-control"
-                    placeholder="Enter a location"
-                    v-model="address"
+                        type="text"
+                        id="autocomplete"
+                        class="form-control"
+                        placeholder="Enter a location"
+                        v-model="address"
                     />
-                    <button type="button" @click="userLocationButton" class="btn btn-danger">
+                    <button type="button" @click="userLocationButton" class="btn btn-outline-danger">
                         <i class="bi bi-geo-alt-fill"></i>
                     </button>
                 </div>
-          </div>
-          <br><br>
-          <div class="md-form" >
-            <div class="input-group">
-                <!--User input his/her DESTINATION automatically or manually-->
-                <input
-                    type="text"
-                    id="autocomplete"
-                    class="form-control"
-                    placeholder="Your Destination"
-                    v-model="address"
-                />
-                <button type="button" class="btn btn-primary">
-                    <i class="bi bi-box-arrow-right"></i>
-                </button>
             </div>
-          </div>
+                    
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div id="map" style="height: 400px"></div>
+            </div>
         </div>
-      </div>
-      <!--Form with header-->
     </div>
-    <!--Grid column-->
-    <!--Grid column-->
-    <div class="col-lg-7">
-      <!--Google map-->
-      <div id="map" class="z-depth-1-half map-container-6" style="height: 400px">
-        <!--<div ref="mapDiv" style="width: 700px; height:400px"></div> -->
-      </div>
+</section>
+<!-- Contact section-->
+<section class="bg-light py-5" id="feedback">
+    <div class="container px-5 my-5 px-5">
+        <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                <h2 class="fw-bolder">Get in touch</h2>
+                <p class="lead mb-0">We'd love to hear from you</p>
+            </div>
+
+            <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form id="contactForm">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name" />
+                                <label for="name">Full name</label>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com"/>
+                                <label for="email">Email address</label>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(65) 9123-7890" />
+                                <label for="phone">Phone number</label>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+        </div>
     </div>
-  </div>
+</section>
+
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
 
     data() {
@@ -75,24 +101,25 @@ export default {
             error: ""
         }
     },//data
+    
     mounted() {
         //call DOM, autocomplete object
         // eslint-disable-next-line no-undef
-        let autocomplete = new google.maps.places.Autocomplete(
-            document.getElementById("autocomplete"),
-            //searches is set to SG region
-            {
+        var options = {
                 // eslint-disable-next-line no-undef
                 bounds: new google.maps.LatLngBounds(
                     // eslint-disable-next-line no-undef
                     new google.maps.LatLng(1.290270, 103.851959)
-                )
-            },
-            {
-                componentRestrictions: { country: "sg" },
-            }
+                ),
+                //search only sg region
+                componentRestrictions: {
+                    country: "sg"
+                },
+        }
+        // eslint-disable-next-line no-undef
+        let autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById("autocomplete"), options);
 
-        )
         autocomplete.addListener("place_changed", () =>{
             let place = autocomplete.getPlace();
             console.log(place);
@@ -180,12 +207,17 @@ export default {
                 zoom: 6
             })
         },
-        calculateRoute() {
-            //create request
+        // A Nearby Search lets you search for places within a specified area
+        // by keyword or type. A Nearby Search must always include a location,
+        // which can be specified in one of two ways:
+        searchNearby() {
+
         }
-
-
     }
 }//export
 
 </script>
+
+<style>
+
+</style>
