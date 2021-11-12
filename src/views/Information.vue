@@ -311,6 +311,9 @@ header h1{
 	font-size:100px;
 }
 
+.modal_inner h3{ 
+	font-weight: bold;
+}
 .section{
 	/* background: purple; */
 	display: flex;
@@ -318,12 +321,13 @@ header h1{
 	overflow-x: hidden;
 	scroll-behavior: smooth; 
 	position: relative;
-	height:70%;
+	height:60%;
 	width:100%;
 	margin-left:0px;
 	margin-right:0px;
 	padding-left: 100px;
 	padding-right: 100px;
+
 }
 .section:hover{
 	overflow-x:auto;
@@ -504,7 +508,7 @@ picture {
 #rightButton{
 	position:absolute;
 	right:250px;
-	top:55%;
+	top:50%;
 	z-index:100;
 	background-image: url("../assets/right.png");
 	background-repeat:  no-repeat;
@@ -518,7 +522,7 @@ picture {
 #leftButton{
 	position:absolute;
 	left:250px;
-	top:55%;
+	top:50%;
 	z-index:100;
 	background-image: url('../assets/left.png');
 	background-repeat:  no-repeat;
