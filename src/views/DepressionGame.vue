@@ -1,12 +1,17 @@
 <template>
-  <div>I am depression game</div>
-  <div>{{ this.score }}</div>
-    <div class="ion-container">
-      <ion-phaser 
-        v-bind:game.prop="game"
-        v-bind:initialize.prop="initialize"
-        />
-    </div>
+  <body>
+    <br>
+    <div>This is Life</div>
+    <div>Coins earned: {{ this.score }}</div>
+      <div class="ion-container">
+        <ion-phaser 
+          v-bind:game.prop="game"
+          v-bind:initialize.prop="initialize"
+          />
+      </div>
+    <div>Use the arrows to move</div>
+    <div>Collect coins, skip the spikes and win!</div>
+  </body>
 </template>
 
 <script>
@@ -32,9 +37,9 @@ export default {
       score: 0,
       initialize: true,
       game: {
+        width: "80%",
+        height:"75%",
         type: Phaser.AUTO,
-        width: 700,
-        height: 600,
         backgroundColor: '#d1edff',
         // mode: Phaser.Scale.FIT,
         // autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -71,9 +76,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .special-jumbotron {
-height:95vh;
-min-height:90%;
-max-height:90%;
+
+@font-face {
+  font-family: myFirstFont;
+  src: url('../fonts/PressStart2P-Regular.ttf');
+}
+@font-face {
+  font-family: mySecondFont;
+  src: url('../fonts/IndieFlower-Regular.ttf');
+}
+
+body{
+  background-image: linear-gradient(to bottom right, #52acffa2, #233f77,#52acffa2);
+  font-family: myFirstFont;
+  color: white;
 }
 </style>

@@ -62,7 +62,6 @@
                 </b-card-text>
                 
                 <br>
-                
                 <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/diabetes" size="lg" >
                   Play Now!
                 </b-button>
