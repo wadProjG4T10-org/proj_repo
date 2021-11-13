@@ -61,7 +61,7 @@ export default class depressionGame extends Phaser.Scene {
         // Add the player to the game world
         this.player = this.physics.add.sprite(50, 300, 'player');
         this.player.setBounce(0.1); 
-        this.physics.world.setBounds( 0, 0, map.widthInPixels, 640);
+        this.physics.world.setBounds( 0, 0, map.widthInPixels, map.heightInPixels);
         this.player.setCollideWorldBounds(true); 
         this.physics.add.collider(this.player, platforms);
 
@@ -105,11 +105,13 @@ export default class depressionGame extends Phaser.Scene {
         var exitLayer = map.createLayer('exit', exitSign, 0, 100);
         exitLayer.setTileIndexCallback(100, gameWon, this);
         this.physics.add.overlap(this.player, exitLayer);
+        // this.physics.add.collider(this.player, this.spikes, null, gameWon, this);
+
 
 
         map.getObjectLayer('spikes').objects.forEach((spike) => {
-        const spikeSprite = this.spikes.create(spike.x, spike.y + 100 - spike.height, 'spike').setOrigin(0);
-            spikeSprite.body.setSize(spike.width, spike.height - 20).setOffset(0, 20);
+          const spikeSprite = this.spikes.create(spike.x, spike.y + 100 - spike.height, 'spike').setOrigin(0);
+          spikeSprite.body.setSize(spike.width, spike.height - 20).setOffset(0, 20);
         });
 
         this.physics.add.collider(this.player, this.spikes, playerHit, null, this);
@@ -177,14 +179,16 @@ export default class depressionGame extends Phaser.Scene {
       // not working and idk why
       function gameWon() {
         this.alive = false;
-        // console.log(this.alive)
-        return;
+        this.player.setVelocityX(0);
+        if (this.player.body.onFloor()) {
+          this.player.play('idle', true);
+        }
         }
     }
 
     update() {
 
-        if (!this.alive) {
+        if (!this.alive && this.hearts == 0) {
           this.scoreText = this.add.text(
               570 * 0.5, 
               500 * 0.5, 
@@ -202,7 +206,27 @@ export default class depressionGame extends Phaser.Scene {
 
           this.input.on(`pointerdown`, () => this.scene.start('depressionOver'));
           return;
+
+        } else if (!this.alive) {
+          this.textScore = this.add.text(
+          5750, 
+          500 * 0.5, 
+          `Coins Earned: ${this.coins}`, 
+          {
+              color: "#000000",
+              fontSize: 30,
+          }).setOrigin(0.5)
+
+          this.message = this.add.text(5750, 500 * 0.75, `<Click to continue>`, {
+            color: "#000000",  
+            fontSize: 25,
+          })
+          .setOrigin(0.5)
+
+          this.input.on(`pointerdown`, () => this.scene.start('depressionOver'));
+          return;
         }
+
 
         if (this.cursors.left.isDown) {
           this.player.setVelocityX(-200);
