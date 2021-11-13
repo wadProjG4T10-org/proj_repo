@@ -1,20 +1,18 @@
 <template>
-<header class="bg-light py-5">
+<header class="gradientBackground py-5">
     <div class="container px-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
-                <div class="text-center my-5">
-                    <h1 class="display-5 fw-bolder text-success mb-2">Map is the new way</h1>
-                    <p class="text-secondary-50 mb-5">I wanted to have hospital/doctor to be suggested according to your location but i suck</p>
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                        <a class="btn btn-info text-white btn-lg px-4" href="#feedback">Tell Us</a>
-                    </div>
+                <div class="text-center my-4">
+                    <h1 class="main-title fw-bolder text-white mb-2">Map is the NEW way</h1>
+                    <!--<p class="text-black subs"> Use our friendly maps to guide you to find the nearest hospitals/clinics </p>-->
                 </div>
             </div>
         </div>
+        <p class="text-black subs"> Use our friendly maps to guide you to find the nearest hospitals/clinics </p>
     </div>
 </header>
+
 <!-- MAP Features section-->
 <section class="py-5 border-bottom" id="features">
     <div class="container px-5 my-5">
@@ -48,43 +46,47 @@
         </div>
     </div>
 </section>
-<!-- Contact section-->
-<section class="bg-light py-5" id="feedback">
-    <div class="container px-5 my-5 px-5">
-        <div class="text-center mb-5">
-            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                <h2 class="fw-bolder">Get in touch</h2>
-                <p class="lead mb-0">We'd love to hear from you</p>
-            </div>
 
-            <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <form id="contactForm">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name" />
-                                <label for="name">Full name</label>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com"/>
-                                <label for="email">Email address</label>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(65) 9123-7890" />
-                                <label for="phone">Phone number</label>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
-                                <label for="message">Message</label>
-                            </div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                        </form>
-                    </div>
+<!-- Team members section-->
+<section class="gradientBackground py-5" id="feedback">
+    <div class="container-fluid px-5 my-4 px-5">
+        <div class="text-center mb-5">
+            <h2 class="second-main fw-bolder text-white">Meet the Web Developers</h2>
+            
+            <p class="lead mb-0">"We're glad to make a change in our society"</p>
         </div>
+
+        <!-- TEAM MEMBERS PHOTOS  -->
+        <b-row class="teaminfo">
+            <b-col>
+                <img class="productImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
+                <p > Guganesh </p>
+                <p> Full Stack Developer </p>
+            </b-col>
+            <b-col>
+                <img class="productImg" src="../assets/teammates/liqing.png" alt= "liqing">
+                <p> Li Qing </p>
+                <p> Full Stack Developer </p>
+            </b-col>
+            <b-col>
+                <img class="productImg" src="../assets/teammates/avigale.png" alt= "avigale">
+                <p> Avigale </p>
+                <p> Full Stack Developer </p>
+            </b-col>
+        </b-row>
+        <br/>
+        <b-row class="teaminfo">
+            <b-col>
+                <img class="productImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
+                <p> Zi Yi </p>
+                <p> Web Designer </p>
+            </b-col>
+            <b-col>
+                <img class="productImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
+                <p> Hazyra </p>
+                <p> Web Designer </p>
+            </b-col>
+        </b-row>
     </div>
 </section>
 
@@ -225,5 +227,46 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: mySecondFont;
+    src: url('../fonts/IndieFlower-Regular.ttf');
+}
+
+.gradientBackground {
+	font-family: mySecondFont;
+	background-image: linear-gradient(to bottom right, #d1cef2, #9cadce,#d4afb9);
+	position: relative;
+}
+
+.main-title {
+    text-shadow: 2px 2px black;
+    font-size: 400%;
+}
+
+.subs {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.second-main {
+    text-shadow: 2px 2px black;
+    font-size: 250%;
+}
+
+.productImg{
+	align-self: center;
+	width: 50%;
+	height: 70%;
+    /* margin-top: 20px; */
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom:20px;
+	z-index:0;
+}
+
+.teaminfo {
+    font-size: 100%;
+    font-weight: bold;
+}
 
 </style>
