@@ -353,7 +353,6 @@ picture {
 	align-items: center;
 	padding: 10%;
 	transition: 0.5s;
-	display: flex;
 }
 .product:hover {
 	margin-left: 60px;

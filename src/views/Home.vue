@@ -3,9 +3,10 @@
   <div class="container-fluid">
 
     <b-row class='rows well aos-item' 
-    style="background: #d4afb9" 
+    style="background: #d4afb9;" 
     data-aos="zoom-out"
-    data-aos-offset=0>
+    data-aos-offset=0
+    >
 
       <b-col align="center">
         <h1>kritical care</h1>
@@ -19,7 +20,7 @@
     style="background: #d1cfe2;" 
     data-aos="fade-left">
 
-      <b-col>
+      <b-col style="height: 90vh;">
         <img src='../assets/game.png' class='icons'> <br>
         Educational games in Singapore that teach about illnesses
       </b-col>
@@ -29,7 +30,7 @@
     style="background: #9cadce;" 
     data-aos="fade-right">
 
-      <b-col>
+      <b-col style="height: 90vh;">
         <img src='../assets/gps.png' class='icons'> <br>
         Want to find the nearest clinics and hospitals?
       </b-col>
@@ -39,7 +40,7 @@
     style="background: #7ec4cf;" 
     data-aos="fade-left">
 
-      <b-col>
+      <b-col style="height: 90vh;">
         <img src='../assets/info_icon.png' class='icons'> <br>
         Information about the top 3 illnesses faced by the Elderly.
       </b-col>
@@ -50,10 +51,11 @@
     data-aos="fade-right"
     data-aos-offset=200>
       
-      <b>About kritical care...</b> 
-      <br>
+        <b-col style="height: 90vh;">
+          <b>About kritical care...</b> 
+          <br>
       We wanted to create a website that can teach children about the serious illnesses that the Elderly face as well as what they can do to help.
-     
+        </b-col>
     </b-row>
 
     <b-row class='rows'
