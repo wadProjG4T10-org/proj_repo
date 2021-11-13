@@ -50,17 +50,17 @@ export default class AlzheimersGame extends Phaser.Scene {
     preload() {
         this.randomiseCases(true);
 
-        const { width, height } = this.scale;
+        // const { width, height } = this.scale;
 
-        this.instructionsOne = this.add.text(width * 0.5, height * 0.05, `Match the animals to win!`, {
-            fontSize: 20,
-        })
-        .setOrigin(0.5)
+        // this.instructionsOne = this.add.text(width * 0.5, height * 0.05, `Match the animals to win!`, {
+        //     fontSize: 20,
+        // })
+        // .setOrigin(0.5)
 
-        this.instructionsTwo = this.add.text(width * 0.5, height * 0.08, `Use arrow keys to move character and click <spacebar> to peek into the crates`, {
-            fontSize: 20,
-        })
-        .setOrigin(0.5)
+        // this.instructionsTwo = this.add.text(width * 0.5, height * 0.08, `Use arrow keys to move character and click <spacebar> to peek into the crates`, {
+        //     fontSize: 20,
+        // })
+        // .setOrigin(0.5)
 
     }
 
@@ -278,8 +278,8 @@ export default class AlzheimersGame extends Phaser.Scene {
             this.character.active = false;
             this.character.setVelocity(0, 0);
 
-            this.instructionsOne.destroy();
-            this.instructionsTwo.destroy();
+            // this.instructionsOne.destroy();
+            // this.instructionsTwo.destroy();
 
 
             const { width, height } = this.scale;

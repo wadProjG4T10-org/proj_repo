@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white justify-content-center">
         <div class="container">
-            <div @click="goToHomePage"><a class="navbar-brand"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a></div>
+            <div @click="goToHomePage" style="cursor:pointer"><a class="navbar-brand"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a></div>
 
             <!-- Navbar collapse into an icon -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
@@ -11,28 +11,29 @@
             <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                 <!-- The bar contents to the right -->
                 <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
-                    <li class="nav-item">
+                    <li class="nav-item" style="cursor:pointer">
                         <a class="nav-link" @click="goToHomePage">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Games </a>
                         <!-- Games Dropdown -->
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" @click="goToGamesMenu" >Games Menu</a></li>
+                            <li style="cursor:pointer"><a class="dropdown-item" @click="goToGamesMenu" >Games Menu</a></li>
+                            <li style="cursor:pointer"><a class="dropdown-item" @click="goToLeaderboard">Leadersboard</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" @click="goToAlzhGame">Animatch</a></li>
-                            <li><a class="dropdown-item" @click="goToSnakeGame">Imma Eat You Up!</a></li>
-                            <li><a class="dropdown-item" @click="goToDepressionGame">This is life</a></li>
+                            <li style="cursor:pointer"><a class="dropdown-item" @click="goToAlzhGame">Animatch</a></li>
+                            <li style="cursor:pointer"><a class="dropdown-item" @click="goToSnakeGame">Imma Eat You Up!</a></li>
+                            <li style="cursor:pointer"><a class="dropdown-item" @click="goToDepressionGame">This is life</a></li>
                         </ul>
                     </li>
                     <!-- Map -->
-                    <li class="nav-item">
+                    <li class="nav-item" style="cursor:pointer">
                         <a class="nav-link" @click="goToMap">Map</a>
                     </li>
                     <!-- Information -->
-                    <li class="nav-item">
+                    <li class="nav-item" style="cursor:pointer">
                         <a class="nav-link" @click="goToInformationDashboard">Information</a>
                     </li>
                 </ul>
@@ -42,8 +43,11 @@
     </nav>
 
     <router-view @userLoggedInListener="isUserLoggedIn"/>
-    <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
-
+    <!-- Footer-->
+    <footer class="py-5 bg-light">
+      <div class="container px-5"><p class="m-0 text-center text-dark">Brought to you by Group 4 Team 10 &copy; Singapore Management University</p></div>
+    </footer>
+    
 </template>
 
 <script>
@@ -89,7 +93,7 @@ export default {
         goToHomePage: function() {
             this.$router.push('/home');
         },
-    }
+    },
 }
 </script>
 

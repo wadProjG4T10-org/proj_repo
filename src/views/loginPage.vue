@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-    <b-container fluid>
+    <b-container fluid style='margin-bottom: 170px'>
         <b-row>
           <b-col sm="3"></b-col>
           <b-col sm="6">
@@ -21,7 +21,7 @@
     </b-container>
   
      <b-container fluid class='imgContainer'>
-        <b-row>
+        <b-row align-content="between">
   
           <b-col>
             <img src='../assets/loginPageImg/doctor.png' class='icon'>
@@ -30,16 +30,16 @@
             <img src='../assets/loginPageImg/first-aid-kit.png' class='icon'>
           </b-col>
           <b-col>
-            <img src='../assets/loginPageImg/medical-history.png' class='icon'>
+            <img src='../assets/loginPageImg/cardiogram.png' class='icon'>
           </b-col>
           <b-col>
-            <img src='../assets/loginPageImg/doctor.png' class='icon'>
-          </b-col>
-          <b-col>
-            <img src='../assets/loginPageImg/first-aid-kit.png' class='icon'>
+            <img src='../assets/loginPageImg/healthcare.png' class='icon'>
           </b-col>
           <b-col>
             <img src='../assets/loginPageImg/medical-history.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/tele_doctor.png' class='icon'>
           </b-col>
   
         </b-row>
@@ -174,8 +174,7 @@ body {
 }
 
 .imgContainer {
-  position: absolute;
-  width: 100%;
+  max-width: 80%;
   bottom: 100px;
 }
 </style>

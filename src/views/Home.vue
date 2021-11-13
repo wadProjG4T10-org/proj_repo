@@ -20,6 +20,7 @@
     @click="goToGamesMenu">
 
       <b-col style="height: 90vh;" >
+      
         <img src='../assets/game.png' class='icons'> <br>
         Educational games in Singapore that teach about illnesses
       </b-col>
@@ -40,6 +41,7 @@
     style="background: #7ec4cf;" 
     data-aos="fade-left"
     @click='goToInformationDashboard'>
+
 
       <b-col style="height: 90vh;">
         <img src='../assets/info_icon.png' class='icons'> <br>
@@ -126,6 +128,7 @@ export default {
   font-family: mySecondFont;
   font-size: 20px;
   overflow-x: hidden;
+
 }
 
 /* .logoIcon {
