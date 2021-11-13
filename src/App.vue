@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white justify-content-center">
         <div class="container">
-            <a class="navbar-brand" @click="goToHomePage"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a>
+            <div @click="goToHomePage"><a class="navbar-brand"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a></div>
 
             <!-- Navbar collapse into an icon -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
@@ -33,7 +33,7 @@
                     </li>
                     <!-- Information -->
                     <li class="nav-item">
-                        <a class="nav-link" @click="checkRouter">Information</a>
+                        <a class="nav-link" @click="goToInformationDashboard">Information</a>
                     </li>
                 </ul>
             </div>
