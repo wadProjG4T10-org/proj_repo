@@ -106,6 +106,11 @@ export default {
 
 body{
   background-image: linear-gradient(to bottom right, #4a8798b1, #839dd0,#d25091c2);
+  /* background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; */
+
 }
 
 .header1{

@@ -128,7 +128,7 @@ export default {
 
         autocomplete.addListener("place_changed", () =>{
             let place = autocomplete.getPlace();
-            console.log(place);
+            // console.log(place);
             this.showUserLocationOnTheMap(
                 place.geometry.location.lat(),
                 place.geometry.location.lng()
@@ -187,12 +187,12 @@ export default {
                 } else {
                     //GEOCODING API
                     this.address = response.data.results[0].formatted_address
-                    console.log(response.data.results[0].formatted_address);
+                    // console.log(response.data.results[0].formatted_address);
                 }
             })
             .catch(error => {
                 this.error = error.message;
-                console.log(error.message);
+                // console.log(error.message);
             });
         },
         showUserLocationOnTheMap(latitude, longitude) {
