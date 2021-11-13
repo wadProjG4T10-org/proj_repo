@@ -48,6 +48,8 @@ export default {
       score: 0,
       initialize: true,
       game: {
+        width: "80%",
+        height:"75%",
         type: Phaser.AUTO,
         physics: {
           default: 'arcade',
@@ -110,6 +112,8 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover; */
+  /* height: 100vh;
+  width: 100vw; */
 
 }
 
