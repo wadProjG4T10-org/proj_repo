@@ -27,7 +27,7 @@ export default {
         getDocs(q).then((snapshot) => {
             snapshot.forEach((doc) => {
                 count ++;
-                this.results += `<tr><td class="count">${count}</td><td class="name">${doc.data().name}</td><td class="score">${doc.data().score}</td></tr>`
+                this.results += `<tr class="indivRows"><td>${count}</td><td>${doc.data().name}</td><td>${doc.data().score}</td></tr>`
                 // console.log(doc.id, "=>", doc.data());
             })
             this.results += `</table>`;
@@ -69,18 +69,23 @@ h1 {
     /* border:1px black solid; */
 }
 
-.count, .name, .score {
-    font-family: myThirdFont;
-    font-size:20px;
-}
-
 .overallTable {
     display:flex;
     justify-content: center;
     text-align: center;
     align-content: center;
     /* background-color:pink; */
+    overflow-y:auto;
 }
 
+.indivRows {
+    background-color:rgba(159, 149, 148, 0.228);
+    font-size:100px;
+    font-family: myThirdFont;
+}
+
+#test {
+    overflow-y:auto;
+}
 
 </style>
