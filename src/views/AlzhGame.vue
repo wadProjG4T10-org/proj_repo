@@ -2,7 +2,7 @@
 <body>
   <div>
       <!-- <div class="background1" style="margin-top: 19vh;"> -->
-    <div class="header1">Alzheimer's Disease Game</div>
+    <div class="header1">Welcome to Animatch!</div>
     <div class="header2">Points Earned: {{ this.score }}</div>
     <!-- <div>{{ store.state.userEmail }}</div> -->
     <!-- <div>{{store.state.userEmail}}</div> -->
@@ -109,9 +109,9 @@ body{
 }
 
 .header1{
-  font-family:mySecondFont;
+  font-family:myFirstFont;
   padding-top:20px;
-  font-size:20px;
+  font-size:40px;
   font-weight:bold;
 }
 .header2{
