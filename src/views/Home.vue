@@ -6,12 +6,9 @@
     style="background: #d4afb9;" 
     data-aos="zoom-out">
 
-      <b-col align="center">
+      <b-col>
         <h1>kritical care</h1>
       </b-col>
-      <!-- <b-col align="center">
-        <img src='../assets/kriticalcare(newedit).png' class='logoIcon'>
-      </b-col> -->
     </b-row>
 
     <b-row class='rows well aos-item' 
@@ -19,8 +16,7 @@
     data-aos="fade-left" 
     @click="goToGamesMenu">
 
-      <b-col style="height: 90vh;" >
-      
+      <b-col>
         <img src='../assets/game.png' class='icons'> <br>
         Educational games in Singapore that teach about illnesses
       </b-col>
@@ -31,7 +27,7 @@
     data-aos="fade-right"
     @click="goToMap">
 
-      <b-col style="height: 90vh;">
+      <b-col>
         <img src='../assets/gps.png' class='icons' > <br>
         Want to find the nearest clinics and hospitals?
       </b-col>
@@ -43,7 +39,7 @@
     @click='goToInformationDashboard'>
 
 
-      <b-col style="height: 90vh;">
+      <b-col>
         <img src='../assets/info_icon.png' class='icons'> <br>
         Information about the top 3 illnesses faced by the Elderly.
       </b-col>
@@ -53,7 +49,7 @@
     style="background: #daeaf6;" 
     data-aos="fade-right">
       
-        <b-col style="height: 90vh;">
+        <b-col>
           <b>About kritical care...</b> 
           <br>
       We wanted to create a website that can teach children about the serious illnesses that the Elderly face as well as what they can do to help.
@@ -126,15 +122,9 @@ export default {
 
 .container-fluid {
   font-family: mySecondFont;
-  font-size: 20px;
+  font-size: 30px;
   overflow-x: hidden;
-
 }
-
-/* .logoIcon {
-  width: 250px;
-  height: 250px;
-} */
 
 .icons {
   width: 35px;
@@ -142,7 +132,8 @@ export default {
 }
 
 .rows {
-  padding: 200px;
+  height: 90vh;
+  align-content: center;
 }
 
 </style>
