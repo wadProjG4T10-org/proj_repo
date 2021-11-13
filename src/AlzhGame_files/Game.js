@@ -48,7 +48,7 @@ export default class AlzheimersGame extends Phaser.Scene {
     }
 
     preload() {
-        this.randomiseCases(true);
+        this.randomiseCases(false);
 
         // const { width, height } = this.scale;
 
@@ -323,7 +323,7 @@ export default class AlzheimersGame extends Phaser.Scene {
     }
 
     updateCharacter() {
-        const movement = 180;
+        const movement = 240;
 
         if (this.cursors.left.isDown) {
             this.character.setVelocity(-movement, 0);

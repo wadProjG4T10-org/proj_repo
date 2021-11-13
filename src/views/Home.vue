@@ -4,15 +4,28 @@
 
     <b-row class='rows well aos-item' 
     style="background: #d4afb9;" 
-    data-aos="zoom-out">
+    data-aos="zoom-in">
 
       <b-col>
-        <h1>kritical care</h1>
+        <h1>kritical care</h1> <br>
+        <p>
+          Scroll down to see what we have in store for you.
+        </p>
+        <p>
+          Navigate through our site with the sections below 
+          or with the navigation bar at the top
+        </p>
+
+        <p class='scrollDown'>
+          Scroll down
+          <img src='../assets/arrow.png' class='scrollImg'>
+        </p>
+      
       </b-col>
     </b-row>
 
     <b-row class='rows well aos-item' 
-    style="background: #d1cfe2;" 
+    style="background: #d1cfe2; cursor: pointer;" 
     data-aos="fade-left" 
     @click="goToGamesMenu">
 
@@ -23,7 +36,7 @@
     </b-row>
 
     <b-row class='rows aos-item' 
-    style="background: #9cadce;" 
+    style="background: #9cadce; cursor: pointer;" 
     data-aos="fade-right"
     @click="goToMap">
 
@@ -34,7 +47,7 @@
     </b-row>
 
     <b-row class='rows' 
-    style="background: #7ec4cf;" 
+    style="background: #7ec4cf; cursor: pointer;" 
     data-aos="fade-left"
     @click='goToInformationDashboard'>
 
@@ -52,13 +65,13 @@
         <b-col>
           <b>About kritical care...</b> 
           <br>
-      We wanted to create a website that can teach children about the serious illnesses that the Elderly face as well as what they can do to help.
+          We wanted to create a website that can teach children about the serious illnesses 
+          that the Elderly face as well as what they can do to help.
         </b-col>
     </b-row>
 
     <b-row class='rows'
     data-aos="zoom-in-up">
-
       <b-col>
         Special Thanks to <br>
         Prof Mok <br>
@@ -120,7 +133,13 @@ export default {
   /*margin-top: 60px;*/
 }
 
+p { 
+  font-size: 20px;
+  text-align: center;
+}
+
 .container-fluid {
+  display: block;
   font-family: mySecondFont;
   font-size: 30px;
   overflow-x: hidden;
@@ -134,6 +153,33 @@ export default {
 .rows {
   height: 90vh;
   align-content: center;
+}
+
+@keyframes pusle
+{
+    0% {
+        bottom: 1.5%;
+    }
+    50% {
+        bottom: 3%;
+    }
+    100% {
+        bottom: 1.5%;
+    }
+}
+
+.scrollImg {
+  position: absolute;
+  width:25px;
+	height:25px;
+  animation: pusle 2s infinite;
+}
+
+.scrollDown {
+  height: 70%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 </style>

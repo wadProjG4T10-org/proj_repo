@@ -1,10 +1,10 @@
 <template>
 <header class="gradientBackground py-5">
-    <div class="container px-5">
+    <div class="container pb-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
-                <div class="text-center my-4">
-                    <h1 class="main-title fw-bolder text-white mb-2">Map is the NEW way</h1>
+                <div class="text-center">
+                    <h1 class="main-title fw-bolder text-white">Map is the NEW way</h1>
                     <!--<p class="text-black subs"> Use our friendly maps to guide you to find the nearest hospitals/clinics </p>-->
                 </div>
             </div>
@@ -21,8 +21,10 @@
                 <div class="form-header">
                     <h3>Search a location</h3>
                 </div>
-                    <p>this map is currently in progress :) </p>
-                    <br>
+                    <p>Key in a location and find the nearest medical centres around it by clicking on "Find"</p>
+                    <hr>
+                    <h3>Want to find the nearest medical centres around you?</h3>
+                    <p>Click the locator icon and click on "Find"</p>
                 <div class="form-header" style="color:red;" v-show="error">
                     <h2>{{error}}</h2>
                 </div>
@@ -38,6 +40,10 @@
                         <i class="bi bi-geo-alt-fill"></i>
                     </button>
                 </div>
+                <br>
+                <div>
+                    <button @click="initialize" class="btn btn-outline-danger">Find</button>
+                </div>
             </div>
                     
             <div class="col-lg-8 mb-5 mb-lg-0">
@@ -48,7 +54,7 @@
 </section>
 
 <!-- Team members section-->
-<section class="gradientBackground py-5" id="feedback">
+<section class="gradientBackground py-5">
     <div class="container-fluid px-5 my-4 px-5">
         <div class="text-center mb-5">
             <h2 class="second-main fw-bolder text-white">Meet the Web Developers</h2>
@@ -59,17 +65,17 @@
         <!-- TEAM MEMBERS PHOTOS  -->
         <b-row class="teaminfo">
             <b-col>
-                <img class="productImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
+                <img class="teamImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
                 <p > Guganesh </p>
                 <p> Full Stack Developer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/liqing.png" alt= "liqing">
+                <img class="teamImg" src="../assets/teammates/liqing.png" alt= "liqing">
                 <p> Li Qing </p>
                 <p> Full Stack Developer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/avigale.png" alt= "avigale">
+                <img class="teamImg" src="../assets/teammates/avigale.png" alt= "avigale">
                 <p> Avigale </p>
                 <p> Full Stack Developer </p>
             </b-col>
@@ -77,16 +83,17 @@
         <br/>
         <b-row class="teaminfo">
             <b-col>
-                <img class="productImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
+                <img class="teamImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
                 <p> Zi Yi </p>
                 <p> Web Designer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
+                <img class="teamImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
                 <p> Hazyra </p>
                 <p> Web Designer </p>
             </b-col>
         </b-row>
+        <br/>
     </div>
 </section>
 
@@ -95,14 +102,24 @@
 <script>
 import axios from 'axios'
 
+var map;
+var service;
+// eslint-disable-next-line no-undef
+let infowindow = new google.maps.InfoWindow;
+
 export default {
 
     data() {
         return{
+            lat: 0,
+            lng: 0, 
+            type: "hospital",
+            radius: 5000,
+            places: [],
             address: "",
-            error: ""
+            
         }
-    },//data
+    },
 
     beforeCreate() {
         if (window.localStorage.getItem("userInformation") === null) {
@@ -130,11 +147,15 @@ export default {
 
         autocomplete.addListener("place_changed", () =>{
             let place = autocomplete.getPlace();
+            this.lat = place.geometry.location.lat()
+            this.lng = place.geometry.location.lng()
+            this.showUserLocationOnTheMap(this.lat, this.lng);
+            // console.log(this.lat);
             // console.log(place);
-            this.showUserLocationOnTheMap(
-                place.geometry.location.lat(),
-                place.geometry.location.lng()
-            )
+            // this.showUserLocationOnTheMap(
+            //     place.geometry.location.lat(),
+            //     place.geometry.location.lng()
+            // )
         });
         //initMAP
         // eslint-disable-next-line no-undef
@@ -152,16 +173,21 @@ export default {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     position => {
+                        console.log(position);
+                        this.lat = position.coords.latitude;
+                        this.lng = position.coords.longitude;
+                        
                         this.getAddressFrom(
-                            position.coords.latitude,
-                            position.coords.longitude
+                            this.lat,
+                            this.lng
                         );
                         //console.log(position.coords.latitude);
                         //console.log(position.coords.longitude);
                         this.showUserLocationOnTheMap(
-                            position.coords.latitude,
-                            position.coords.longitude
-                        )
+                            this.lat,
+                            this.lng
+                        );
+                        // this.nearby(this.lat, this.lng)
                     },
                     // eslint-disable-next-line no-unused-vars
                     error => {
@@ -200,7 +226,7 @@ export default {
         showUserLocationOnTheMap(latitude, longitude) {
             //Create the Map object
             // eslint-disable-next-line no-undef
-            let map = new google.maps.Map(document.getElementById("map"), {
+            var map = new google.maps.Map(document.getElementById("map"), {
                 mapTypeId: "roadmap",
                 // eslint-disable-next-line no-undef
                 center: new google.maps.LatLng(latitude, longitude),
@@ -215,13 +241,58 @@ export default {
                 zoom: 6
             })
         },
-        // A Nearby Search lets you search for places within a specified area
-        // by keyword or type. A Nearby Search must always include a location,
-        // which can be specified in one of two ways:
-        searchNearby() {
+        initialize() {
+            
+            // eslint-disable-next-line no-undef
+            var pyrmont = new google.maps.LatLng(this.lat,this.lng);
 
+            // eslint-disable-next-line no-undef
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+            });
+
+            var request = {
+                location: pyrmont,
+                radius: this.radius,
+                type: this.type
+            };
+
+            // eslint-disable-next-line no-undef
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, this.callback);
+        },
+        callback(results, status) {
+        // eslint-disable-next-line no-undef
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    this.createMarker(results[i]);
+                    // console.log(results[i]);
+                }
+            }
+        },
+        createMarker(place) {
+            if (!place.geometry || !place.geometry.location) return;
+
+            // eslint-disable-next-line no-undef
+            const marker = new google.maps.Marker({
+                map,
+                position: place.geometry.location,
+            });
+
+            // eslint-disable-next-line no-undef
+            google.maps.event.addListener(marker, "click", () => {
+                // console.log('test');
+                // console.log(place);
+                infowindow.setContent(`${place.name}, ${place.vicinity}`);
+                infowindow.setPosition(place.geometry.location)
+                infowindow.open(map);
+            });
         }
+
     }
+
+
 }//export
 
 </script>
@@ -253,7 +324,7 @@ export default {
     font-size: 250%;
 }
 
-.productImg{
+.teamImg{
 	align-self: center;
 	width: 50%;
 	height: 70%;
