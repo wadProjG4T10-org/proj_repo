@@ -32,36 +32,44 @@ export default class depressionOver extends Phaser.Scene {
 
         const { width, height } = this.scale;
         this.add.text(width * 0.5, height * 0.2, `Symptoms of Depression include:`, {
+            fontFamily: "Papyrus, fantasy",
             fontSize: 40,
             wordWrap: {
                 width: width*0.8,
                 useAdvancedWrap: true
             },
-            align: 'center'
+            align: 'center',
+            color: '#000000'
         })
         .setOrigin(0.5)
     
-        this.add.text(width * 0.5, height * 0.4, `${symptoms[index]}`, {
-            fontSize: 25,
+        this.add.text(width * 0.5, height * 0.5, `${symptoms[index]}`, {
+            fontFamily: "Papyrus, fantasy",
+            fontSize: 30,
             wordWrap: {
                 width: width*0.8,
                 useAdvancedWrap: true
             },
-            align: 'center'
+            align: 'center',
+            color: '#000000'
         }).setOrigin(0.5)
 
         this.add.text(width * 0.5, height * 0.80, `*${disclaimer}`, {
-            fontSize: 15,
+            fontFamily: "Papyrus, fantasy",
+            fontSize: 25,
             wordWrap: {
                 width: width*0.9,
                 useAdvancedWrap: true
             },
             align: 'center',
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            color: '#000000'
         }).setOrigin(0.5)
 
         this.add.text(width * 0.5, height * 0.95, `<Click anywhere to play the game again!>`, {
+            fontFamily: "Papyrus, fantasy",
             fontSize: 25,
+            color: "#6b1515"
         }).setOrigin(0.5)
 
 
