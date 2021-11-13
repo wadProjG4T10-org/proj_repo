@@ -360,6 +360,7 @@ header h1{
 	align-items: center;
 	padding: 40px;
 	transition: 0.5s;
+	display: flex;
 }
 .product:hover {
 	margin-left: 60px;
