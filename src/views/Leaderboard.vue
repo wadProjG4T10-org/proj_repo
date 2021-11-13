@@ -1,7 +1,7 @@
 <template>
     <body class="background">
         <h1>Leaderboard</h1>
-        <div id="test" class="container"></div>
+        <div id="inner" class="container"></div>
     </body>
 </template>
 
@@ -31,7 +31,7 @@ export default {
                 // console.log(doc.id, "=>", doc.data());
             })
             this.results += `</table>`;
-            document.getElementById('test').innerHTML = this.results;
+            document.getElementById('inner').innerHTML = this.results;
         })
     },
     name: 'Leaderboard',
@@ -52,6 +52,10 @@ export default {
 	font-family: myThirdFont;
 	src: url('../fonts/ArchitectsDaughter-Regular.ttf');
 }
+@font-face {
+	font-family: myFourthFont;
+	src: url('../fonts/RoadRage-Regular.ttf');
+}
 
 .background {
 	background-image: linear-gradient(to bottom right, #dec2e2, #87affe,#f06ef579);
@@ -60,12 +64,16 @@ export default {
 h1 {
     font-family: myFirstFont;
     padding-top:50px;
+    padding-bottom:50px;
 }
 
 .rank, .username, .pointsEarned {
-    font-family: mySecondFont;
+    font-family: myThirdFont;
     padding:30px;
-    font-size:30px;
+    font-size:25px;
+    font-weight: bold;
+    padding-left:30px;
+    padding-right:30px;
     /* border:1px black solid; */
 }
 
@@ -76,15 +84,33 @@ h1 {
     align-content: center;
     /* background-color:pink; */
     overflow-y:auto;
+    overflow-x:auto;
+
+}
+.overallTable::-webkit-scrollbar {
+    background-color:transparent;
+}
+.overallTable::-webkit-scrollbar-thumb {
+    border:1px solid black;
+    border-radius:20px;
 }
 
 .indivRows {
     font-size:30px;
-    font-family: myThirdFont;
+    font-family: mySecondFont;
+    padding-left:30px;
+    padding-right:30px;
 }
 
-#test {
+#inner {
     overflow-y:auto;
+    background-color:rgba(255, 192, 203, 0.29);
+    border-radius: 40px;
+    padding:40px;
+    padding-top:10px;
+    /* width:40%; */
+    border:1px black solid;
+    box-shadow: 10px 10px rgba(128, 128, 128, 0.249);
 }
 
 </style>
