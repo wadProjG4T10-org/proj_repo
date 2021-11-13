@@ -1,3 +1,6 @@
+// Referred to https://gamedevacademy.org/how-to-make-a-mario-style-platformer-with-phaser-3/ 
+// and https://stackabuse.com/phaser-3-and-tiled-building-a-platformer/
+
 import Phaser from "phaser";
 import bgImg from  '../assets/images/background.png';
 import mapJSON from "../assets/tilemaps/map.json";
