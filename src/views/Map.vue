@@ -1,10 +1,10 @@
 <template>
 <header class="gradientBackground py-5">
-    <div class="container px-5">
+    <div class="container pb-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
-                <div class="text-center my-4">
-                    <h1 class="main-title fw-bolder text-white mb-2">Map is the NEW way</h1>
+                <div class="text-center">
+                    <h1 class="main-title fw-bolder text-white">Map is the NEW way</h1>
                     <!--<p class="text-black subs"> Use our friendly maps to guide you to find the nearest hospitals/clinics </p>-->
                 </div>
             </div>
@@ -48,7 +48,7 @@
 </section>
 
 <!-- Team members section-->
-<section class="gradientBackground py-5" id="feedback">
+<section class="gradientBackground py-5">
     <div class="container-fluid px-5 my-4 px-5">
         <div class="text-center mb-5">
             <h2 class="second-main fw-bolder text-white">Meet the Web Developers</h2>
@@ -59,17 +59,17 @@
         <!-- TEAM MEMBERS PHOTOS  -->
         <b-row class="teaminfo">
             <b-col>
-                <img class="productImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
+                <img class="teamImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
                 <p > Guganesh </p>
                 <p> Full Stack Developer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/liqing.png" alt= "liqing">
+                <img class="teamImg" src="../assets/teammates/liqing.png" alt= "liqing">
                 <p> Li Qing </p>
                 <p> Full Stack Developer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/avigale.png" alt= "avigale">
+                <img class="teamImg" src="../assets/teammates/avigale.png" alt= "avigale">
                 <p> Avigale </p>
                 <p> Full Stack Developer </p>
             </b-col>
@@ -77,16 +77,17 @@
         <br/>
         <b-row class="teaminfo">
             <b-col>
-                <img class="productImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
+                <img class="teamImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
                 <p> Zi Yi </p>
                 <p> Web Designer </p>
             </b-col>
             <b-col>
-                <img class="productImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
+                <img class="teamImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
                 <p> Hazyra </p>
                 <p> Web Designer </p>
             </b-col>
         </b-row>
+        <br/>
     </div>
 </section>
 
@@ -253,7 +254,7 @@ export default {
     font-size: 250%;
 }
 
-.productImg{
+.teamImg{
 	align-self: center;
 	width: 50%;
 	height: 70%;
