@@ -1,39 +1,51 @@
 <template>
-
-  <div class="container rounded " style="margin-top: 20vh;">
-      <div class="row">
-        <div class="col-md-8 border border-dark">
-            <b-form>
-                <b-form-group
-                    id="input-group-1"
-                    label="Username:"
-                >
-                    <b-form-input
-                    id="input-1"
-                    v-model="form.username"
-                    type="username"
-                    placeholder="Username"
-                    required
-                    ></b-form-input>
-                </b-form-group>
-
-                <b-form-group id="input-group-2" label="Password:">
-                    <b-form-input
-                    id="input-2"
-                    type='password'
-                    v-model="form.password"
-                    placeholder="Password"
-                    required
-                    ></b-form-input>
-                </b-form-group>
-
-                <b-button type="submit" @click="onLogin" style="background-color: yellow; color: black;">Login</b-button>
-
-            </b-form>
-
-        </div>
-      </div>
-  </div>
+    <div class="page">
+    <b-container fluid>
+        <b-row>
+          <b-col sm="3"></b-col>
+          <b-col sm="6">
+  
+            <b-card class='m-1' style='padding-bottom: 20;'> 
+              <img src='../assets/kriticalcare(newedit).png' class='logo'>
+  
+              <b-card-text>Providing all your healthcare information</b-card-text>
+              
+              <b-button type="submit" @click="onLogin" variant='link'>
+                <img src='../assets/google/normal.png' class='loginImg'>
+              </b-button>
+            </b-card>
+  
+          </b-col>
+          <b-col sm="3"></b-col>
+        </b-row>
+    </b-container>
+  
+     <b-container fluid class='imgContainer'>
+        <b-row>
+  
+          <b-col>
+            <img src='../assets/loginPageImg/doctor.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/first-aid-kit.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/medical-history.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/doctor.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/first-aid-kit.png' class='icon'>
+          </b-col>
+          <b-col>
+            <img src='../assets/loginPageImg/medical-history.png' class='icon'>
+          </b-col>
+  
+        </b-row>
+  
+    </b-container>
+    </div>
 </template>
 
 
@@ -44,8 +56,15 @@ import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 export default {
   name: 'LoginPage',
-  created: function() {
-    window.localStorage.removeItem('userInformation');
+  mounted() {
+    if (window.localStorage.getItem("userInformation") !== null) {
+      this.$router.push('/home');
+      // console.log('not logged in');
+    }
+    else {
+      this.$router.push('/login');
+      // console.log('logged in');
+    }
   },
   data() {
       return {
@@ -57,50 +76,56 @@ export default {
     },
   methods: {
     onLogin() {
-    const provider = new GoogleAuthProvider();
+      const provider = new GoogleAuthProvider();
 
-    var userInformation = {};
+      var userInformation = {};
 
     const auth = getAuth();
     signInWithPopup(auth, provider)
         .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        var userCreation = user.metadata.createdAt;
-        var userLastLogin = user.metadata.lastLoginAt;
+        var userCreation = user.metadata.creationTime;
+        var userLastLogin = user.metadata.lastSignInTime;
         var userEmail = user.email;
-        console.log(user);
+        var userName = user.displayName;
+        // console.log(user);
+        // console.log(userCreation);
+        // console.log(userLastLogin);
 
         const db = getFirestore();
 
+        // console.log(window.localStorage.getItem('userInformation'));
+
         if (userCreation === userLastLogin) {
           setDoc(doc(db, "users", userEmail), ({
-          score: 0
+            score: 0,
+            name: userName
           }));
 
           userInformation['uid'] = userEmail;
           userInformation['score'] = 0;
+          userInformation['name'] = userName;
 
           window.localStorage.setItem('userInformation', JSON.stringify(userInformation));
-
+          this.$router.push('/home');
         }
 
         else {
           userInformation['uid'] = userEmail;
-
-          window.localStorage.removeItem('userInformation');
+          userInformation['name'] = userName;
           
           var docRef = doc(db, "users", userEmail);
 
           getDoc(docRef).then((snapshot) => {
             var userScore = snapshot.data().score;
-            // console.log(snapshot.data());
-            console.log('old user');
+            // console.log(snapshot.data().score);
             userInformation['score'] = userScore;
+            // console.log(typeof(userInformation['score']));
             userInformation = JSON.stringify(userInformation)
             window.localStorage.setItem('userInformation', userInformation);
+            this.$router.push('/home');
           })
-
         }
 
         }).catch((error) => {
@@ -115,9 +140,6 @@ export default {
           console.log(email);
           });
       },
-    // onCreate() {
-    //   this.$router.push('/games/create')
-    // }
   }
 }
 </script>
@@ -131,5 +153,29 @@ export default {
 }
 body {
   background: white;
+}
+
+.page {
+  background: #ffeeee;
+  height: 600px;
+}
+
+.loginImg:hover {
+  background: url('../assets/google/focus.png')
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.icon {
+  width: 100%;
+}
+
+.imgContainer {
+  position: absolute;
+  width: 100%;
+  bottom: 100px;
 }
 </style>

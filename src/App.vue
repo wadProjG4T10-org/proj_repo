@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white justify-content-center">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a>
+            <a class="navbar-brand" href="/home"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a>
 
             <!-- Navbar collapse into an icon -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
@@ -38,10 +38,10 @@
                 </ul>
             </div>
         </div>
-        <a href="#" style="padding-right: 40px;"> Sign Out </a>
+        <a v-if="this.userStatus" style="padding-right: 40px; cursor:pointer; color:red;" @click="userLoggedOut"> Sign Out </a>
     </nav>
 
-    <router-view/>
+    <router-view @userLoggedInListener="isUserLoggedIn"/>
     <footer> Brought to you by Group 4 Team 10 &#169; Singapore Management University</footer>
 
 </template>
@@ -51,10 +51,21 @@
 // import store from '@/store';
 // import { useCounterProvider } from '../src/store/counter';
 export default {
-  name: 'App',
-//   setup() {
-//       provide('store', store)
-//   }
+    name: 'App',
+    data: () => ({
+        userStatus: !!window.localStorage.getItem('userInformation')
+    }),
+    methods: {
+        userLoggedOut: function() {
+            window.localStorage.removeItem('userInformation');
+            this.userStatus = !!window.localStorage.getItem('userInformation');
+            this.$router.push('/login');
+        },
+        isUserLoggedIn: function() {
+            this.userStatus = !!window.localStorage.getItem('userInformation');
+        }
+    },
+
 }
 </script>
 
