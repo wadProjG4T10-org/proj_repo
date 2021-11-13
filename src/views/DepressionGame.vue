@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 20vh;">I am depression game</div>
+  <div>I am depression game</div>
   <div>{{ this.score }}</div>
     <div class="ion-container">
       <ion-phaser 
@@ -35,6 +35,7 @@ export default {
         type: Phaser.AUTO,
         width: 700,
         height: 600,
+        backgroundColor: '#d1edff',
         // mode: Phaser.Scale.FIT,
         // autoCenter: Phaser.Scale.CENTER_BOTH,
         physics: {
