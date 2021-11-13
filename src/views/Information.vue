@@ -18,57 +18,57 @@
 
 						<div class="col-lg-6 col-8 col-md-4 container-fluid">
 							<div class="section container-fluid" id="section">
+
 									<div class="product col" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 										<picture>
 											<img class="productImg" src="../assets/alzheimers.png" alt= "alzheimers">
 											<input type="button" class="modal_button open" v-on:click="open('mc_alzheimers')" value="Click for more" v-if="hover_a">
-
 										</picture>
 											<div class="modal_container" id="mc_alzheimers">
-												<div class="modal_text">
+												<div class="modal_text container-fluid">
 													<h1>Alzheimers</h1>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 															<h3>Description: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{alzheimers.Description}}</div>
 														</div>
 													</div>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Local Stats:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{alzheimers.LocalStats}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Prevention:</h3> 
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{alzheimers.Prevention}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Symptom Details:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{alzheimers.SymptomDetails}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>What To Do: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{alzheimers.WhatToDo}}</div>
 														</div>
 													</div>
@@ -84,50 +84,50 @@
 											<input type="button" class="modal_button open" v-on:click="open('mc_diabetes')" value="Click for more" v-if="hover_d">
 										</picture>
 											<div class="modal_container" id="mc_diabetes">
-												<div class="modal_text">
+												<div class="modal_text container-fluid">
 													<h1>Diabetes</h1>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 															<h3>Description: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{diabetes.Description}}</div>
 														</div>
 													</div>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Local Stats:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{diabetes.LocalStats}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Prevention:</h3> 
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{diabetes.Prevention}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Symptom Details:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{diabetes.SymptomDetails}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>What To Do: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{diabetes.WhatToDo}}</div>
 														</div>
 													</div>
@@ -142,50 +142,50 @@
 											<input type="button" class="modal_button open" v-on:click="open('mc_depression')" value="Click for more" v-if="hover_de">
 										</picture>
 											<div class="modal_container" id="mc_depression">
-												<div class="modal_text">
+												<div class="modal_text container-fluid">
 													<h1>Depression</h1>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 															<h3>Description: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{depression.Description}}</div>
 														</div>
 													</div>
 													
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Local Stats:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{depression.LocalStats}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Methods To Cope:</h3> 
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{depression.MethodsToCope}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>Symptoms:</h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{depression.Symptoms}}</div>
 														</div>
 													</div>
 
-													<div class="container row">
-														<div class="container col-lg-3 col-sm-12 modal_inner">
+													<div class="row">
+														<div class="col-lg-3 col-sm-12 col-12 modal_inner">
 														<h3>What To Do: </h3>
 														</div>
-														<div class="container col-lg-9 col-sm-12">
+														<div class="col-lg-9 col-sm-12 col-12">
 															<div class="modal_inner_text">{{depression.WhatToDo}}</div>
 														</div>
 													</div>
@@ -430,8 +430,7 @@ picture {
 	align-content: center;
 	text-align: center;
 	justify-content: center;
-	margin:40px;
-	padding-top:40px;
+	padding-top:4%;
 	font-weight:bold;
 }
 
