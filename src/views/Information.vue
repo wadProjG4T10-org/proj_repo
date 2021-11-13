@@ -14,9 +14,9 @@
 
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-3 col-2 col-sm-4 navi"><input type='button' class="button" id="leftButton" v-on:click="leftclick()"></div>
+					<div class="col-lg-3 col-2 col-md-4 navi"><input type='button' class="button" id="leftButton" v-on:click="leftclick()"></div>
 
-						<div class="col-lg-6 col-8 col-sm-4 container-fluid">
+						<div class="col-lg-6 col-8 col-md-4 container-fluid">
 							<div class="section container-fluid" id="section">
 									<div class="product col" @mouseover="hover_a = true" @mouseleave="hover_a = false">
 										<picture>
@@ -195,7 +195,7 @@
 									</div>
 							</div>
 						</div> 
-					<div class="col-lg-3 col-2 col-sm-4 navi"><input type='button' class="button container col" id="rightButton" v-on:click="rightclick()"></div>
+					<div class="col-lg-3 col-2 col-md-4 navi"><input type='button' class="button container col" id="rightButton" v-on:click="rightclick()"></div>
 				</div>
 			</div>
         </main>

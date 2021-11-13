@@ -65,7 +65,7 @@ h1 {
 .rank, .username, .pointsEarned {
     font-family: mySecondFont;
     padding:30px;
-    font-size:20px;
+    font-size:30px;
     /* border:1px black solid; */
 }
 
@@ -81,4 +81,6 @@ h1 {
     align-content: center;
     /* background-color:pink; */
 }
+
+
 </style>
