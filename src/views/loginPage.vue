@@ -1,6 +1,6 @@
 <template>
-    <div class="page">
-    <b-container fluid style='margin-bottom: 170px'>
+  <div class="page">
+    <b-container fluid>
         <b-row>
           <b-col sm="3"></b-col>
           <b-col sm="6">
@@ -20,7 +20,7 @@
         </b-row>
     </b-container>
   
-     <b-container fluid class='imgContainer'>
+    <b-container fluid class='imgContainer'>
         <b-row align-content="between">
   
           <b-col>
@@ -157,7 +157,10 @@ body {
 
 .page {
   background: #ffeeee;
-  height: 600px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .loginImg:hover {
@@ -171,10 +174,11 @@ body {
 
 .icon {
   width: 100%;
+  /* max-width: 176px; */
 }
 
 .imgContainer {
   max-width: 80%;
-  bottom: 100px;
+  bottom: 0px;
 }
 </style>
