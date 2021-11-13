@@ -1,7 +1,7 @@
 <template>
 <html>
 	<body>
-        <main class="container-fluid" >
+        <main class="container-fluid">
 			<header class="container">
 				<div class="col" id="header_text">
 					<h1>INFORMATION</h1>

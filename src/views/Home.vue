@@ -25,7 +25,7 @@
     </b-row>
 
     <b-row class='rows well aos-item' 
-    style="background: #d1cfe2;" 
+    style="background: #d1cfe2; cursor: pointer;" 
     data-aos="fade-left" 
     @click="goToGamesMenu">
 
@@ -36,7 +36,7 @@
     </b-row>
 
     <b-row class='rows aos-item' 
-    style="background: #9cadce;" 
+    style="background: #9cadce; cursor: pointer;" 
     data-aos="fade-right"
     @click="goToMap">
 
@@ -47,7 +47,7 @@
     </b-row>
 
     <b-row class='rows' 
-    style="background: #7ec4cf;" 
+    style="background: #7ec4cf; cursor: pointer;" 
     data-aos="fade-left"
     @click='goToInformationDashboard'>
 

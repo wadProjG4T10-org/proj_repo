@@ -116,6 +116,7 @@ export default {
             type: "hospital",
             radius: 5000,
             places: [],
+            address: "",
             
         }
     },
@@ -172,6 +173,7 @@ export default {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     position => {
+                        console.log(position);
                         this.lat = position.coords.latitude;
                         this.lng = position.coords.longitude;
                         
@@ -240,6 +242,7 @@ export default {
             })
         },
         initialize() {
+            
             // eslint-disable-next-line no-undef
             var pyrmont = new google.maps.LatLng(this.lat,this.lng);
 
