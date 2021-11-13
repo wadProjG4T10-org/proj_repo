@@ -63,36 +63,41 @@
         </div>
 
         <!-- TEAM MEMBERS PHOTOS  -->
-        <b-row class="teaminfo">
-            <b-col>
-                <img class="teamImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
-                <p > Guganesh </p>
-                <p> Full Stack Developer </p>
-            </b-col>
-            <b-col>
-                <img class="teamImg" src="../assets/teammates/liqing.png" alt= "liqing">
-                <p> Li Qing </p>
-                <p> Full Stack Developer </p>
-            </b-col>
-            <b-col>
-                <img class="teamImg" src="../assets/teammates/avigale.png" alt= "avigale">
-                <p> Avigale </p>
-                <p> Full Stack Developer </p>
-            </b-col>
-        </b-row>
+        <div class="container-fluid">
+            <div class="teaminfo row">
+                <div class="col-md-4 col-sm-12 col-12 indiv">
+                    <img class="teamImg" src="../assets/teammates/guganesh.png" alt= "guganesh">
+                    <p > Guganesh </p>
+                    <p> Full Stack Developer </p>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12 indiv">
+                    <img class="teamImg" src="../assets/teammates/liqing.png" alt= "liqing">
+                    <p> Li Qing </p>
+                    <p> Full Stack Developer </p>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-12 indiv">
+                    <img class="teamImg" src="../assets/teammates/avigale.png" alt= "avigale">
+                    <p> Avigale </p>
+                    <p> Full Stack Developer </p>
+                </div>
+            </div>
         <br/>
-        <b-row class="teaminfo">
-            <b-col>
-                <img class="teamImg" src="../assets/teammates/ziyi.png" alt= "ziyi">
-                <p> Zi Yi </p>
-                <p> Web Designer </p>
-            </b-col>
-            <b-col>
-                <img class="teamImg" src="../assets/teammates/hazyra.png" alt= "hazyra">
-                <p> Hazyra </p>
-                <p> Web Designer </p>
-            </b-col>
-        </b-row>
+
+            <div class="teaminfo row">
+                <div class="col-md-6 col-sm-12 col-12 indiv">
+                    <img class="teamImg" src="../assets/teammates/ziyi.png" alt= "ziyi" style="width:35%; height:65%;">
+                    <p> Zi Yi </p>
+                    <p> Web Designer </p>
+                </div>
+                <div class="col-md-6 col-sm-12 col-12 indiv">
+                    <img class="teamImg" src="../assets/teammates/hazyra.png" alt= "hazyra" style="width:40%; height:65%;">
+                    <p> Hazyra </p>
+                    <p> Web Designer </p>
+                </div>
+            </div>
+        </div>
         <br/>
     </div>
 </section>
@@ -338,6 +343,10 @@ export default {
 .teaminfo {
     font-size: 100%;
     font-weight: bold;
+}
+
+.indiv {
+    margin-bottom: 40px;
 }
 
 </style>

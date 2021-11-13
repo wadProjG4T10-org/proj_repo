@@ -28,13 +28,12 @@
                 
                 <br>
                 <br>
-                
+
                 <b-card-text>
                   Test your memory with Animatch and see if you can get the highest score!
                 </b-card-text>
-                
+
                 <br>
-                
                 <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/alzh" size="lg">
                   Play Now!
                 </b-button>
@@ -56,11 +55,11 @@
                 
                 <br>
                 <br>
-                
+
                 <b-card-text>
-                  Have fun with our Retro Snake Game and learn more about Diabetes through your journey!
+                  Have fun with our Retro Snake Game and learn more about Diabetes here!
                 </b-card-text>
-                
+
                 <br>
                 <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/diabetes" size="lg" >
                   Play Now!
@@ -161,5 +160,9 @@ export default {
     transform:scale(1.1);
   }
 
+  .playButton {
+    background-color:red;
+    
+  }
 
 </style>
