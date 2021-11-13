@@ -10,7 +10,6 @@ import exitSign from '../assets/images/exitSign.png';
 import eventsCenter from "./EventsCenter";
 import { doc, updateDoc, getFirestore, increment } from "firebase/firestore";
 
-
 // var coinImg = require('../assets/images/coin.png');
 
 export default class depressionGame extends Phaser.Scene {
@@ -55,7 +54,7 @@ export default class depressionGame extends Phaser.Scene {
         
         this.alive = true;
         this.hearts = 3;
-        this.coins = 0;
+        // this.coins = 0;
         eventsCenter.emit('score', this.coins);
 
         // Add the player to the game world
@@ -105,9 +104,6 @@ export default class depressionGame extends Phaser.Scene {
         var exitLayer = map.createLayer('exit', exitSign, 0, 100);
         exitLayer.setTileIndexCallback(100, gameWon, this);
         this.physics.add.overlap(this.player, exitLayer);
-        // this.physics.add.collider(this.player, this.spikes, null, gameWon, this);
-
-
 
         map.getObjectLayer('spikes').objects.forEach((spike) => {
           const spikeSprite = this.spikes.create(spike.x, spike.y + 100 - spike.height, 'spike').setOrigin(0);
@@ -119,14 +115,15 @@ export default class depressionGame extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBackgroundColor('#82deff');
-        var heart_text = this.add.text(20, 520, ('❤️'.repeat(this.hearts)), {
+        var heart_text = this.add.text(20, 500, ('❤️'.repeat(this.hearts)), {
             fontSize: '20px',
             fill: '#ffffff'
         });
 
-        var coin_text = this.add.text(20, 550, 'coins x 0', {
+        var coin_text = this.add.text(20, 520, 'coins x 0', {
             fontSize: '20px',
-            fill: '#ffffff'
+            fill: '#ffffff',
+            backgroundColor: '#b05f33',
         });
 
         // fix the text to the camera
@@ -176,13 +173,11 @@ export default class depressionGame extends Phaser.Scene {
 
       }
       
-      // not working and idk why
       function gameWon() {
         this.alive = false;
         this.player.setVelocityX(0);
         if (this.player.body.onFloor()) {
-          this.player.play('idle', true);
-        }
+          this.player.play('idle', true);}
         }
     }
 
