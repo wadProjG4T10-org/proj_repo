@@ -2,7 +2,7 @@
 <body>
   <div>
       <!-- <div class="background1" style="margin-top: 19vh;"> -->
-    <div class="header1">Alzheimer's Disease Game</div>
+    <div class="header1">Welcome to Animatch!</div>
     <div class="header2">Points Earned: {{ this.score }}</div>
     <!-- <div>{{ store.state.userEmail }}</div> -->
     <!-- <div>{{store.state.userEmail}}</div> -->
@@ -48,6 +48,8 @@ export default {
       score: 0,
       initialize: true,
       game: {
+        width: "80%",
+        height:"75%",
         type: Phaser.AUTO,
         physics: {
           default: 'arcade',
@@ -106,12 +108,19 @@ export default {
 
 body{
   background-image: linear-gradient(to bottom right, #4a8798b1, #839dd0,#d25091c2);
+  /* background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; */
+  /* height: 100vh;
+  width: 100vw; */
+
 }
 
 .header1{
-  font-family:mySecondFont;
+  font-family:myFirstFont;
   padding-top:20px;
-  font-size:20px;
+  font-size:40px;
   font-weight:bold;
 }
 .header2{

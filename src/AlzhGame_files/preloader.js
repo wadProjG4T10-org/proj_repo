@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import eventsCenter from "./EventsCenter";
 
 // Assets Import
 var character_path = require('../assets/sokoban_tilesheet.png');
@@ -79,6 +80,9 @@ export default class AlzheimersPreloader extends Phaser.Scene {
             frameRate: 8,
             repeat: -1,
         })
+
+        this.alzhgame_score = 0;
+        eventsCenter.emit('score', this.alzhgame_score);
         
         this.scene.start('alzheimersgame');
     }

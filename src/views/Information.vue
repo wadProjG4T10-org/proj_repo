@@ -233,26 +233,26 @@ methods: {
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.add('show');
 
-		console.log("open");
+		// console.log("open");
 		const db = getFirestore();
 		if(current_id === "mc_alzheimers"){
 			var alzhRef = doc(db, "informationDashboard", 'Alzheimers Disease')
 			getDoc(alzhRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.alzheimers = snapshot.data();
 			})
 		}
 		else if (current_id === "mc_diabetes"){
 			var diabetesRef = doc(db, "informationDashboard", 'Diabetes')
 			getDoc(diabetesRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.diabetes = snapshot.data();
 			})
 		}
 		else {
 			var depressionRef = doc(db, "informationDashboard", 'Depression')
 			getDoc(depressionRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.depression = snapshot.data();
 			})
 		}
@@ -356,6 +356,7 @@ header h1{
 	align-items: center;
 	padding: 40px;
 	transition: 0.5s;
+	display: flex;
 }
 .product:hover {
 	margin-left: 60px;
