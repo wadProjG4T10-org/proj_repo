@@ -48,7 +48,7 @@ export default class AlzheimersEducation extends Phaser.Scene {
         randomInfo.setFill(gradient);
     
         this.add.text(width * 0.5, height * 0.5, `${warningSigns[index]}`, {
-            fontSize: 30,
+            fontSize: 40,
             wordWrap: {
                 width: width*0.8,
                 useAdvancedWrap: true
@@ -56,7 +56,8 @@ export default class AlzheimersEducation extends Phaser.Scene {
             color: "#FF69B4",
             stroke: "#77C3EC",
             strokeThickness: .5,
-            align: 'center'
+            align: 'center',
+            backgroundColor: "#77C3EC"
         }).setOrigin(0.5)
 
         this.add.text(width * 0.5, height * 0.80, `*${warningSignsDisclaimer}`, {
