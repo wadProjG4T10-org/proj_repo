@@ -21,8 +21,10 @@
                 <div class="form-header">
                     <h3>Search a location</h3>
                 </div>
-                    <p>this map is currently in progress :) </p>
-                    <br>
+                    <p>Key in a location and find the nearest medical centres around it by clicking on "Find"</p>
+                    <hr>
+                    <h3>Want to find the nearest medical centres around you?</h3>
+                    <p>Click the locator icon and click on "Find"</p>
                 <div class="form-header" style="color:red;" v-show="error">
                     <h2>{{error}}</h2>
                 </div>
@@ -37,6 +39,10 @@
                     <button type="button" @click="userLocationButton" class="btn btn-outline-danger">
                         <i class="bi bi-geo-alt-fill"></i>
                     </button>
+                </div>
+                <br>
+                <div>
+                    <button @click="initialize" class="btn btn-outline-danger">Find</button>
                 </div>
             </div>
                     
@@ -95,14 +101,23 @@
 <script>
 import axios from 'axios'
 
+var map;
+var service;
+// eslint-disable-next-line no-undef
+let infowindow = new google.maps.InfoWindow;
+
 export default {
 
     data() {
         return{
-            address: "",
-            error: ""
+            lat: 0,
+            lng: 0, 
+            type: "hospital",
+            radius: 5000,
+            places: [],
+            
         }
-    },//data
+    },
 
     beforeCreate() {
         if (window.localStorage.getItem("userInformation") === null) {
@@ -130,11 +145,15 @@ export default {
 
         autocomplete.addListener("place_changed", () =>{
             let place = autocomplete.getPlace();
+            this.lat = place.geometry.location.lat()
+            this.lng = place.geometry.location.lng()
+            this.showUserLocationOnTheMap(this.lat, this.lng);
+            // console.log(this.lat);
             // console.log(place);
-            this.showUserLocationOnTheMap(
-                place.geometry.location.lat(),
-                place.geometry.location.lng()
-            )
+            // this.showUserLocationOnTheMap(
+            //     place.geometry.location.lat(),
+            //     place.geometry.location.lng()
+            // )
         });
         //initMAP
         // eslint-disable-next-line no-undef
@@ -152,16 +171,20 @@ export default {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     position => {
+                        this.lat = position.coords.latitude;
+                        this.lng = position.coords.longitude;
+                        
                         this.getAddressFrom(
-                            position.coords.latitude,
-                            position.coords.longitude
+                            this.lat,
+                            this.lng
                         );
                         //console.log(position.coords.latitude);
                         //console.log(position.coords.longitude);
                         this.showUserLocationOnTheMap(
-                            position.coords.latitude,
-                            position.coords.longitude
-                        )
+                            this.lat,
+                            this.lng
+                        );
+                        // this.nearby(this.lat, this.lng)
                     },
                     // eslint-disable-next-line no-unused-vars
                     error => {
@@ -200,7 +223,7 @@ export default {
         showUserLocationOnTheMap(latitude, longitude) {
             //Create the Map object
             // eslint-disable-next-line no-undef
-            let map = new google.maps.Map(document.getElementById("map"), {
+            var map = new google.maps.Map(document.getElementById("map"), {
                 mapTypeId: "roadmap",
                 // eslint-disable-next-line no-undef
                 center: new google.maps.LatLng(latitude, longitude),
@@ -215,13 +238,57 @@ export default {
                 zoom: 6
             })
         },
-        // A Nearby Search lets you search for places within a specified area
-        // by keyword or type. A Nearby Search must always include a location,
-        // which can be specified in one of two ways:
-        searchNearby() {
+        initialize() {
+            // eslint-disable-next-line no-undef
+            var pyrmont = new google.maps.LatLng(this.lat,this.lng);
 
+            // eslint-disable-next-line no-undef
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+            });
+
+            var request = {
+                location: pyrmont,
+                radius: this.radius,
+                type: this.type
+            };
+
+            // eslint-disable-next-line no-undef
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, this.callback);
+        },
+        callback(results, status) {
+        // eslint-disable-next-line no-undef
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    this.createMarker(results[i]);
+                    // console.log(results[i]);
+                }
+            }
+        },
+        createMarker(place) {
+            if (!place.geometry || !place.geometry.location) return;
+
+            // eslint-disable-next-line no-undef
+            const marker = new google.maps.Marker({
+                map,
+                position: place.geometry.location,
+            });
+
+            // eslint-disable-next-line no-undef
+            google.maps.event.addListener(marker, "click", () => {
+                // console.log('test');
+                // console.log(place);
+                infowindow.setContent(`${place.name}, ${place.vicinity}`);
+                infowindow.setPosition(place.geometry.location)
+                infowindow.open(map);
+            });
         }
+
     }
+
+
 }//export
 
 </script>

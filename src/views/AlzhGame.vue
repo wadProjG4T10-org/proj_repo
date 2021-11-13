@@ -11,8 +11,8 @@
         v-bind:game.prop="game"
         v-bind:initialize.prop="initialize"
       />
-      <div class="header2">Match the Animals to Win!</div>
-      <div class="header2">Use arrow keys to move character and click [spacebar] to peek into the crates.</div>
+      <h2 class="header2">Match the Animals to Win!</h2>
+      <h3 class="header2">Use arrow keys to move character and click [spacebar] to peek into the crates.</h3>
   </div>
 </body>
 </template>
@@ -121,8 +121,8 @@ body{
 
 .header1{
   font-family:myFirstFont;
-  padding-top:20px;
-  font-size:40px;
+  /* padding-top:20px; */
+  font-size:30px;
   font-weight:bold;
 }
 .header2{
