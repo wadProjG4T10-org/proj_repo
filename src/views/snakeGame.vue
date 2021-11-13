@@ -35,6 +35,12 @@ import eventsCenter from '../snake_files/EventsCenter.js'
 
 export default {
   name: 'SnakeGame',
+
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+        this.$router.push('/login');
+    }
+  },
   
   created: function() {
     this.initUpdates(this);

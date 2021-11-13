@@ -77,14 +77,21 @@ import AOS from 'aos'
 
 export default {
   name: 'Home',
+  emit: ['userLoggedInListener'],
+  beforeCreate() {
+    if (window.localStorage.getItem("userInformation") === null) {
+      this.$router.push('/login');
+    }
+  },
   mounted() {
+    this.$emit('userLoggedInListener', null);
     AOS.init({
       debounceDelay: 50,
       offset: 450,
       once: false, 
       mirror: true,
       })
-  },
+  }
 }
 </script>
 

@@ -206,6 +206,11 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export default {
 name: "Information",
+beforeCreate() {
+	if (window.localStorage.getItem("userInformation") === null) {
+		this.$router.push('/login');
+	}
+},
 components: {
 },
 data() {
@@ -228,26 +233,26 @@ methods: {
 		const modal_container = document.getElementById(current_id);
 		modal_container.classList.add('show');
 
-		console.log("open");
+		// console.log("open");
 		const db = getFirestore();
 		if(current_id === "mc_alzheimers"){
 			var alzhRef = doc(db, "informationDashboard", 'Alzheimers Disease')
 			getDoc(alzhRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.alzheimers = snapshot.data();
 			})
 		}
 		else if (current_id === "mc_diabetes"){
 			var diabetesRef = doc(db, "informationDashboard", 'Diabetes')
 			getDoc(diabetesRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.diabetes = snapshot.data();
 			})
 		}
 		else {
 			var depressionRef = doc(db, "informationDashboard", 'Depression')
 			getDoc(depressionRef).then((snapshot) => {
-				console.log(snapshot.data());
+				// console.log(snapshot.data());
 				this.depression = snapshot.data();
 			})
 		}
@@ -306,6 +311,9 @@ header h1{
 	font-size:100px;
 }
 
+.modal_inner h3{ 
+	font-weight: bold;
+}
 .section{
 	/* background: purple; */
 	display: flex;
@@ -313,12 +321,13 @@ header h1{
 	overflow-x: hidden;
 	scroll-behavior: smooth; 
 	position: relative;
-	height:70%;
+	height:60%;
 	width:100%;
 	margin-left:0px;
 	margin-right:0px;
 	padding-left: 100px;
 	padding-right: 100px;
+
 }
 .section:hover{
 	overflow-x:auto;
@@ -419,6 +428,11 @@ picture {
 	z-index:991;
 }
 
+.modal_text h1{
+	font-weight: bold;
+	font-size:60px;
+}
+
 .modal_inner{
 	display:flex;
 	align-content: center;
@@ -427,6 +441,10 @@ picture {
 	margin:40px;
 	padding-top:40px;
 	font-weight:bold;
+}
+
+.modal_inner h3{
+	font-weight: bold;
 }
 
 .modal_text::-webkit-scrollbar {
@@ -490,7 +508,7 @@ picture {
 #rightButton{
 	position:absolute;
 	right:250px;
-	top:55%;
+	top:50%;
 	z-index:100;
 	background-image: url("../assets/right.png");
 	background-repeat:  no-repeat;
@@ -504,7 +522,7 @@ picture {
 #leftButton{
 	position:absolute;
 	left:250px;
-	top:55%;
+	top:50%;
 	z-index:100;
 	background-image: url('../assets/left.png');
 	background-repeat:  no-repeat;
