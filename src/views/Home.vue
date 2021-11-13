@@ -87,7 +87,7 @@ export default {
     this.$emit('userLoggedInListener', null);
     AOS.init({
       debounceDelay: 50,
-      offset: 450,
+      offset: 0,
       once: false, 
       mirror: true,
       })
