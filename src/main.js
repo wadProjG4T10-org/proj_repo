@@ -14,7 +14,8 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 defineIonPhaser(window);
 
@@ -45,4 +46,5 @@ const app = createApp(App)
 app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
 app.use(router)
 app.use(BootstrapVue3)
+app.use(AOS)
 app.mount('#app')

@@ -26,7 +26,7 @@ export default {
             snapshot.forEach((doc) => {
                 count ++;
                 this.results += `<tr><td>${count}</td><td>${doc.data().name}</td><td>${doc.data().score}</td></tr>`
-                console.log(doc.id, "=>", doc.data());
+                // console.log(doc.id, "=>", doc.data());
             })
             this.results += `</table>`;
             document.getElementById('test').innerHTML = this.results;

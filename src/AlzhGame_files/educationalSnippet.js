@@ -15,7 +15,6 @@ export default class AlzheimersEducation extends Phaser.Scene {
 
     create() {
         var index = this.getRandomInt(6);
-        console.log("test");
 
         var warningSigns = [
             "Memory loss that disrupts daily life, such as getting lost in a familiar place or repeating questions.",
