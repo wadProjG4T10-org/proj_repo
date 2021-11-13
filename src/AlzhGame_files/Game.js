@@ -48,7 +48,7 @@ export default class AlzheimersGame extends Phaser.Scene {
     }
 
     preload() {
-        this.randomiseCases(true);
+        this.randomiseCases(false);
 
         // const { width, height } = this.scale;
 
