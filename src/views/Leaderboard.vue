@@ -79,8 +79,7 @@ h1 {
 }
 
 .indivRows {
-    background-color:rgba(159, 149, 148, 0.228);
-    font-size:100px;
+    font-size:30px;
     font-family: myThirdFont;
 }
 
