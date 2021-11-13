@@ -314,8 +314,10 @@ export default class AlzheimersGame extends Phaser.Scene {
             })
             .setOrigin(0.5)
             this.countMatches = 0;
-            
+            this.alzhgame_score = 0;
+
             this.input.on('pointerdown', () => this.scene.start('alzheimerseducation'));
+            // eventsCenter.emit('score', this.alzhgame_score);
 
         }
     }

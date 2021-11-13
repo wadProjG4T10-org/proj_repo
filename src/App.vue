@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light navbar-expand-md sticky-top bg-white justify-content-center">
         <div class="container">
-            <a class="navbar-brand" href="/home"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a>
+            <a class="navbar-brand" @click="goToHomePage"><img src="./assets/kriticalcare-shorter.png" alt="Kritical Care Logo" width="160" height="60" class="d-inline-block align-text-top"></a>
 
             <!-- Navbar collapse into an icon -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
@@ -12,28 +12,28 @@
                 <!-- The bar contents to the right -->
                 <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" @click="goToHomePage">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/games" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Games </a>
+                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Games </a>
                         <!-- Games Dropdown -->
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="/games">Games Menu</a></li>
+                            <li><a class="dropdown-item" @click="goToGamesMenu" >Games Menu</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/games/alzh">Animatch</a></li>
-                            <li><a class="dropdown-item" href="/games/diabetes">Imma Eat You Up!</a></li>
-                            <li><a class="dropdown-item" href="/games/depression">This is life</a></li>
+                            <li><a class="dropdown-item" @click="goToAlzhGame">Animatch</a></li>
+                            <li><a class="dropdown-item" @click="goToSnakeGame">Imma Eat You Up!</a></li>
+                            <li><a class="dropdown-item" @click="goToDepressionGame">This is life</a></li>
                         </ul>
                     </li>
                     <!-- Map -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/map">Map</a>
+                        <a class="nav-link" @click="goToMap">Map</a>
                     </li>
                     <!-- Information -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/information">Information</a>
+                        <a class="nav-link" @click="checkRouter">Information</a>
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,8 @@
 export default {
     name: 'App',
     data: () => ({
-        userStatus: !!window.localStorage.getItem('userInformation')
+        userStatus: !!window.localStorage.getItem('userInformation'),
+        // currentRoute: this.$router.currentRoute._value.href
     }),
     methods: {
         userLoggedOut: function() {
@@ -63,9 +64,32 @@ export default {
         },
         isUserLoggedIn: function() {
             this.userStatus = !!window.localStorage.getItem('userInformation');
-        }
-    },
-
+        },
+        goToGamesMenu: function() {
+            this.$router.push('/games');
+        },
+        goToAlzhGame: function() {
+            this.$router.push('/games/alzh');
+        },
+        goToSnakeGame: function() {
+            this.$router.push('/games/diabetes');
+        },
+        goToDepressionGame: function() {
+            this.$router.push('/games/depression');
+        },
+        goToLeaderboard: function() {
+            this.$router.push('/games/leaderboard');
+        },
+        goToMap: function() {
+            this.$router.push('/map');
+        },
+        goToInformationDashboard: function() {
+            this.$router.push('/information');
+        },
+        goToHomePage: function() {
+            this.$router.push('/home');
+        },
+    }
 }
 </script>
 
