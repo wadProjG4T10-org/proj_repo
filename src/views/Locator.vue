@@ -238,9 +238,14 @@
 import Map from '../components/Map.vue'
 
 export default {
-  name: 'Locator',
-  components: {
-    Map
+    name: 'Locator',
+    beforeCreate() {
+        if (window.localStorage.getItem("userInformation") === null) {
+            this.$router.push('/login');
+        }
+    },
+    components: {
+        Map
   }
 }
 </script>
