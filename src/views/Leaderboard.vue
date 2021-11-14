@@ -1,7 +1,7 @@
 <template>
     <body class="background">
         <h1>Leaderboard</h1>
-        <div id="resultsContainer" class="container-fluid"></div>
+        <div id="resultsContainer" class="container leaderboardContainer"></div>
     </body>
 </template>
 
