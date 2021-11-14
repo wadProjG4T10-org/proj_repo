@@ -34,7 +34,7 @@
                 </b-card-text>
 
                 <br>
-                <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/alzh" size="lg">
+                <b-button class="btn" style="background-color: #d4afb9 !important;" @click="goToAnimatch" size="lg">
                   Play Now!
                 </b-button>
               </b-card>
@@ -61,7 +61,7 @@
                 </b-card-text>
 
                 <br>
-                <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/diabetes" size="lg" >
+                <b-button class="btn" style="background-color: #d4afb9 !important;" @click="goToSnakeGame" size="lg" >
                   Play Now!
                 </b-button>
               </b-card>
@@ -88,7 +88,7 @@
                 </b-card-text>
                 
                 <br>
-                <b-button class="btn" style="background-color: #d4afb9 !important;" href="/games/depression" size="lg">
+                <b-button class="btn" style="background-color: #d4afb9 !important;" @click="goToDepressionGame" size="lg">
                   Play Now!
                 </b-button>
               </b-card>
@@ -115,6 +115,17 @@ export default {
     }
   },
   name: 'Games',
+  methods: {
+        goToAnimatch: function() {
+            this.$router.push('/games/alzh');
+        },
+        goToSnakeGame: function() {
+            this.$router.push('/games/diabetes');
+        },
+        goToDepressionGame: function() {
+            this.$router.push('/games/depression');
+        },
+    }
 
 }
 </script>
