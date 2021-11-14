@@ -1,7 +1,7 @@
 <template>
     <body class="background">
         <h1>Leaderboard</h1>
-        <div id="resultsContainer" class="container"></div>
+        <div id="resultsContainer" class="container-fluid"></div>
     </body>
 </template>
 
@@ -107,7 +107,4 @@ h1 {
     box-shadow: 10px 10px rgba(128, 128, 128, 0.249);
 }
 
-.container {
-    overflow-y:auto;
-}
 </style>
