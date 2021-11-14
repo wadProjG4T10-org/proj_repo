@@ -1,7 +1,7 @@
 <template>
     <body class="background">
         <h1>Leaderboard</h1>
-        <div id="inner" class="container"></div>
+        <div id="resultsContainer" class="container"></div>
     </body>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     },
     data() {
         return {
-            results: `<table class="overallTable"><tr><th class="rank">Rank</th><th class="username">Username</th><th class="pointsEarned">Points Earned</th></tr>`
+            results: `<div class="overallTable container"><div class="row"><div class="rank col">Rank</div><div class="username col">Username</div><div class="pointsEarned col">Points Earned</div></div>`
         }
     },
     created(){
@@ -27,11 +27,11 @@ export default {
         getDocs(q).then((snapshot) => {
             snapshot.forEach((doc) => {
                 count ++;
-                this.results += `<tr class="indivRows"><td>${count}</td><td>${doc.data().name}</td><td>${doc.data().score}</td></tr>`
+                this.results += `<div class="indivRows row"><div class="col">${count}</div><div class="col">${doc.data().name}</div><div class="col">${doc.data().score}</div></div>`
                 // console.log(doc.id, "=>", doc.data());
             })
-            this.results += `</table>`;
-            document.getElementById('inner').innerHTML = this.results;
+            this.results += `</div>`;
+            document.getElementById('resultsContainer').innerHTML = this.results;
         })
     },
     name: 'Leaderboard',
@@ -78,14 +78,11 @@ h1 {
 }
 
 .overallTable {
-    display:flex;
     justify-content: center;
     text-align: center;
     align-content: center;
-    /* background-color:pink; */
+    height:60vh;
     overflow-y:auto;
-    overflow-x:auto;
-
 }
 .overallTable::-webkit-scrollbar {
     background-color:transparent;
@@ -98,12 +95,9 @@ h1 {
 .indivRows {
     font-size:30px;
     font-family: mySecondFont;
-    padding-left:30px;
-    padding-right:30px;
 }
 
-#inner {
-    overflow-y:auto;
+#resultsContainer {
     background-color:rgba(255, 192, 203, 0.29);
     border-radius: 40px;
     padding:40px;
@@ -113,4 +107,7 @@ h1 {
     box-shadow: 10px 10px rgba(128, 128, 128, 0.249);
 }
 
+.container {
+    overflow-y:auto;
+}
 </style>
