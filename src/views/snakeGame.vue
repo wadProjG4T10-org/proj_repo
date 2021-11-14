@@ -55,7 +55,11 @@ export default {
         height: 500,
         backgroundColor: '#d4afb9', // d4afb9
         type: Phaser.AUTO,
-        scene: [snakeStart, snakePreloader, snakeGame, pauseScreen, gameOver]  
+        scene: [snakeStart, snakePreloader, snakeGame, pauseScreen, gameOver],
+        scale: {
+          mode: Phaser.Scale.FIT,
+          // autoCenter: Phaser.Scale.CENTER,
+        },  
       },
     }
   },

@@ -176,7 +176,7 @@ p {
 }
 
 .scrollDown {
-  height: 70%;
+  height: 30%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
