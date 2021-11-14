@@ -62,8 +62,8 @@ export default {
         },
         scene: [AlzheimersStart, AlzheimersPreloader, AlzheimersGame, AlzheimersEducation], // first scene is auto run
         scale: {
-          mode: Phaser.Scale.FIT,
-          autoCenter: Phaser.Scale.CENTER_BOTH,
+          // mode: Phaser.Scale.FIT,
+          // autoCenter: Phaser.Scale.CENTER_BOTH,
         },
       }
     }
