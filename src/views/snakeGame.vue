@@ -57,7 +57,7 @@ export default {
         type: Phaser.AUTO,
         scene: [snakeStart, snakePreloader, snakeGame, pauseScreen, gameOver],
         scale: {
-          mode: Phaser.Scale.FIT,
+          // mode: Phaser.Scale.FIT,
           // autoCenter: Phaser.Scale.CENTER,
         },  
       },
