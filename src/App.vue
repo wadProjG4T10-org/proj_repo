@@ -119,8 +119,8 @@ src: url('./fonts/IndieFlower-Regular.ttf');
 .navbar-nav li{
     padding-left:10px;
     padding-right:10px;
-    margin-left:5px;
-    margin-right:5px;
+    /* margin-left:5px;
+    margin-right:5px; */
 }
 .navbar-nav li:hover{
     background-color: #d1cfe2; 
