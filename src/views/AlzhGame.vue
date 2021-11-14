@@ -1,9 +1,9 @@
 <template>
 <body>
-  <div>
+  <div class="game-screen">
       <!-- <div class="background1" style="margin-top: 19vh;"> -->
-    <div class="header1">Welcome to Animatch!</div>
-    <div class="header1">Points Earned: {{ this.score }}</div>
+    <div style="color: white; font-family: myFirstFont">Welcome to Animatch!</div>
+    <div style="color: white; font-family: myFirstFont">Points Earned: {{ this.score }}</div>
     <!-- <div>{{ store.state.userEmail }}</div> -->
     <!-- <div>{{store.state.userEmail}}</div> -->
     <!-- <canvas ref="input" style="height:1000px; width:1000px;">Test</canvas> -->
@@ -11,8 +11,8 @@
         v-bind:game.prop="game"
         v-bind:initialize.prop="initialize"
       />
-      <h2 class="header2">Match the Animals to Win!</h2>
-      <h3 class="header2">Use arrow keys to move character and click [spacebar] to peek into the crates.</h3>
+      <div style="color: white; font-family: myFirstFont">Match the Animals to Win!</div>
+      <div style="color: white; font-family: myFirstFont">Use arrow keys to move character and click [spacebar] to peek into the crates.</div>
   </div>
 </body>
 </template>
@@ -62,7 +62,8 @@ export default {
         },
         scene: [AlzheimersStart, AlzheimersPreloader, AlzheimersGame, AlzheimersEducation], // first scene is auto run
         scale: {
-          // mode: Phaser.Scale.ScaleModes.FIT,
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH,
         },
       }
     }
@@ -119,14 +120,22 @@ body{
 
 }
 
-.header1{
-  font-family:myFirstFont;
+/* .header1{ */
+  /* font-family:myFirstFont; */
   /* padding-top:20px; */
-  font-size:30px;
-  font-weight:bold;
-}
-.header2{
-  font-family:mySecondFont;
-  font-size:30px;
+  /* font-size:30px; */
+  /* font-weight:bold; */
+/* } */
+
+/* .header2{ */
+  /* font-family:mySecondFont; */
+  /* font-size:30px; */
+/* } */
+
+.game-screen {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 </style>

@@ -51,9 +51,12 @@ export default {
           },
         },
         scene: [depressionStart, depressionPreloader, depressionGame, depressionOver], // first scene is auto run
-        // scale: {
-        //   mode: Phaser.Scale.ScaleModes.FIT,
-        // },
+        scale: {
+          // mode: Phaser.Scale.FIT,
+          // autoCenter: Phaser.Scale.CENTER_BOTH,
+          // width: "80%",
+          // height: "75%"
+        },  
         style: {
           width: 700,
           height: 600,

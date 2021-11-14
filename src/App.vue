@@ -8,7 +8,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+            <div class="navbar-collapse collapse w-100 row align-items-center" id="collapsingNavbar3">
                 <!-- The bar contents to the right -->
                 <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
                     <li class="nav-item" style="cursor:pointer">
@@ -36,10 +36,13 @@
                     <li class="nav-item" style="cursor:pointer">
                         <a class="nav-link" @click="goToInformationDashboard">Information</a>
                     </li>
+                    
+                    <li class="nav-item" style="cursor:pointer"><a v-if="this.userStatus" class="nav-link" style="cursor:pointer; color:red;" @click="userLoggedOut"> Sign Out </a></li>
                 </ul>
+
             </div>
         </div>
-        <a v-if="this.userStatus" style="padding-right: 40px; cursor:pointer; color:red;" @click="userLoggedOut"> Sign Out </a>
+
     </nav>
 
     <router-view @userLoggedInListener="isUserLoggedIn"/>
